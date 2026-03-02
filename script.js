@@ -18,6 +18,30 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // ============================================================
+// Hamburger Menu — mobile nav toggle
+// ============================================================
+document.addEventListener('DOMContentLoaded', function () {
+    const btn = document.getElementById('hamburgerBtn');
+    const links = document.getElementById('navLinks');
+    if (!btn || !links) return;
+
+    btn.addEventListener('click', function () {
+        const isOpen = links.classList.toggle('is-open');
+        btn.classList.toggle('is-open', isOpen);
+        btn.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close menu when any nav link is clicked
+    links.querySelectorAll('.nav-link').forEach(function (link) {
+        link.addEventListener('click', function () {
+            links.classList.remove('is-open');
+            btn.classList.remove('is-open');
+            btn.setAttribute('aria-expanded', 'false');
+        });
+    });
+});
+
+// ============================================================
 // Navbar — transparent → frosted glass on scroll
 // ============================================================
 document.addEventListener('DOMContentLoaded', function () {

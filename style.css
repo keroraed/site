@@ -109,6 +109,72 @@ body {
     .navbar__links { display: flex; }
 }
 
+/* ── Hamburger Button ── */
+.navbar__hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+    transition: background 0.2s;
+    z-index: 60;
+}
+.navbar__hamburger:hover {
+    background: rgba(0,0,0,0.06);
+}
+.navbar__hamburger span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: #1a1a1a;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
+}
+/* X state when open */
+.navbar__hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.navbar__hamburger.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.navbar__hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (min-width: 768px) {
+    .navbar__hamburger { display: none; }
+}
+
+/* ── Mobile dropdown menu ── */
+.navbar__links.is-open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    position: absolute;
+    top: 96px;
+    left: 0;
+    right: 0;
+    background: rgba(247, 241, 234, 0.97);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    padding: 16px 0 24px;
+    z-index: 49;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+.navbar__links.is-open .nav-link {
+    width: 100%;
+    text-align: center;
+    padding: 14px 24px;
+    font-size: 1.05rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.navbar__links.is-open .nav-link:last-child {
+    border-bottom: none;
+}
+
 /* ============================================================
    HERO SECTION — Modern SaaS Layout with Double Glow
    ============================================================ */
@@ -907,7 +973,7 @@ html { scroll-behavior: smooth; }
     display: inline-block;
 }
 .footer-logo-img {
-    height: 48px;
+    height: 90px;
     width: auto;
 }
 .footer-text {

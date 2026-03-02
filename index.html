@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rosomat | رسومات - نعمل على زيادة مبيعاتك</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts fallback -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen text-gray-800 antialiased relative">
+    
+    <!-- 1️⃣ Navbar -->
+    <nav id="navbar" class="sticky top-0 z-50 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#">
+                        <img src="images/logo-2.png" alt="رسومات" class="h-16 w-auto">
+                    </a>
+                </div>
+                <!-- Desktop Links (Centered) -->
+                <div class="hidden md:flex flex-1 justify-center space-x-8 space-x-reverse">
+                    <a href="#" class="text-gray-700 hover:text-brand-gradientStart font-medium nav-link transition-colors">الرئيسية</a>
+                    <a href="#packages" class="text-gray-700 hover:text-brand-gradientStart font-medium nav-link transition-colors">الباقات</a>
+                    <a href="#contact" class="text-gray-700 hover:text-brand-gradientStart font-medium nav-link transition-colors">أطلب خدمة</a>
+                    <a href="#footer" class="text-gray-700 hover:text-brand-gradientStart font-medium nav-link transition-colors">موقعنا</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2️⃣ Hero Section -->
+    <section class="hero-bg relative pb-0 pt-10 md:pt-14 overflow-hidden">
+    <!-- Animated Particle Canvas — scoped to hero section only -->
+    <canvas id="particleCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
+
+        <!-- Compact centered text -->
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 mb-8">
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-4 drop-shadow-sm">
+                نعمل على زيادة مبيعاتك ✨
+            </h1>
+            <p class="text-base md:text-lg text-gray-600 max-w-xl mx-auto leading-relaxed mb-7">
+                نساعدك على تحويل أفكارك إلى نتائج ملموسة من خلال حلول رقمية مبتكرة واستراتيجيات تسويقية مصممة خصيصاً لنمو أعمالك.
+            </p>
+            <div class="flex justify-center">
+                <a href="#contact" class="px-7 py-3 text-base font-bold text-white bg-brand-gradient rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transform transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-orange-300">
+                    أطلب باقه
+                </a>
+            </div>
+        </div>
+
+        <!-- 3️⃣ Hero Visual — center-image.png fills bottom of section -->
+        <div class="relative z-10 flex justify-center px-4">
+            <!-- Glow behind image -->
+            <div class="absolute -inset-6 blur-2xl -z-10 rounded-full" style="background: radial-gradient(ellipse at center, rgba(255,75,75,0.28) 0%, rgba(255,143,61,0.18) 50%, transparent 75%);"></div>
+            <img
+                src="images/center-image.png"
+                alt="لوحة تحكم المبيعات"
+                class="w-full max-w-5xl object-contain block rounded-2xl shadow-2xl"
+                style="display:block; margin: 0 auto;"
+            >
+        </div>
+    </section>
+
+    <!-- 4️⃣ Packages Section -->
+    <section id="packages" class="py-20 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">خطط تسويقية مبتكرة</h2>
+                <p class="text-lg text-gray-500">حدد الباقة التي تليق بك ثم اجعل الإبداع علينا</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                
+                <!-- Package 1: Starter -->
+                <div class="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">باقة الانطلاقة (التأسيس)</h3>
+                    <p class="text-gray-500 mb-6">مثالية للمشاريع الناشئة لبدء التواجد الرقمي</p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            إدارة حسابين تواصل اجتماعي
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            إنشاء محتوى (8 منشورات شهرياً)
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            تصاميم احترافية للبوستات
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            تقرير شهري مبسط
+                        </div>
+                    </div>
+                    <button class="w-full py-3 px-6 rounded-xl font-bold text-brand-gradientStart bg-red-50 hover:bg-red-100 transition duration-300 border border-red-100">
+                        أطلب هذه الباقة
+                    </button>
+                </div>
+
+                <!-- Package 2: Professional (Highlighted) -->
+                <div class="bg-white rounded-3xl p-8 shadow-2xl border-2 border-orange-300 transform md:-translate-y-4 relative transition-all duration-300 hover:-translate-y-6">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand-gradient text-white px-4 py-1.5 rounded-full text-sm font-bold shadow-md">
+                        الأكثر طلباً
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">الباقة الاحتراف</h3>
+                    <p class="text-gray-500 mb-6">للعلامات التجارية التي تطمح لزيادة المبيعات والانتشار</p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-brand-gradientStart ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            إدارة 4 حسابات تواصل اجتماعي
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-brand-gradientStart ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            إنشاء محتوى (15 منشوراً شهرياً)
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-brand-gradientStart ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            إدارة الحملات الإعلانية الممولة
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-brand-gradientStart ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            تصوير منتجات / فيديو قصير (ریلز)
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-brand-gradientStart ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            تقارير تحليلية مفصلة للتطوير
+                        </div>
+                    </div>
+                    <button class="w-full py-4 px-6 rounded-xl font-bold text-white bg-brand-gradient hover:shadow-lg transform transition duration-300 focus:ring-4 focus:ring-orange-200">
+                        أطلب هذه الباقة
+                    </button>
+                </div>
+
+                <!-- Package 3: Growth -->
+                <div class="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">باقة النمو</h3>
+                    <p class="text-gray-500 mb-6">حلول متكاملة للشركات لضمان الاستحواذ التام على السوق</p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            إدارة شاملة لجميع المنصات
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            نشر يومي للمحتوى
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            تحسين محركات البحث SEO
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            إدارة الحملات بميزانيات ضخمة
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            إنتاج فيديو موشن جرافيك شهرياً
+                        </div>
+                    </div>
+                    <button class="w-full py-3 px-6 rounded-xl font-bold text-brand-gradientStart bg-red-50 hover:bg-red-100 transition duration-300 border border-red-100">
+                        أطلب هذه الباقة
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5️⃣ Contact Section -->
+    <section id="contact" class="py-20 relative z-10">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl p-8 md:p-12 shadow-2xl border border-gray-100 relative overflow-hidden">
+                <!-- Decorative background elements -->
+                <div class="absolute top-0 right-0 w-32 h-32 bg-brand-gradient opacity-10 rounded-bl-full"></div>
+                
+                <div class="text-center mb-10 relative z-10">
+                    <h2 class="text-3xl font-extrabold text-gray-900 mb-3">تواصل معنا</h2>
+                    <p class="text-gray-500">نحن هنا للإجابة على جميع استفساراتك ومساعدتك في اختيار ما يناسبك.</p>
+                </div>
+
+                <form class="space-y-6 relative z-10">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Name Field -->
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">الاسم</label>
+                            <input type="text" id="name" name="name" placeholder="محمد أحمد..." class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-gradientStart focus:border-brand-gradientStart outline-none transition duration-200 bg-gray-50 focus:bg-white text-gray-800">
+                        </div>
+                        <!-- Phone Field -->
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">رقم الجوال</label>
+                            <input type="tel" id="phone" name="phone" placeholder="05X XXX XXXX" dir="ltr" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-gradientStart focus:border-brand-gradientStart outline-none transition duration-200 bg-gray-50 focus:bg-white text-right text-gray-800">
+                        </div>
+                    </div>
+
+                    <!-- Email Field -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">البريد الإلكتروني</label>
+                        <input type="email" id="email" name="email" placeholder="example@domain.com" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-gradientStart focus:border-brand-gradientStart outline-none transition duration-200 bg-gray-50 focus:bg-white text-gray-800">
+                    </div>
+
+                    <!-- Package Dropdown -->
+                    <div>
+                        <label for="package" class="block text-sm font-medium text-gray-700 mb-2">اختر اسم باقتك</label>
+                        <select id="package" name="package" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-gradientStart focus:border-brand-gradientStart outline-none transition duration-200 bg-gray-50 focus:bg-white text-gray-800 appearance-none cursor-pointer">
+                            <option value="" disabled selected>يرجى اختيار الباقة...</option>
+                            <option value="starter">باقة الانطلاقة (التأسيس)</option>
+                            <option value="pro">الباقة الاحتراف</option>
+                            <option value="growth">باقة النمو</option>
+                            <option value="custom">باقة مخصصة</option>
+                        </select>
+                    </div>
+
+                    <!-- Message text area -->
+                    <div>
+                        <label for="details" class="block text-sm font-medium text-gray-700 mb-2">تفاصيل المشروع</label>
+                        <textarea id="details" name="details" rows="4" placeholder="حدثنا عن مشروعك وأهدافك..." class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-gradientStart focus:border-brand-gradientStart outline-none transition duration-200 bg-gray-50 focus:bg-white text-gray-800 resize-none"></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="button" class="w-full py-4 rounded-xl font-bold text-white bg-brand-gradient shadow-md hover:shadow-xl hover:-translate-y-0.5 transform transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-orange-200 text-lg">
+                        إرسال الطلب
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6️⃣ Footer -->
+    <footer id="footer" class="border-t border-gray-200 bg-white/50 backdrop-blur-sm relative z-10 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 text-center md:text-right">
+                
+                <!-- Brand Info -->
+                <div class="flex flex-col items-center md:items-start">
+                    <a href="#" class="mb-4 inline-block">
+                        <img src="images/logo-trans.png" alt="رسومات" class="h-12 w-auto">
+                    </a>
+                    <p class="text-gray-500 leading-relaxed max-w-sm">
+                        وكالة تسويق رقمي متخصصة في صناعة العلامات التجارية وإدارة الحملات الإعلانية المبتكرة التي تحقق النمو والمبيعات المستدامة.
+                    </p>
+                </div>
+
+                <!-- Locations -->
+                <div class="flex flex-col items-center md:items-start">
+                    <h4 class="text-lg font-bold text-gray-800 mb-4">أين نتواجد</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-gray-600">
+                            <span class="w-2 h-2 rounded-full bg-brand-gradientStart ml-3"></span>
+                            المملكة العربية السعودية (Sa)
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <span class="w-2 h-2 rounded-full bg-brand-gradientStart ml-3"></span>
+                            الإمارات العربية المتحدة (UAE)
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="flex flex-col items-center md:items-start">
+                    <h4 class="text-lg font-bold text-gray-800 mb-4">معلومات التواصل</h4>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="mailto:info@rosomat.com" class="text-gray-600 hover:text-brand-gradientStart transition-colors dir-ltr flex items-center justify-center md:justify-start">
+                                <span class="ml-2">✉️</span> info@rosomat.com
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:+966500000000" class="text-gray-600 hover:text-brand-gradientStart transition-colors dir-ltr flex items-center justify-center md:justify-start" dir="ltr">
+                                <span class="ml-2">📞</span> +966 50 000 0000
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:+971500000000" class="text-gray-600 hover:text-brand-gradientStart transition-colors dir-ltr flex items-center justify-center md:justify-start" dir="ltr">
+                                <span class="ml-2">📞</span> +971 50 000 0000
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            
+            <div class="pt-8 border-t border-gray-200 text-center flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+                <p>&copy; 2026 رسومات (Rosomat). جميع الحقوق محفوظة.</p>
+                <div class="mt-4 md:mt-0 space-x-4 space-x-reverse">
+                    <a href="#" class="hover:text-brand-gradientStart transition-colors">سياسة الخصوصية</a>
+                    <span>•</span>
+                    <a href="#" class="hover:text-brand-gradientStart transition-colors">الشروط والأحكام</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Animated Particle Dots Script — hero section only -->
+    <script>
+        // Navbar transparency on scroll
+        (function () {
+            const nav = document.getElementById('navbar');
+            function updateNav() {
+                const scrollY = window.scrollY;
+                const ratio = Math.min(scrollY / 120, 1);
+                // Blend into the warm page gradient color, not plain white
+                const alpha = (ratio * 0.82).toFixed(3);
+                const blur  = (ratio * 18).toFixed(1);
+                const shadow = ratio > 0.1 ? `0 2px 24px rgba(0,0,0,${(ratio * 0.07).toFixed(3)})` : 'none';
+                nav.style.background = `rgba(255,240,230,${alpha})`;
+                nav.style.backdropFilter = `blur(${blur}px)`;
+                nav.style.webkitBackdropFilter = `blur(${blur}px)`;
+                nav.style.boxShadow = shadow;
+                nav.style.borderBottom = ratio > 0.15 ? `1px solid rgba(255,200,170,${(ratio * 0.35).toFixed(2)})` : 'none';
+            }
+            window.addEventListener('scroll', updateNav, { passive: true });
+            updateNav();
+        })();
+
+        // Particle dots — wait for page load so the image has loaded and section has correct height
+        window.addEventListener('load', function () {
+            (function () {
+                const canvas = document.getElementById('particleCanvas');
+                if (!canvas) return;
+                const ctx = canvas.getContext('2d');
+                const section = canvas.parentElement;
+
+                let W, H, particles = [];
+                const COUNT = 80;
+
+                function resize() {
+                    W = canvas.width  = section.offsetWidth;
+                    H = canvas.height = section.offsetHeight;
+                }
+                window.addEventListener('resize', resize);
+                resize();
+
+                function randomBetween(a, b) { return a + Math.random() * (b - a); }
+
+                const COLORS = [
+                    'rgba(255,75,75,',
+                    'rgba(255,120,50,',
+                    'rgba(255,143,61,',
+                    'rgba(255,90,40,',
+                    'rgba(220,50,50,',
+                ];
+
+                function createParticle() {
+                    return {
+                        x: randomBetween(0, W),
+                        y: randomBetween(0, H),
+                        r: randomBetween(1.5, 4),
+                        alpha: randomBetween(0.15, 0.5),
+                        vx: randomBetween(-0.3, 0.3),
+                        vy: randomBetween(-0.5, -0.1),
+                        color: COLORS[Math.floor(Math.random() * COLORS.length)],
+                        pulse: randomBetween(0, Math.PI * 2),
+                        pulseSpeed: randomBetween(0.01, 0.03),
+                    };
+                }
+
+                for (let i = 0; i < COUNT; i++) particles.push(createParticle());
+
+                function draw() {
+                    ctx.clearRect(0, 0, W, H);
+                    for (let p of particles) {
+                        p.pulse += p.pulseSpeed;
+                        const a = p.alpha + Math.sin(p.pulse) * 0.1;
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                        ctx.fillStyle = p.color + Math.min(1, Math.max(0, a)) + ')';
+                        ctx.fill();
+
+                        p.x += p.vx;
+                        p.y += p.vy;
+
+                        if (p.y < -10) { p.y = H + 10; p.x = randomBetween(0, W); }
+                        if (p.x < -10) p.x = W + 10;
+                        if (p.x > W + 10) p.x = -10;
+                    }
+                    requestAnimationFrame(draw);
+                }
+                draw();
+            })();
+        });
+    </script>
+
+</body>
+</html>

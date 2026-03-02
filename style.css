@@ -1,0 +1,87 @@
+/* Local custom fonts */
+@font-face {
+    font-family: 'SuisseIntl';
+    src: url('fonts/ArbFONTS-SuisseIntl-Bold.otf') format('opentype');
+    font-weight: 700 800 900;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SuisseIntl';
+    src: url('fonts/ArbFONTS-SuisseIntl-Light.otf') format('opentype');
+    font-weight: 300 400 500;
+    font-style: normal;
+}
+
+body {
+    font-family: 'SuisseIntl', 'Tajawal', sans-serif;
+    /* Warm gradient covers the whole page including the navbar area */
+    background: linear-gradient(160deg, #fff0e8 0%, #fdf5ef 25%, #fdfbf7 55%, #fdfbf7 100%);
+    background-attachment: fixed;
+}
+.bg-dotted {
+    background-size: 20px 20px;
+}
+
+/* Split gradient blobs — bleed upward to cover navbar too */
+.hero-bg {
+    position: relative;
+    overflow: hidden;
+}
+.hero-bg::before {
+    content: '';
+    position: absolute;
+    top: -30%;          /* bleed upward past the section top */
+    right: -15%;
+    width: 60%;
+    height: 130%;
+    background: radial-gradient(ellipse at top right, rgba(255,100,60,0.30) 0%, rgba(255,150,80,0.14) 50%, transparent 75%);
+    pointer-events: none;
+    z-index: 0;
+}
+.hero-bg::after {
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: -15%;
+    width: 60%;
+    height: 130%;
+    background: radial-gradient(ellipse at top left, rgba(255,60,60,0.24) 0%, rgba(255,120,60,0.12) 50%, transparent 75%);
+    pointer-events: none;
+    z-index: 0;
+}
+.glass-panel {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.glass-panel {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+/* Smooth scrolling */
+html { scroll-behavior: smooth; }
+/* Underline hover effect for nav links */
+.nav-link {
+    position: relative;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    right: 0;
+    background: linear-gradient(135deg, #ff4b4b, #ff8f3d);
+    transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Faint dot texture on hero */.hero-bg {
+    background-image: radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px);
+    background-size: 22px 22px;
+}

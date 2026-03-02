@@ -14,8 +14,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="min-h-screen text-gray-800 antialiased relative">
-    
-    <!-- 1️⃣ Navbar -->
+
+    <!-- ═══════════════════════════════════════════
+         Shared hero wrapper — nav + hero share one
+         gradient background so the header blends in
+    ════════════════════════════════════════════ -->
+    <div class="hero-wrapper">
+
+    <!-- 1️⃣ Navbar — transparent, sits inside gradient wrapper -->
     <nav id="navbar" class="sticky top-0 z-50 transition-all duration-500">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-24">
@@ -37,7 +43,7 @@
     </nav>
 
     <!-- 2️⃣ Hero Section -->
-    <section class="hero-bg relative pb-0 pt-10 md:pt-14 overflow-hidden">
+    <section class="hero-bg relative pb-0 pt-10 md:pt-14">
     <!-- Animated Particle Canvas — scoped to hero section only -->
     <canvas id="particleCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
 
@@ -56,18 +62,24 @@
             </div>
         </div>
 
-        <!-- 3️⃣ Hero Visual — center-image.png fills bottom of section -->
+        <!-- 3️⃣ Hero Visual — center-image with visible red/orange glow -->
         <div class="relative z-10 flex justify-center px-4">
-            <!-- Glow behind image -->
-            <div class="absolute -inset-6 blur-2xl -z-10 rounded-full" style="background: radial-gradient(ellipse at center, rgba(255,75,75,0.28) 0%, rgba(255,143,61,0.18) 50%, transparent 75%);"></div>
+            <!-- Top-center glow -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 w-3/4 h-48 blur-3xl rounded-full pointer-events-none" style="background: radial-gradient(ellipse at center, rgba(255,90,40,0.45) 0%, rgba(255,150,60,0.22) 55%, transparent 80%);"></div>
+            <!-- Left glow -->
+            <div class="absolute top-1/4 right-0 w-48 h-3/4 blur-3xl rounded-full pointer-events-none" style="background: radial-gradient(ellipse at right, rgba(255,60,60,0.35) 0%, rgba(255,120,50,0.15) 60%, transparent 85%);"></div>
+            <!-- Right glow -->
+            <div class="absolute top-1/4 left-0 w-48 h-3/4 blur-3xl rounded-full pointer-events-none" style="background: radial-gradient(ellipse at left, rgba(255,60,60,0.35) 0%, rgba(255,120,50,0.15) 60%, transparent 85%);"></div>
             <img
                 src="images/center-image.png"
                 alt="لوحة تحكم المبيعات"
-                class="w-full max-w-5xl object-contain block rounded-2xl shadow-2xl"
+                class="relative z-10 w-full max-w-5xl object-contain block rounded-2xl"
                 style="display:block; margin: 0 auto;"
             >
         </div>
     </section>
+
+    </div><!-- end .hero-wrapper -->
 
     <!-- 4️⃣ Packages Section -->
     <section id="packages" class="py-20 relative z-10">
@@ -305,16 +317,18 @@
             const nav = document.getElementById('navbar');
             function updateNav() {
                 const scrollY = window.scrollY;
-                const ratio = Math.min(scrollY / 120, 1);
-                // Blend into the warm page gradient color, not plain white
-                const alpha = (ratio * 0.82).toFixed(3);
-                const blur  = (ratio * 18).toFixed(1);
-                const shadow = ratio > 0.1 ? `0 2px 24px rgba(0,0,0,${(ratio * 0.07).toFixed(3)})` : 'none';
-                nav.style.background = `rgba(255,240,230,${alpha})`;
+                const ratio = Math.min(scrollY / 100, 1);
+                // Match the hero-wrapper gradient tone — warm peach, not white
+                const alpha = (ratio * 0.78).toFixed(3);
+                const blur  = (ratio * 20).toFixed(1);
+                const shadow = ratio > 0.05 ? `0 2px 20px rgba(200,80,30,${(ratio * 0.10).toFixed(3)})` : 'none';
+                nav.style.background = `rgba(255, 230, 210, ${alpha})`;
                 nav.style.backdropFilter = `blur(${blur}px)`;
                 nav.style.webkitBackdropFilter = `blur(${blur}px)`;
                 nav.style.boxShadow = shadow;
-                nav.style.borderBottom = ratio > 0.15 ? `1px solid rgba(255,200,170,${(ratio * 0.35).toFixed(2)})` : 'none';
+                nav.style.borderBottom = ratio > 0.1
+                    ? `1px solid rgba(255,180,140,${(ratio * 0.30).toFixed(2)})`
+                    : 'none';
             }
             window.addEventListener('scroll', updateNav, { passive: true });
             updateNav();

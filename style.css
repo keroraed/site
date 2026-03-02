@@ -14,46 +14,52 @@
 
 body {
     font-family: 'SuisseIntl', 'Tajawal', sans-serif;
-    /* Warm gradient covers the whole page including the navbar area */
-    background: linear-gradient(160deg, #fff0e8 0%, #fdf5ef 25%, #fdfbf7 55%, #fdfbf7 100%);
-    background-attachment: fixed;
-}
-.bg-dotted {
-    background-size: 20px 20px;
+    background: #fdfbf7;
 }
 
-/* Split gradient blobs — bleed upward to cover navbar too */
+/* ============================================================
+   HERO WRAPPER — covers both the navbar AND the hero section
+   so they share one seamless gradient background.
+   The navbar being sticky inside this wrapper means the page
+   gradient always shows behind the transparent nav.
+   ============================================================ */
+.hero-wrapper {
+    /* Warm peach→salmon gradient, stronger on the sides */
+    background:
+        radial-gradient(ellipse 70% 80% at 5% 0%, rgba(255,90,50,0.30) 0%, transparent 70%),
+        radial-gradient(ellipse 70% 80% at 95% 0%, rgba(255,120,60,0.28) 0%, transparent 70%),
+        radial-gradient(ellipse 100% 60% at 50% 0%, rgba(255,200,170,0.18) 0%, transparent 65%),
+        linear-gradient(170deg, #ffe8d8 0%, #fff2e8 30%, #fdf8f4 65%, #fdfbf7 100%);
+    /* Faint dot texture */
+    background-size: auto, auto, auto, auto, 22px 22px;
+}
+
+/* hero section itself — transparent, just provides overflow clip for canvas */
 .hero-bg {
     position: relative;
     overflow: hidden;
 }
+
+/* Dot texture on hero only */
 .hero-bg::before {
     content: '';
     position: absolute;
-    top: -30%;          /* bleed upward past the section top */
-    right: -15%;
-    width: 60%;
-    height: 130%;
-    background: radial-gradient(ellipse at top right, rgba(255,100,60,0.30) 0%, rgba(255,150,80,0.14) 50%, transparent 75%);
+    inset: 0;
+    background-image: radial-gradient(rgba(200, 100, 60, 0.10) 1.2px, transparent 1.2px);
+    background-size: 22px 22px;
     pointer-events: none;
     z-index: 0;
 }
+/* Side gradient blobs inside hero */
 .hero-bg::after {
     content: '';
     position: absolute;
-    top: -30%;
-    left: -15%;
-    width: 60%;
-    height: 130%;
-    background: radial-gradient(ellipse at top left, rgba(255,60,60,0.24) 0%, rgba(255,120,60,0.12) 50%, transparent 75%);
+    inset: 0;
+    background:
+        radial-gradient(ellipse 55% 90% at 0% 50%, rgba(255,80,40,0.14) 0%, transparent 70%),
+        radial-gradient(ellipse 55% 90% at 100% 50%, rgba(255,100,50,0.14) 0%, transparent 70%);
     pointer-events: none;
     z-index: 0;
-}
-.glass-panel {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
 }
 .glass-panel {
     background: rgba(255, 255, 255, 0.7);
@@ -80,8 +86,4 @@ html { scroll-behavior: smooth; }
 .nav-link:hover::after {
     width: 100%;
 }
-
-/* Faint dot texture on hero */.hero-bg {
-    background-image: radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px);
-    background-size: 22px 22px;
 }

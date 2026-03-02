@@ -14,53 +14,209 @@
 
 body {
     font-family: 'SuisseIntl', 'Tajawal', sans-serif;
-    background: #fdfbf7;
+    background: #f7f1ea;
 }
 
 /* ============================================================
-   HERO WRAPPER — covers both the navbar AND the hero section
-   so they share one seamless gradient background.
-   The navbar being sticky inside this wrapper means the page
-   gradient always shows behind the transparent nav.
+   HERO SECTION — Modern SaaS Layout with Double Glow
    ============================================================ */
-.hero-wrapper {
-    /* Warm peach→salmon gradient, stronger on the sides */
-    background:
-        radial-gradient(ellipse 70% 80% at 5% 0%, rgba(255,90,50,0.30) 0%, transparent 70%),
-        radial-gradient(ellipse 70% 80% at 95% 0%, rgba(255,120,60,0.28) 0%, transparent 70%),
-        radial-gradient(ellipse 100% 60% at 50% 0%, rgba(255,200,170,0.18) 0%, transparent 65%),
-        linear-gradient(170deg, #ffe8d8 0%, #fff2e8 30%, #fdf8f4 65%, #fdfbf7 100%);
-    /* Faint dot texture */
-    background-size: auto, auto, auto, auto, 22px 22px;
-}
-
-/* hero section itself — transparent, just provides overflow clip for canvas */
-.hero-bg {
+.hero-section {
     position: relative;
+    background:
+        radial-gradient(
+            circle at 50% 65%,
+            rgba(242, 184, 160, 0.45) 0%,
+            rgba(245, 214, 198, 0.35) 25%,
+            rgba(247, 201, 184, 0.25) 45%,
+            rgba(247, 241, 234, 0.15) 65%,
+            rgba(247, 241, 234, 0) 75%
+        ),
+        radial-gradient(
+            circle at 50% 70%,
+            rgba(233, 106, 75, 0.18) 0%,
+            rgba(233, 106, 75, 0.10) 30%,
+            rgba(247, 241, 234, 0) 60%
+        ),
+        #f7f1ea;
     overflow: hidden;
 }
 
-/* Dot texture on hero only */
-.hero-bg::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(rgba(200, 100, 60, 0.10) 1.2px, transparent 1.2px);
-    background-size: 22px 22px;
-    pointer-events: none;
-    z-index: 0;
+/* Hero content container */
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-/* Side gradient blobs inside hero */
-.hero-bg::after {
-    content: '';
+
+/* ── Hero Text Block ── */
+.hero-text-block {
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 48px;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+.hero-headline {
+    font-size: clamp(2.2rem, 5.5vw, 4rem);
+    font-weight: 800;
+    color: #1a1a1a;
+    line-height: 1.25;
+    margin: 0 0 20px;
+    letter-spacing: -0.01em;
+}
+
+.hero-sparkle {
+    display: inline-block;
+    animation: sparkle-float 3s ease-in-out infinite;
+    font-size: 0.75em;
+}
+
+@keyframes sparkle-float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-6px) scale(1.1); }
+}
+
+.hero-subtext {
+    font-size: clamp(1rem, 2vw, 1.18rem);
+    color: #6b7280;
+    line-height: 1.8;
+    margin: 0 0 36px;
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-cta-wrap {
+    display: flex;
+    justify-content: center;
+}
+
+.hero-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 40px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #ffffff;
+    background: linear-gradient(135deg, #ff4b4b 0%, #ff8f3d 100%);
+    border-radius: 16px;
+    text-decoration: none;
+    box-shadow:
+        0 4px 16px rgba(255, 75, 75, 0.30),
+        0 1px 3px rgba(0,0,0,0.08);
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hero-cta-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow:
+        0 12px 32px rgba(255, 75, 75, 0.35),
+        0 4px 12px rgba(255, 143, 61, 0.25);
+}
+
+.hero-cta-btn:active {
+    transform: translateY(-1px) scale(0.99);
+}
+
+/* ── Hero Visual Container ── */
+.hero-visual {
+    position: relative;
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+/* ── Glow Layers ── */
+.hero-glow {
     position: absolute;
-    inset: 0;
+    pointer-events: none;
+    border-radius: 50%;
+}
+
+/* Core glow — soft warm peach center */
+.hero-glow--core {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    width: 80%;
+    height: 75%;
     background:
-        radial-gradient(ellipse 55% 90% at 0% 50%, rgba(255,80,40,0.14) 0%, transparent 70%),
-        radial-gradient(ellipse 55% 90% at 100% 50%, rgba(255,100,50,0.14) 0%, transparent 70%);
-    pointer-events: none;
+        radial-gradient(ellipse 60% 55% at 50% 55%,
+            rgba(242, 184, 160, 0.40) 0%,
+            rgba(245, 214, 198, 0.25) 40%,
+            transparent 70%);
+    filter: blur(55px);
+    opacity: 0.85;
+    z-index: 1;
+    animation: glow-pulse 8s ease-in-out infinite;
+}
+
+/* Mid glow — muted coral spread */
+.hero-glow--mid {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -44%);
+    width: 110%;
+    height: 95%;
+    background:
+        radial-gradient(ellipse 70% 60% at 50% 55%,
+            rgba(233, 106, 75, 0.14) 0%,
+            rgba(247, 201, 184, 0.10) 40%,
+            transparent 70%);
+    filter: blur(70px);
+    opacity: 0.80;
+    z-index: 1;
+    animation: glow-pulse 10s ease-in-out infinite reverse;
+}
+
+/* Outer glow — soft warm pink haze */
+.hero-glow--outer {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -48%);
+    width: 150%;
+    height: 130%;
+    background:
+        radial-gradient(ellipse 75% 65% at 50% 55%,
+            rgba(245, 214, 198, 0.18) 0%,
+            rgba(247, 241, 234, 0.10) 50%,
+            transparent 78%);
+    filter: blur(85px);
+    opacity: 0.75;
+    z-index: 1;
+}
+
+/* Bloom glow — atmospheric creamy haze that melts into page */
+.hero-glow--bloom {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -42%);
+    width: 190%;
+    height: 170%;
+    background:
+        radial-gradient(ellipse 65% 55% at 50% 55%,
+            rgba(247, 201, 184, 0.10) 0%,
+            rgba(247, 241, 234, 0.06) 50%,
+            transparent 82%);
+    filter: blur(110px);
     z-index: 0;
 }
+
+@keyframes glow-pulse {
+    0%, 100% { opacity: 0.80; transform: translate(-50%, -42%) scale(1); }
+    50% { opacity: 0.92; transform: translate(-50%, -42%) scale(1.03); }
+}
+
 .glass-panel {
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(16px);
@@ -86,4 +242,359 @@ html { scroll-behavior: smooth; }
 .nav-link:hover::after {
     width: 100%;
 }
+
+/* ============================================================
+   PACKAGES SECTION — 3D Flip Cards
+   ============================================================ */
+
+/* Section background */
+.packages-section {
+    background: #ffffff;
+}
+
+/* Section tag pill */
+.pkg-section-tag {
+    display: inline-block;
+    padding: 6px 20px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #ff4b4b;
+    background: rgba(255, 75, 75, 0.08);
+    border: 1px solid rgba(255, 75, 75, 0.18);
+    text-transform: uppercase;
+}
+
+/* Cards grid — 3 equal columns, center-align on desktop */
+.pkg-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    align-items: center;
+}
+@media (max-width: 900px) {
+    .pkg-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+}
+
+/* ── Flip Card Shell ── */
+.flip-card {
+    position: relative;
+    height: 480px;          /* fixed height for consistent flip */
+    perspective: 1200px;   /* 3-D depth */
+    cursor: pointer;
+}
+
+/* Featured card is slightly taller */
+.flip-card--featured {
+    height: 520px;
+}
+
+/* ── Inner wrapper rotates ── */
+.flip-card__inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.65s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    border-radius: 28px;
+}
+
+/* Flip trigger — hover on desktop */
+@media (hover: hover) {
+    .flip-card:hover .flip-card__inner {
+        transform: rotateY(180deg);
+    }
+}
+
+/* Flip trigger — toggled class for touch devices */
+.flip-card.is-flipped .flip-card__inner {
+    transform: rotateY(180deg);
+}
+
+/* ── Both faces share base styles ── */
+.flip-card__face {
+    position: absolute;
+    inset: 0;
+    border-radius: 28px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* ══ FRONT FACE ══ */
+.flip-card__face--front {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.04);
+    gap: 10px;
+    padding: 0 24px 28px;        /* zero top padding — image flush to top */
+    justify-content: flex-start; /* image anchored at top */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Subtle scale before flip starts */
+.flip-card:hover .flip-card__face--front {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.10);
+}
+
+/* Featured front — warm brand border accent */
+.flip-card__face--front-featured {
+    border: 2px solid rgba(255, 107, 0, 0.30);
+    box-shadow: 0 8px 32px rgba(255, 75, 75, 0.10), 0 1px 4px rgba(0,0,0,0.04);
+}
+
+/* Image container on front — full-width, flush to card top */
+.flip-card__img-wrap {
+    width: calc(100% + 48px);  /* bleed past horizontal padding */
+    margin-left: -24px;
+    margin-right: -24px;
+    height: 285px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+    padding: 20px 28px 12px;   /* internal breathing room around image */
+}
+
+/* Package image — transparent PNG, no background */
+.flip-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 6px 18px rgba(200, 70, 30, 0.18));
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.flip-card__img--lg {
+    width: 110%;
+    height: 110%;
+}
+.flip-card:hover .flip-card__img {
+    transform: translateY(-6px) scale(1.05);
+}
+
+/* Title on front */
+.flip-card__title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    text-align: center;
+    margin: 0;
+}
+
+/* Subtitle on front */
+.flip-card__subtitle {
+    font-size: 0.88rem;
+    color: #9ca3af;
+    text-align: center;
+    margin: -8px 0 0;
+}
+
+/* Hover hint */
+.flip-card__hint {
+    font-size: 0.75rem;
+    color: #ff8f3d;
+    opacity: 0.7;
+    letter-spacing: 0.04em;
+}
+
+/* ══ BACK FACE ══ */
+.flip-card__face--back {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    transform: rotateY(180deg);   /* pre-rotated so it faces away by default */
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 36px 32px 32px;
+    gap: 0;
+    text-align: right;
+    direction: rtl;
+}
+
+/* Back: top gradient accent bar */
+.flip-card__face--back::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ff4b4b 0%, #ff8f3d 100%);
+    border-radius: 28px 28px 0 0;
+}
+
+/* Featured back — slightly warmer shadow */
+.flip-card__face--back-featured {
+    box-shadow: 0 8px 36px rgba(255, 75, 75, 0.12);
+}
+
+/* Back title */
+.flip-card__back-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin: 0 0 6px;
+    width: 100%;
+}
+
+/* Back short description */
+.flip-card__back-desc {
+    font-size: 0.82rem;
+    color: #9ca3af;
+    margin: 0 0 20px;
+    width: 100%;
+    line-height: 1.5;
+}
+
+/* Feature list */
+.flip-card__features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    flex: 1;
+}
+.flip-card__features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: #374151;
+    line-height: 1.4;
+}
+/* Check icon via ::before pseudo-element */
+.flip-card__features li::before {
+    content: '';
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff4b4b 0%, #ff8f3d 100%);
+    /* Checkmark drawn with clip-path mask */
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 13l4 4L19 7' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 13l4 4L19 7' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    -webkit-mask-size: cover;
+    mask-size: cover;
+}
+
+/* CTA Button */
+.flip-card__cta {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    padding: 13px 0;
+    border-radius: 14px;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ff4b4b;
+    background: rgba(255, 75, 75, 0.07);
+    border: 1.5px solid rgba(255, 75, 75, 0.18);
+    text-decoration: none;
+    transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+    letter-spacing: 0.02em;
+}
+.flip-card__cta:hover {
+    background: rgba(255, 75, 75, 0.13);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(255, 75, 75, 0.18);
+}
+
+/* Featured CTA — solid gradient */
+.flip-card__cta--featured {
+    color: #ffffff;
+    background: linear-gradient(135deg, #ff4b4b 0%, #ff8f3d 100%);
+    border: none;
+    box-shadow: 0 4px 16px rgba(255, 75, 75, 0.30);
+}
+.flip-card__cta--featured:hover {
+    box-shadow: 0 8px 28px rgba(255, 75, 75, 0.40);
+    transform: translateY(-3px);
+    background: linear-gradient(135deg, #ff3535 0%, #ff7a20 100%);
+}
+
+/* Badge — Most popular pill */
+.flip-card__badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    background: linear-gradient(135deg, #ff4b4b 0%, #ff8f3d 100%);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 5px 18px;
+    border-radius: 999px;
+    white-space: nowrap;
+    box-shadow: 0 4px 14px rgba(255, 75, 75, 0.35);
+    letter-spacing: 0.02em;
+}
+
+/* ============================================================
+   HERO ILLUSTRATION — warm bloom & edge glow
+   ============================================================ */
+.hero-illustration {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1000px;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+    border-radius: 20px 20px 0 0;
+    filter:
+        drop-shadow(0 0 18px rgba(242, 184, 160, 0.22))
+        drop-shadow(0 0 45px rgba(245, 214, 198, 0.14))
+        drop-shadow(0 0 90px rgba(247, 201, 184, 0.08));
+    transition: filter 0.6s ease, transform 0.5s ease;
+}
+.hero-illustration:hover {
+    filter:
+        drop-shadow(0 0 24px rgba(242, 184, 160, 0.28))
+        drop-shadow(0 0 55px rgba(245, 214, 198, 0.18))
+        drop-shadow(0 0 110px rgba(247, 201, 184, 0.12));
+    transform: translateY(-3px);
+}
+
+/* ── Responsive adjustments ── */
+@media (max-width: 768px) {
+    .hero-text-block {
+        padding-top: 36px;
+        padding-bottom: 32px;
+    }
+    .hero-headline {
+        font-size: 2rem;
+    }
+    .hero-subtext {
+        font-size: 0.95rem;
+        margin-bottom: 28px;
+    }
+    .hero-cta-btn {
+        padding: 14px 32px;
+        font-size: 0.95rem;
+    }
+    .hero-glow--bloom {
+        width: 200%;
+        height: 180%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-headline {
+        font-size: 1.65rem;
+    }
+    .hero-text-block {
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
 }

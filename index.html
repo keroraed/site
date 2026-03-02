@@ -15,14 +15,8 @@
 </head>
 <body class="min-h-screen text-gray-800 antialiased relative">
 
-    <!-- ═══════════════════════════════════════════
-         Shared hero wrapper — nav + hero share one
-         gradient background so the header blends in
-    ════════════════════════════════════════════ -->
-    <div class="hero-wrapper">
-
-    <!-- 1️⃣ Navbar — transparent, sits inside gradient wrapper -->
-    <nav id="navbar" class="sticky top-0 z-50 transition-all duration-500">
+    <!-- 1️⃣ Navbar — fixed at page level so it shows across ALL sections -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" style="border-bottom: 1px solid transparent;">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-24">
                 <!-- Logo -->
@@ -42,147 +36,160 @@
         </div>
     </nav>
 
-    <!-- 2️⃣ Hero Section -->
-    <section class="hero-bg relative pb-0 pt-10 md:pt-14">
-    <!-- Animated Particle Canvas — scoped to hero section only -->
-    <canvas id="particleCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
+    <!-- ═══════════════════════════════════════════
+         HERO SECTION — Modern SaaS Layout
+    ════════════════════════════════════════════ -->
+    <section class="hero-section pt-24">
+        <div class="hero-content">
 
-        <!-- Compact centered text -->
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 mb-8">
-            <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-4 drop-shadow-sm">
-                نعمل على زيادة مبيعاتك ✨
-            </h1>
-            <p class="text-base md:text-lg text-gray-600 max-w-xl mx-auto leading-relaxed mb-7">
-                نساعدك على تحويل أفكارك إلى نتائج ملموسة من خلال حلول رقمية مبتكرة واستراتيجيات تسويقية مصممة خصيصاً لنمو أعمالك.
-            </p>
-            <div class="flex justify-center">
-                <a href="#contact" class="px-7 py-3 text-base font-bold text-white bg-brand-gradient rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transform transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-orange-300">
-                    أطلب باقه
-                </a>
+            <!-- Hero Text Block -->
+            <div class="hero-text-block">
+                <h1 class="hero-headline">
+                    نعمل على زيادة مبيعاتك <span class="hero-sparkle">✨</span>
+                </h1>
+                <p class="hero-subtext">
+                    نساعدك على تحويل أفكارك إلى نتائج ملموسة من خلال حلول رقمية مبتكرة واستراتيجيات تسويقية مصممة خصيصاً لنمو أعمالك.
+                </p>
+                <div class="hero-cta-wrap">
+                    <a href="#contact" class="hero-cta-btn">
+                        🚀 أطلب باقه
+                    </a>
+                </div>
             </div>
-        </div>
 
-        <!-- 3️⃣ Hero Visual — center-image with visible red/orange glow -->
-        <div class="relative z-10 flex justify-center px-4">
-            <!-- Top-center glow -->
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 w-3/4 h-48 blur-3xl rounded-full pointer-events-none" style="background: radial-gradient(ellipse at center, rgba(255,90,40,0.45) 0%, rgba(255,150,60,0.22) 55%, transparent 80%);"></div>
-            <!-- Left glow -->
-            <div class="absolute top-1/4 right-0 w-48 h-3/4 blur-3xl rounded-full pointer-events-none" style="background: radial-gradient(ellipse at right, rgba(255,60,60,0.35) 0%, rgba(255,120,50,0.15) 60%, transparent 85%);"></div>
-            <!-- Right glow -->
-            <div class="absolute top-1/4 left-0 w-48 h-3/4 blur-3xl rounded-full pointer-events-none" style="background: radial-gradient(ellipse at left, rgba(255,60,60,0.35) 0%, rgba(255,120,50,0.15) 60%, transparent 85%);"></div>
-            <img
-                src="images/center-image.png"
-                alt="لوحة تحكم المبيعات"
-                class="relative z-10 w-full max-w-5xl object-contain block rounded-2xl"
-                style="display:block; margin: 0 auto;"
-            >
+            <!-- Hero Illustration with Glow -->
+            <div class="hero-visual">
+                <!-- Glow layers behind the image -->
+                <div class="hero-glow hero-glow--core"></div>
+                <div class="hero-glow hero-glow--mid"></div>
+                <div class="hero-glow hero-glow--outer"></div>
+                <div class="hero-glow hero-glow--bloom"></div>
+
+                <img
+                    src="images/center-image.png"
+                    alt="لوحة تحكم المبيعات"
+                    class="hero-illustration"
+                >
+            </div>
+
         </div>
     </section>
 
-    </div><!-- end .hero-wrapper -->
-
-    <!-- 4️⃣ Packages Section -->
-    <section id="packages" class="py-20 relative z-10">
+    <!-- 4️⃣ Packages Section — 3D Flip Cards -->
+    <section id="packages" class="packages-section py-24 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">خطط تسويقية مبتكرة</h2>
-                <p class="text-lg text-gray-500">حدد الباقة التي تليق بك ثم اجعل الإبداع علينا</p>
+
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-20">
+                <span class="pkg-section-tag">باقاتنا</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-4 mb-4">خطط تسويقية مبتكرة</h2>
+                <p class="text-lg text-gray-400">حدد الباقة التي تليق بك ثم اجعل الإبداع علينا — مرّ بالماوس لرؤية التفاصيل</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-                
-                <!-- Package 1: Starter -->
-                <div class="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-2">باقة الانطلاقة (التأسيس)</h3>
-                    <p class="text-gray-500 mb-6">مثالية للمشاريع الناشئة لبدء التواجد الرقمي</p>
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-center text-gray-700">
-                            <svg class="w-5 h-5 text-green-500 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            إدارة حسابين تواصل اجتماعي
+            <!-- Cards Grid -->
+            <div class="pkg-grid">
+
+                <!-- ══════════════════════════════════════
+                     Card 1 — Foundation (Starter)
+                ══════════════════════════════════════ -->
+                <div class="flip-card" role="button" tabindex="0" aria-label="باقة الانطلاقة">
+                    <div class="flip-card__inner">
+
+                        <!-- FRONT -->
+                        <div class="flip-card__face flip-card__face--front">
+                            <div class="flip-card__img-wrap">
+                                <img src="images/pack-foundation.png" alt="باقة الانطلاقة" class="flip-card__img">
+                            </div>
+                            <h3 class="flip-card__title">باقة الانطلاقة</h3>
+                            <p class="flip-card__subtitle">للمشاريع الناشئة</p>
+                            <span class="flip-card__hint">♡ مرّ للتفاصيل</span>
                         </div>
-                        <div class="flex items-center text-gray-700">
-                            <svg class="w-5 h-5 text-green-500 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            إنشاء محتوى (8 منشورات شهرياً)
+
+                        <!-- BACK -->
+                        <div class="flip-card__face flip-card__face--back">
+                            <h3 class="flip-card__back-title">باقة الانطلاقة</h3>
+                            <p class="flip-card__back-desc">مثالية لبدء التواجد الرقمي بفاعلية</p>
+                            <ul class="flip-card__features">
+                                <li>إدارة حسابين تواصل اجتماعي</li>
+                                <li>إنشاء محتوى (8 منشورات شهرياً)</li>
+                                <li>تصاميم احترافية للبوستات</li>
+                                <li>تقرير شهري مبسط</li>
+                            </ul>
+                            <a href="#contact" class="flip-card__cta">أشتراك</a>
                         </div>
-                        <div class="flex items-center text-gray-700">
-                            <svg class="w-5 h-5 text-green-500 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            تصاميم احترافية للبوستات
-                        </div>
-                        <div class="flex items-center text-gray-700">
-                            <svg class="w-5 h-5 text-green-500 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            تقرير شهري مبسط
-                        </div>
+
                     </div>
-                    <button class="w-full py-3 px-6 rounded-xl font-bold text-brand-gradientStart bg-red-50 hover:bg-red-100 transition duration-300 border border-red-100">
-                        أطلب هذه الباقة
-                    </button>
                 </div>
 
-                <!-- Package 2: Professional (Highlighted) -->
-                <div class="bg-white rounded-3xl p-8 shadow-2xl border-2 border-orange-300 transform md:-translate-y-4 relative transition-all duration-300 hover:-translate-y-6">
-                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand-gradient text-white px-4 py-1.5 rounded-full text-sm font-bold shadow-md">
-                        الأكثر طلباً
+                <!-- ══════════════════════════════════════
+                     Card 2 — Advance (Featured)
+                ══════════════════════════════════════ -->
+                <div class="flip-card flip-card--featured" role="button" tabindex="0" aria-label="الباقة الاحتراف">
+                    <!-- Most-popular badge -->
+                    <div class="flip-card__badge">الأكثر طلباً</div>
+                    <div class="flip-card__inner">
+
+                        <!-- FRONT -->
+                        <div class="flip-card__face flip-card__face--front flip-card__face--front-featured">
+                            <div class="flip-card__img-wrap">
+                                <img src="images/pack-advance.png" alt="الباقة الاحتراف" class="flip-card__img flip-card__img--lg">
+                            </div>
+                            <h3 class="flip-card__title">الباقة الاحتراف</h3>
+                            <p class="flip-card__subtitle">للعلامات التجارية الطموحة</p>
+                            <span class="flip-card__hint">♡ مرّ للتفاصيل</span>
+                        </div>
+
+                        <!-- BACK -->
+                        <div class="flip-card__face flip-card__face--back flip-card__face--back-featured">
+                            <h3 class="flip-card__back-title">الباقة الاحتراف</h3>
+                            <p class="flip-card__back-desc">لزيادة المبيعات والانتشار الواسع</p>
+                            <ul class="flip-card__features">
+                                <li>إدارة 4 حسابات تواصل اجتماعي</li>
+                                <li>إنشاء محتوى (15 منشوراً شهرياً)</li>
+                                <li>إدارة الحملات الإعلانية الممولة</li>
+                                <li>تصوير منتجات / فيديو (ريلز)</li>
+                                <li>تقارير تحليلية مفصلة للتطوير</li>
+                            </ul>
+                            <a href="#contact" class="flip-card__cta flip-card__cta--featured">أشتراك</a>
+                        </div>
+
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-2">الباقة الاحتراف</h3>
-                    <p class="text-gray-500 mb-6">للعلامات التجارية التي تطمح لزيادة المبيعات والانتشار</p>
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-center text-gray-700">
-                            <svg class="w-5 h-5 text-brand-gradientStart ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            إدارة 4 حسابات تواصل اجتماعي
-                        </div>
-                        <div class="flex items-center text-gray-700">
-                            <svg class="w-5 h-5 text-brand-gradientStart ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            إنشاء محتوى (15 منشوراً شهرياً)
-                        </div>
-                        <div class="flex items-center text-gray-700">
-                            <svg class="w-5 h-5 text-brand-gradientStart ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            إدارة الحملات الإعلانية الممولة
-                        </div>
-                        <div class="flex items-center text-gray-700">
-                            <svg class="w-5 h-5 text-brand-gradientStart ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            تصوير منتجات / فيديو قصير (ریلز)
-                        </div>
-                        <div class="flex items-center text-gray-700">
-                            <svg class="w-5 h-5 text-brand-gradientStart ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            تقارير تحليلية مفصلة للتطوير
-                        </div>
-                    </div>
-                    <button class="w-full py-4 px-6 rounded-xl font-bold text-white bg-brand-gradient hover:shadow-lg transform transition duration-300 focus:ring-4 focus:ring-orange-200">
-                        أطلب هذه الباقة
-                    </button>
                 </div>
 
-                <!-- Package 3: Growth -->
-                <div class="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-2">باقة النمو</h3>
-                    <p class="text-gray-500 mb-6">حلول متكاملة للشركات لضمان الاستحواذ التام على السوق</p>
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-center text-gray-700">
-                            <svg class="w-5 h-5 text-green-500 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            إدارة شاملة لجميع المنصات
+                <!-- ══════════════════════════════════════
+                     Card 3 — Growth
+                ══════════════════════════════════════ -->
+                <div class="flip-card" role="button" tabindex="0" aria-label="باقة النمو">
+                    <div class="flip-card__inner">
+
+                        <!-- FRONT -->
+                        <div class="flip-card__face flip-card__face--front">
+                            <div class="flip-card__img-wrap">
+                                <img src="images/pack-grow.png" alt="باقة النمو" class="flip-card__img">
+                            </div>
+                            <h3 class="flip-card__title">باقة النمو</h3>
+                            <p class="flip-card__subtitle">للشركات والأعمال الكبرى</p>
+                            <span class="flip-card__hint">♡ مرّ للتفاصيل</span>
                         </div>
-                        <div class="flex items-center text-gray-700">
-                            <svg class="w-5 h-5 text-green-500 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            نشر يومي للمحتوى
+
+                        <!-- BACK -->
+                        <div class="flip-card__face flip-card__face--back">
+                            <h3 class="flip-card__back-title">باقة النمو</h3>
+                            <p class="flip-card__back-desc">حلول متكاملة للاستحواذ التام على السوق</p>
+                            <ul class="flip-card__features">
+                                <li>إدارة شاملة لجميع المنصات</li>
+                                <li>نشر يومي للمحتوى</li>
+                                <li>تحسين محركات البحث SEO</li>
+                                <li>إدارة حملات بميزانيات ضخمة</li>
+                                <li>إنتاج فيديو موشن جرافيك شهرياً</li>
+                            </ul>
+                            <a href="#contact" class="flip-card__cta">أشتراك</a>
                         </div>
-                        <div class="flex items-center text-gray-700">
-                            <svg class="w-5 h-5 text-green-500 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            تحسين محركات البحث SEO
-                        </div>
-                        <div class="flex items-center text-gray-700">
-                            <svg class="w-5 h-5 text-green-500 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            إدارة الحملات بميزانيات ضخمة
-                        </div>
-                        <div class="flex items-center text-gray-700">
-                            <svg class="w-5 h-5 text-green-500 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            إنتاج فيديو موشن جرافيك شهرياً
-                        </div>
+
                     </div>
-                    <button class="w-full py-3 px-6 rounded-xl font-bold text-brand-gradientStart bg-red-50 hover:bg-red-100 transition duration-300 border border-red-100">
-                        أطلب هذه الباقة
-                    </button>
                 </div>
-            </div>
+
+            </div><!-- /pkg-grid -->
         </div>
     </section>
 
@@ -310,97 +317,6 @@
         </div>
     </footer>
 
-    <!-- Animated Particle Dots Script — hero section only -->
-    <script>
-        // Navbar transparency on scroll
-        (function () {
-            const nav = document.getElementById('navbar');
-            function updateNav() {
-                const scrollY = window.scrollY;
-                const ratio = Math.min(scrollY / 100, 1);
-                // Match the hero-wrapper gradient tone — warm peach, not white
-                const alpha = (ratio * 0.78).toFixed(3);
-                const blur  = (ratio * 20).toFixed(1);
-                const shadow = ratio > 0.05 ? `0 2px 20px rgba(200,80,30,${(ratio * 0.10).toFixed(3)})` : 'none';
-                nav.style.background = `rgba(255, 230, 210, ${alpha})`;
-                nav.style.backdropFilter = `blur(${blur}px)`;
-                nav.style.webkitBackdropFilter = `blur(${blur}px)`;
-                nav.style.boxShadow = shadow;
-                nav.style.borderBottom = ratio > 0.1
-                    ? `1px solid rgba(255,180,140,${(ratio * 0.30).toFixed(2)})`
-                    : 'none';
-            }
-            window.addEventListener('scroll', updateNav, { passive: true });
-            updateNav();
-        })();
-
-        // Particle dots — wait for page load so the image has loaded and section has correct height
-        window.addEventListener('load', function () {
-            (function () {
-                const canvas = document.getElementById('particleCanvas');
-                if (!canvas) return;
-                const ctx = canvas.getContext('2d');
-                const section = canvas.parentElement;
-
-                let W, H, particles = [];
-                const COUNT = 80;
-
-                function resize() {
-                    W = canvas.width  = section.offsetWidth;
-                    H = canvas.height = section.offsetHeight;
-                }
-                window.addEventListener('resize', resize);
-                resize();
-
-                function randomBetween(a, b) { return a + Math.random() * (b - a); }
-
-                const COLORS = [
-                    'rgba(255,75,75,',
-                    'rgba(255,120,50,',
-                    'rgba(255,143,61,',
-                    'rgba(255,90,40,',
-                    'rgba(220,50,50,',
-                ];
-
-                function createParticle() {
-                    return {
-                        x: randomBetween(0, W),
-                        y: randomBetween(0, H),
-                        r: randomBetween(1.5, 4),
-                        alpha: randomBetween(0.15, 0.5),
-                        vx: randomBetween(-0.3, 0.3),
-                        vy: randomBetween(-0.5, -0.1),
-                        color: COLORS[Math.floor(Math.random() * COLORS.length)],
-                        pulse: randomBetween(0, Math.PI * 2),
-                        pulseSpeed: randomBetween(0.01, 0.03),
-                    };
-                }
-
-                for (let i = 0; i < COUNT; i++) particles.push(createParticle());
-
-                function draw() {
-                    ctx.clearRect(0, 0, W, H);
-                    for (let p of particles) {
-                        p.pulse += p.pulseSpeed;
-                        const a = p.alpha + Math.sin(p.pulse) * 0.1;
-                        ctx.beginPath();
-                        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                        ctx.fillStyle = p.color + Math.min(1, Math.max(0, a)) + ')';
-                        ctx.fill();
-
-                        p.x += p.vx;
-                        p.y += p.vy;
-
-                        if (p.y < -10) { p.y = H + 10; p.x = randomBetween(0, W); }
-                        if (p.x < -10) p.x = W + 10;
-                        if (p.x > W + 10) p.x = -10;
-                    }
-                    requestAnimationFrame(draw);
-                }
-                draw();
-            })();
-        });
-    </script>
 
 </body>
 </html>

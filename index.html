@@ -4,33 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rosomat | رسومات - نعمل على زيادة مبيعاتك</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts fallback -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-    
-    <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="min-h-screen text-gray-800 antialiased relative">
+<body>
 
-    <!-- 1️⃣ Navbar — fixed at page level so it shows across ALL sections -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" style="border-bottom: 1px solid transparent;">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-24">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar">
+        <div class="container">
+            <div class="navbar__row">
+                <div class="navbar__logo">
                     <a href="#">
-                        <img src="images/logo-2.png" alt="رسومات" class="h-16 w-auto">
+                        <img src="images/logo-2.png" alt="رسومات" class="navbar__logo-img">
                     </a>
                 </div>
-                <!-- Desktop Links (Centered) -->
-                <div class="hidden md:flex flex-1 justify-center space-x-8 space-x-reverse">
-                    <a href="#" class="text-gray-700 hover:text-brand-gradientStart font-medium nav-link transition-colors">الرئيسية</a>
-                    <a href="#packages" class="text-gray-700 hover:text-brand-gradientStart font-medium nav-link transition-colors">الباقات</a>
-                    <a href="#contact" class="text-gray-700 hover:text-brand-gradientStart font-medium nav-link transition-colors">أطلب خدمة</a>
-                    <a href="#footer" class="text-gray-700 hover:text-brand-gradientStart font-medium nav-link transition-colors">موقعنا</a>
+                <div class="navbar__links">
+                    <a href="#" class="nav-link">الرئيسية</a>
+                    <a href="#packages" class="nav-link">الباقات</a>
+                    <a href="#contact" class="nav-link">أطلب خدمة</a>
+                    <a href="#footer" class="nav-link">موقعنا</a>
                 </div>
             </div>
         </div>
@@ -39,7 +34,7 @@
     <!-- ═══════════════════════════════════════════
          HERO SECTION — Modern SaaS Layout
     ════════════════════════════════════════════ -->
-    <section class="hero-section pt-24">
+    <section class="hero-section">
         <div class="hero-content">
 
             <!-- Hero Text Block -->
@@ -52,7 +47,7 @@
                 </p>
                 <div class="hero-cta-wrap">
                     <a href="#contact" class="hero-cta-btn">
-                        🚀 أطلب باقه
+                        أطلب باقه
                     </a>
                 </div>
             </div>
@@ -75,15 +70,15 @@
         </div>
     </section>
 
-    <!-- 4️⃣ Packages Section — 3D Flip Cards -->
-    <section id="packages" class="packages-section py-24 relative z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Packages Section -->
+    <section id="packages" class="packages-section">
+        <div class="container">
 
             <!-- Section Header -->
-            <div class="text-center max-w-2xl mx-auto mb-20">
+            <div class="section-header">
                 <span class="pkg-section-tag">باقاتنا</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-4 mb-4">خطط تسويقية مبتكرة</h2>
-                <p class="text-lg text-gray-400">حدد الباقة التي تليق بك ثم اجعل الإبداع علينا — مرّ بالماوس لرؤية التفاصيل</p>
+                <h2 class="section-title">خطط تسويقية مبتكرة</h2>
+                <p class="section-desc">حدد الباقة التي تليق بك ثم اجعل الإبداع علينا — مرّ بالماوس لرؤية التفاصيل</p>
             </div>
 
             <!-- Cards Grid -->
@@ -108,12 +103,12 @@
                         <!-- BACK -->
                         <div class="flip-card__face flip-card__face--back">
                             <h3 class="flip-card__back-title">باقة الانطلاقة</h3>
-                            <p class="flip-card__back-desc">مثالية لبدء التواجد الرقمي بفاعلية</p>
+                            <p class="flip-card__back-desc">خدمات التسويق - باقة الانطلاقة (التأسيس)</p>
                             <ul class="flip-card__features">
-                                <li>إدارة حسابين تواصل اجتماعي</li>
-                                <li>إنشاء محتوى (8 منشورات شهرياً)</li>
-                                <li>تصاميم احترافية للبوستات</li>
-                                <li>تقرير شهري مبسط</li>
+                                <li>إعداد خطة تسويقية متكاملة</li>
+                                <li>إدارة جميع حسابات التواصل الاجتماعي</li>
+                                <li>تحسين محركات البحث (SEO)</li>
+                                <li>إدارة الحملات الإعلانية المدفوعة (جميع المنصات)</li>
                             </ul>
                             <a href="#contact" class="flip-card__cta">أشتراك</a>
                         </div>
@@ -142,13 +137,24 @@
                         <!-- BACK -->
                         <div class="flip-card__face flip-card__face--back flip-card__face--back-featured">
                             <h3 class="flip-card__back-title">الباقة الاحتراف</h3>
-                            <p class="flip-card__back-desc">لزيادة المبيعات والانتشار الواسع</p>
+                            <p class="flip-card__back-desc">خدمات التسويق - الباقة الاحتراف</p>
                             <ul class="flip-card__features">
-                                <li>إدارة 4 حسابات تواصل اجتماعي</li>
-                                <li>إنشاء محتوى (15 منشوراً شهرياً)</li>
-                                <li>إدارة الحملات الإعلانية الممولة</li>
-                                <li>تصوير منتجات / فيديو (ريلز)</li>
-                                <li>تقارير تحليلية مفصلة للتطوير</li>
+                                <li>إعداد خطة تسويقية متكاملة</li>
+                                <li>إنشاء متجر الكتروني في زد أو سلة</li>
+                                <li>إدارة الحملات الإعلانية المدفوعة (جميع المنصات)</li>
+                                <li>إدارة حسابات التواصل الاجتماعي (جميع المنصات)</li>
+                                <li>كتابة المحتوى باللغة العربية والإنجليزية</li>
+                                <li>تحسين محركات البحث (SEO)</li>
+                                <li>التسويق عبر البريد الالكتروني</li>
+                                <li>خدمة العملاء عبر الواتساب (فترة صباحية ومسائية)</li>
+                                <li>برنامج وإنشاء حساب كول سنتر الهاتفي للتحدث مع عملائك</li>
+                                <li>إدارة الحملات عبر منصة الواتس اب لأكثر من 100 الف عميل</li>
+                                <li>تصميم موشن جرافيك "العدد 1"</li>
+                                <li>إعلانات على شاهد / نون / إمازون</li>
+                                <li>ربط جميع الأدوات التسويقية (زوهو / ميل شيب / اسانا)</li>
+                                <li>ربط مع زد أو سلة في التجارة الإلكترونية</li>
+                                <li>خدمة webengage لعملية التتبع بكسلات الويب + SDK التطبيق</li>
+                                <li>إعداد التقارير الشهري لقياس مؤشرات الأداء التسويقي</li>
                             </ul>
                             <a href="#contact" class="flip-card__cta flip-card__cta--featured">أشتراك</a>
                         </div>
@@ -175,13 +181,18 @@
                         <!-- BACK -->
                         <div class="flip-card__face flip-card__face--back">
                             <h3 class="flip-card__back-title">باقة النمو</h3>
-                            <p class="flip-card__back-desc">حلول متكاملة للاستحواذ التام على السوق</p>
+                            <p class="flip-card__back-desc">خدمات التسويق - باقة النمو</p>
                             <ul class="flip-card__features">
-                                <li>إدارة شاملة لجميع المنصات</li>
-                                <li>نشر يومي للمحتوى</li>
-                                <li>تحسين محركات البحث SEO</li>
-                                <li>إدارة حملات بميزانيات ضخمة</li>
-                                <li>إنتاج فيديو موشن جرافيك شهرياً</li>
+                                <li>إعداد خطة تسويقية متكاملة</li>
+                                <li>إنشاء وإعداد متجرك الإلكتروني مع زد أو سلة</li>
+                                <li>إدارة جميع مواقع التواصل الاجتماعي</li>
+                                <li>تحسين محركات البحث (SEO)</li>
+                                <li>إدارة الحملات الإعلانية المدفوعة (جميع المنصات)</li>
+                                <li>إدارة الحملات عبر منصة الواتس اب</li>
+                                <li>تصميم موشن جرافيك "العدد 1"</li>
+                                <li>إعلانات على شاهد / نون / إمازون</li>
+                                <li>إعداد التقارير الشهري لقياس مؤشرات الأداء التسويقي</li>
+                                <li>ربط جميع الأدوات التسويقية (زوهو / ميل شيب / اسانا)</li>
                             </ul>
                             <a href="#contact" class="flip-card__cta">أشتراك</a>
                         </div>
@@ -193,42 +204,37 @@
         </div>
     </section>
 
-    <!-- 5️⃣ Contact Section -->
-    <section id="contact" class="py-20 relative z-10">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-white rounded-3xl p-8 md:p-12 shadow-2xl border border-gray-100 relative overflow-hidden">
-                <!-- Decorative background elements -->
-                <div class="absolute top-0 right-0 w-32 h-32 bg-brand-gradient opacity-10 rounded-bl-full"></div>
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container container--sm">
+            <div class="contact-card">
+                <div class="contact-decor"></div>
                 
-                <div class="text-center mb-10 relative z-10">
-                    <h2 class="text-3xl font-extrabold text-gray-900 mb-3">تواصل معنا</h2>
-                    <p class="text-gray-500">نحن هنا للإجابة على جميع استفساراتك ومساعدتك في اختيار ما يناسبك.</p>
+                <div class="contact-header">
+                    <h2 class="contact-title">تواصل معنا</h2>
+                    <p class="text-muted">نحن هنا للإجابة على جميع استفساراتك ومساعدتك في اختيار ما يناسبك.</p>
                 </div>
 
-                <form class="space-y-6 relative z-10">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- Name Field -->
+                <form class="contact-form">
+                    <div class="form-grid">
                         <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">الاسم</label>
-                            <input type="text" id="name" name="name" placeholder="محمد أحمد..." class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-gradientStart focus:border-brand-gradientStart outline-none transition duration-200 bg-gray-50 focus:bg-white text-gray-800">
+                            <label for="name" class="form-label">الاسم</label>
+                            <input type="text" id="name" name="name" placeholder="محمد أحمد..." class="form-input">
                         </div>
-                        <!-- Phone Field -->
                         <div>
-                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">رقم الجوال</label>
-                            <input type="tel" id="phone" name="phone" placeholder="05X XXX XXXX" dir="ltr" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-gradientStart focus:border-brand-gradientStart outline-none transition duration-200 bg-gray-50 focus:bg-white text-right text-gray-800">
+                            <label for="phone" class="form-label">رقم الجوال</label>
+                            <input type="tel" id="phone" name="phone" placeholder="05X XXX XXXX" dir="ltr" class="form-input form-input--ltr">
                         </div>
                     </div>
 
-                    <!-- Email Field -->
                     <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">البريد الإلكتروني</label>
-                        <input type="email" id="email" name="email" placeholder="example@domain.com" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-gradientStart focus:border-brand-gradientStart outline-none transition duration-200 bg-gray-50 focus:bg-white text-gray-800">
+                        <label for="email" class="form-label">البريد الإلكتروني</label>
+                        <input type="email" id="email" name="email" placeholder="example@domain.com" class="form-input">
                     </div>
 
-                    <!-- Package Dropdown -->
                     <div>
-                        <label for="package" class="block text-sm font-medium text-gray-700 mb-2">اختر اسم باقتك</label>
-                        <select id="package" name="package" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-gradientStart focus:border-brand-gradientStart outline-none transition duration-200 bg-gray-50 focus:bg-white text-gray-800 appearance-none cursor-pointer">
+                        <label for="package" class="form-label">اختر اسم باقتك</label>
+                        <select id="package" name="package" class="form-input form-select">
                             <option value="" disabled selected>يرجى اختيار الباقة...</option>
                             <option value="starter">باقة الانطلاقة (التأسيس)</option>
                             <option value="pro">الباقة الاحتراف</option>
@@ -237,14 +243,12 @@
                         </select>
                     </div>
 
-                    <!-- Message text area -->
                     <div>
-                        <label for="details" class="block text-sm font-medium text-gray-700 mb-2">تفاصيل المشروع</label>
-                        <textarea id="details" name="details" rows="4" placeholder="حدثنا عن مشروعك وأهدافك..." class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-gradientStart focus:border-brand-gradientStart outline-none transition duration-200 bg-gray-50 focus:bg-white text-gray-800 resize-none"></textarea>
+                        <label for="details" class="form-label">تفاصيل المشروع</label>
+                        <textarea id="details" name="details" rows="4" placeholder="حدثنا عن مشروعك وأهدافك..." class="form-input form-textarea"></textarea>
                     </div>
 
-                    <!-- Submit Button -->
-                    <button type="button" class="w-full py-4 rounded-xl font-bold text-white bg-brand-gradient shadow-md hover:shadow-xl hover:-translate-y-0.5 transform transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-orange-200 text-lg">
+                    <button type="button" class="form-submit">
                         إرسال الطلب
                     </button>
                 </form>
@@ -252,53 +256,50 @@
         </div>
     </section>
 
-    <!-- 6️⃣ Footer -->
-    <footer id="footer" class="border-t border-gray-200 bg-white/50 backdrop-blur-sm relative z-10 pt-16 pb-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 text-center md:text-right">
+    <!-- Footer -->
+    <footer id="footer" class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
                 
-                <!-- Brand Info -->
-                <div class="flex flex-col items-center md:items-start">
-                    <a href="#" class="mb-4 inline-block">
-                        <img src="images/logo-trans.png" alt="رسومات" class="h-12 w-auto">
+                <div class="footer-col">
+                    <a href="#" class="footer-logo">
+                        <img src="images/logo-trans.png" alt="رسومات" class="footer-logo-img">
                     </a>
-                    <p class="text-gray-500 leading-relaxed max-w-sm">
+                    <p class="footer-text">
                         وكالة تسويق رقمي متخصصة في صناعة العلامات التجارية وإدارة الحملات الإعلانية المبتكرة التي تحقق النمو والمبيعات المستدامة.
                     </p>
                 </div>
 
-                <!-- Locations -->
-                <div class="flex flex-col items-center md:items-start">
-                    <h4 class="text-lg font-bold text-gray-800 mb-4">أين نتواجد</h4>
-                    <ul class="space-y-3">
-                        <li class="flex items-center text-gray-600">
-                            <span class="w-2 h-2 rounded-full bg-brand-gradientStart ml-3"></span>
+                <div class="footer-col">
+                    <h4 class="footer-heading">أين نتواجد</h4>
+                    <ul class="footer-list">
+                        <li class="footer-list-item">
+                            <span class="footer-dot"></span>
                             المملكة العربية السعودية (Sa)
                         </li>
-                        <li class="flex items-center text-gray-600">
-                            <span class="w-2 h-2 rounded-full bg-brand-gradientStart ml-3"></span>
+                        <li class="footer-list-item">
+                            <span class="footer-dot"></span>
                             الإمارات العربية المتحدة (UAE)
                         </li>
                     </ul>
                 </div>
 
-                <!-- Contact Info -->
-                <div class="flex flex-col items-center md:items-start">
-                    <h4 class="text-lg font-bold text-gray-800 mb-4">معلومات التواصل</h4>
-                    <ul class="space-y-3">
+                <div class="footer-col">
+                    <h4 class="footer-heading">معلومات التواصل</h4>
+                    <ul class="footer-list">
                         <li>
-                            <a href="mailto:info@rosomat.com" class="text-gray-600 hover:text-brand-gradientStart transition-colors dir-ltr flex items-center justify-center md:justify-start">
-                                <span class="ml-2">✉️</span> info@rosomat.com
+                            <a href="mailto:info@rosomat.com" class="footer-link">
+                                <span class="footer-icon">✉️</span> info@rosomat.com
                             </a>
                         </li>
                         <li>
-                            <a href="tel:+966500000000" class="text-gray-600 hover:text-brand-gradientStart transition-colors dir-ltr flex items-center justify-center md:justify-start" dir="ltr">
-                                <span class="ml-2">📞</span> +966 50 000 0000
+                            <a href="tel:+966500000000" class="footer-link" dir="ltr">
+                                <span class="footer-icon">📞</span> +966 50 000 0000
                             </a>
                         </li>
                         <li>
-                            <a href="tel:+971500000000" class="text-gray-600 hover:text-brand-gradientStart transition-colors dir-ltr flex items-center justify-center md:justify-start" dir="ltr">
-                                <span class="ml-2">📞</span> +971 50 000 0000
+                            <a href="tel:+971500000000" class="footer-link" dir="ltr">
+                                <span class="footer-icon">📞</span> +971 50 000 0000
                             </a>
                         </li>
                     </ul>
@@ -306,17 +307,17 @@
 
             </div>
             
-            <div class="pt-8 border-t border-gray-200 text-center flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+            <div class="footer-bottom">
                 <p>&copy; 2026 رسومات (Rosomat). جميع الحقوق محفوظة.</p>
-                <div class="mt-4 md:mt-0 space-x-4 space-x-reverse">
-                    <a href="#" class="hover:text-brand-gradientStart transition-colors">سياسة الخصوصية</a>
+                <div class="footer-bottom-links">
+                    <a href="#" class="footer-bottom-link">سياسة الخصوصية</a>
                     <span>•</span>
-                    <a href="#" class="hover:text-brand-gradientStart transition-colors">الشروط والأحكام</a>
+                    <a href="#" class="footer-bottom-link">الشروط والأحكام</a>
                 </div>
             </div>
         </div>
     </footer>
 
-
+    <script src="script.js"></script>
 </body>
 </html>

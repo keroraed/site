@@ -1,23 +1,4 @@
 // ============================================================
-// Flip Cards — tap to flip on touch/mobile devices
-// ============================================================
-document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('.flip-card').forEach(function (card) {
-        // Touch tap: toggle flipped state
-        card.addEventListener('click', function () {
-            card.classList.toggle('is-flipped');
-        });
-        // Keyboard: space / enter to flip
-        card.addEventListener('keydown', function (e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                card.classList.toggle('is-flipped');
-            }
-        });
-    });
-});
-
-// ============================================================
 // Hamburger Menu — mobile nav toggle
 // ============================================================
 document.addEventListener('DOMContentLoaded', function () {
@@ -66,27 +47,72 @@ document.addEventListener('DOMContentLoaded', function () {
     updateNav();
 });
 // ============================================================
-// Hero — subtle entrance animation
+// Scroll-Triggered Fade-In Entrance Animations
+// — Uses Intersection Observer for all sections & elements
+// — Supports stagger delay for child groups (e.g. service cards, flip cards)
+// — Hero animates immediately on page load
 // ============================================================
-window.addEventListener('load', function () {
-    const heroText = document.querySelector('.hero-text-block');
-    const heroVisual = document.querySelector('.hero-visual');
-    if (heroText) {
-        heroText.style.opacity = '0';
-        heroText.style.transform = 'translateY(24px)';
-        heroText.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-        requestAnimationFrame(function () {
-            heroText.style.opacity = '1';
-            heroText.style.transform = 'translateY(0)';
+document.addEventListener('DOMContentLoaded', function () {
+
+    // ── 1. Mark animatable elements with the fade-up class ──
+    // NOTE: Hero elements have fade-up in HTML so they're hidden from first paint.
+    var fadeTargets = [
+        // Packages
+        '.section-header',
+        // Services
+        '.services-title',
+        // Contact
+        '.contact-card',
+        // Footer
+        '.site-footer .footer-grid',
+        '.site-footer .footer-bottom'
+    ];
+
+    fadeTargets.forEach(function (selector) {
+        var el = document.querySelector(selector);
+        if (el) el.classList.add('fade-up');
+    });
+
+    // Staggered children: pkg-cards & service cards
+    document.querySelectorAll('.pkg-card').forEach(function (card, i) {
+        card.classList.add('fade-up');
+        card.style.transitionDelay = (i * 0.12) + 's';
+    });
+    document.querySelectorAll('.service-card').forEach(function (card, i) {
+        card.classList.add('fade-up');
+        card.style.transitionDelay = (i * 0.12) + 's';
+    });
+
+    // ── 2. Intersection Observer — reveal when 12% visible ──
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target); // animate only once
+            }
         });
-    }
-    if (heroVisual) {
-        heroVisual.style.opacity = '0';
-        heroVisual.style.transform = 'translateY(32px)';
-        heroVisual.style.transition = 'opacity 0.9s ease 0.2s, transform 0.9s ease 0.2s';
-        requestAnimationFrame(function () {
-            heroVisual.style.opacity = '1';
-            heroVisual.style.transform = 'translateY(0)';
-        });
-    }
+    }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -30px 0px'
+    });
+
+    // ── 3. Observe every .fade-up element (except hero — handled separately) ──
+    document.querySelectorAll('.fade-up').forEach(function (el) {
+        if (!el.classList.contains('hero-text-block') && !el.classList.contains('hero-visual')) {
+            observer.observe(el);
+        }
+    });
+
+    // ── 4. Hero — fade in on page load ──
+    // fade-up is already in the HTML markup, so the hero renders at opacity:0
+    // from the very first paint. We add is-visible after a short delay to
+    // guarantee the browser has painted the hidden state before transitioning.
+    var heroText   = document.querySelector('.hero-text-block');
+    var heroVisual = document.querySelector('.hero-visual');
+    setTimeout(function () {
+        if (heroText) heroText.classList.add('is-visible');
+    }, 100);
+    setTimeout(function () {
+        if (heroVisual) heroVisual.classList.add('is-visible');
+    }, 300);
 });

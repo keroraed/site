@@ -27,6 +27,7 @@
                     <a href="#contact" class="nav-link">أطلب خدمة</a>
                     <a href="#footer" class="nav-link">موقعنا</a>
                 </div>
+                <a href="#contact" class="navbar__cta">ابدأ الأن</a>
                 <button class="navbar__hamburger" id="hamburgerBtn" aria-label="فتح القائمة" aria-expanded="false">
                     <span></span>
                     <span></span>
@@ -43,7 +44,7 @@
         <div class="hero-content">
 
             <!-- Hero Text Block -->
-            <div class="hero-text-block">
+            <div class="hero-text-block fade-up">
                 <h1 class="hero-headline">
                     نعمل على زيادة مبيعاتك <span class="hero-sparkle">✨</span>
                 </h1>
@@ -52,13 +53,13 @@
                 </p>
                 <div class="hero-cta-wrap">
                     <a href="#contact" class="hero-cta-btn">
-                        أطلب باقه
+                        أطلب باقة
                     </a>
                 </div>
             </div>
 
             <!-- Hero Illustration with Glow -->
-            <div class="hero-visual">
+            <div class="hero-visual fade-up">
                 <!-- Glow layers behind the image -->
                 <div class="hero-glow hero-glow--core"></div>
                 <div class="hero-glow hero-glow--mid"></div>
@@ -75,134 +76,102 @@
         </div>
     </section>
 
+    <!-- ═══════════════════════════════════════════
+         SERVICES SECTION — خدماتنا
+    ════════════════════════════════════════════ -->
+    <section id="services" class="services-section">
+        <!-- Subtle semicircle background decoration -->
+        <div class="services-bg-shape" aria-hidden="true"></div>
+
+        <div class="container">
+            <!-- Section Title -->
+            <h2 class="services-title">خدماتنا</h2>
+
+            <!-- Services Grid — 5 items -->
+            <div class="services-grid">
+
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <img src="images/service_1.png" alt="التسويق عبر البريد الإلكتروني" class="service-card__img">
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <img src="images/service_2.png" alt="التسويق عبر محركات البحث" class="service-card__img">
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <img src="images/service_3.png" alt="التسويق عبر المشاهير" class="service-card__img">
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <img src="images/service_4.png" alt="التسويق عبر الحملات الإعلانية" class="service-card__img">
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <img src="images/service_5.png" alt="التسويق عبر الإعلام الاجتماعي" class="service-card__img">
+                </div>
+
+            </div><!-- /services-grid -->
+        </div>
+    </section>
+
     <!-- Packages Section -->
     <section id="packages" class="packages-section">
         <div class="container">
 
             <!-- Section Header -->
             <div class="section-header">
-                <span class="pkg-section-tag">باقاتنا</span>
                 <h2 class="section-title">خطط تسويقية مبتكرة</h2>
-                <p class="section-desc">حدد الباقة التي تليق بك ثم اجعل الإبداع علينا — مرّ بالماوس لرؤية التفاصيل</p>
+                <p class="section-desc">حدد الباقة التي تليق بك واجعل الإبداع علينا</p>
             </div>
 
             <!-- Cards Grid -->
             <div class="pkg-grid">
 
-                <!-- ══════════════════════════════════════
-                     Card 1 — Foundation (Starter)
-                ══════════════════════════════════════ -->
-                <div class="flip-card" role="button" tabindex="0" aria-label="باقة الانطلاقة">
-                    <div class="flip-card__inner">
-
-                        <!-- FRONT -->
-                        <div class="flip-card__face flip-card__face--front">
-                            <div class="flip-card__img-wrap">
-                                <img src="images/pack-foundation.png" alt="باقة الانطلاقة" class="flip-card__img">
-                            </div>
-                            <h3 class="flip-card__title">باقة الانطلاقة</h3>
-                            <p class="flip-card__subtitle">للمشاريع الناشئة</p>
-                            <span class="flip-card__hint">♡ مرّ للتفاصيل</span>
-                        </div>
-
-                        <!-- BACK -->
-                        <div class="flip-card__face flip-card__face--back">
-                            <h3 class="flip-card__back-title">باقة الانطلاقة</h3>
-                            <p class="flip-card__back-desc">خدمات التسويق - باقة الانطلاقة (التأسيس)</p>
-                            <ul class="flip-card__features">
-                                <li>إعداد خطة تسويقية متكاملة</li>
-                                <li>إدارة جميع حسابات التواصل الاجتماعي</li>
-                                <li>تحسين محركات البحث (SEO)</li>
-                                <li>إدارة الحملات الإعلانية المدفوعة (جميع المنصات)</li>
-                            </ul>
-                            <a href="#contact" class="flip-card__cta">أشتراك</a>
-                        </div>
-
-                    </div>
+                <!-- Card 1 — Foundation (Starter) -->
+                <div class="pkg-card">
+                    <h3 class="pkg-card__title">باقة الانطلاقة (التأسيس)</h3>
+                    <p class="pkg-card__subtitle">مثالية للمشاريع الناشئة لبدء التواجد الرقمي</p>
+                    <ul class="pkg-card__features">
+                        <li>إدارة حسابين تواصل اجتماعي</li>
+                        <li>إنشاء محتوى (8 منشورات شهرياً)</li>
+                        <li>تصاميم احترافية للبوستات</li>
+                        <li>تقرير شهري مبسط</li>
+                    </ul>
+                    <a href="#contact" class="pkg-card__cta">أطلب هذه الباقة</a>
                 </div>
 
-                <!-- ══════════════════════════════════════
-                     Card 2 — Advance (Featured)
-                ══════════════════════════════════════ -->
-                <div class="flip-card flip-card--featured" role="button" tabindex="0" aria-label="الباقة الاحتراف">
-                    <!-- Most-popular badge -->
-                    <div class="flip-card__badge">الأكثر طلباً</div>
-                    <div class="flip-card__inner">
-
-                        <!-- FRONT -->
-                        <div class="flip-card__face flip-card__face--front flip-card__face--front-featured">
-                            <div class="flip-card__img-wrap">
-                                <img src="images/pack-advance.png" alt="الباقة الاحتراف" class="flip-card__img flip-card__img--lg">
-                            </div>
-                            <h3 class="flip-card__title">الباقة الاحتراف</h3>
-                            <p class="flip-card__subtitle">للعلامات التجارية الطموحة</p>
-                            <span class="flip-card__hint">♡ مرّ للتفاصيل</span>
-                        </div>
-
-                        <!-- BACK -->
-                        <div class="flip-card__face flip-card__face--back flip-card__face--back-featured">
-                            <h3 class="flip-card__back-title">الباقة الاحتراف</h3>
-                            <p class="flip-card__back-desc">خدمات التسويق - الباقة الاحتراف</p>
-                            <ul class="flip-card__features">
-                                <li>إعداد خطة تسويقية متكاملة</li>
-                                <li>إنشاء متجر الكتروني في زد أو سلة</li>
-                                <li>إدارة الحملات الإعلانية المدفوعة (جميع المنصات)</li>
-                                <li>إدارة حسابات التواصل الاجتماعي (جميع المنصات)</li>
-                                <li>كتابة المحتوى باللغة العربية والإنجليزية</li>
-                                <li>تحسين محركات البحث (SEO)</li>
-                                <li>التسويق عبر البريد الالكتروني</li>
-                                <li>خدمة العملاء عبر الواتساب (فترة صباحية ومسائية)</li>
-                                <li>برنامج وإنشاء حساب كول سنتر الهاتفي للتحدث مع عملائك</li>
-                                <li>إدارة الحملات عبر منصة الواتس اب لأكثر من 100 الف عميل</li>
-                                <li>تصميم موشن جرافيك "العدد 1"</li>
-                                <li>إعلانات على شاهد / نون / إمازون</li>
-                                <li>ربط جميع الأدوات التسويقية (زوهو / ميل شيب / اسانا)</li>
-                                <li>ربط مع زد أو سلة في التجارة الإلكترونية</li>
-                                <li>خدمة webengage لعملية التتبع بكسلات الويب + SDK التطبيق</li>
-                                <li>إعداد التقارير الشهري لقياس مؤشرات الأداء التسويقي</li>
-                            </ul>
-                            <a href="#contact" class="flip-card__cta flip-card__cta--featured">أشتراك</a>
-                        </div>
-
-                    </div>
+                <!-- Card 2 — Advance (Featured) -->
+                <div class="pkg-card pkg-card--featured">
+                    <div class="pkg-card__badge">الأكثر طلباً🔥</div>
+                    <h3 class="pkg-card__title">الباقة الاحتراف</h3>
+                    <p class="pkg-card__subtitle">للعلامات التجارية التي تطمح لزيادة المبيعات والانتشار</p>
+                    <ul class="pkg-card__features pkg-card__features--green">
+                        <li>إدارة 4 حسابات تواصل اجتماعي</li>
+                        <li>إنشاء محتوى (15 منشوراً شهرياً)</li>
+                        <li>إدارة الحملات الإعلانية الممولة</li>
+                        <li>تصوير منتجات / فيديو قصير (ريلز)</li>
+                        <li>تقارير تحليلية مفصلة للتطوير</li>
+                    </ul>
+                    <a href="#contact" class="pkg-card__cta pkg-card__cta--featured">أطلب هذه الباقة</a>
                 </div>
 
-                <!-- ══════════════════════════════════════
-                     Card 3 — Growth
-                ══════════════════════════════════════ -->
-                <div class="flip-card" role="button" tabindex="0" aria-label="باقة النمو">
-                    <div class="flip-card__inner">
-
-                        <!-- FRONT -->
-                        <div class="flip-card__face flip-card__face--front">
-                            <div class="flip-card__img-wrap">
-                                <img src="images/pack-grow.png" alt="باقة النمو" class="flip-card__img">
-                            </div>
-                            <h3 class="flip-card__title">باقة النمو</h3>
-                            <p class="flip-card__subtitle">للشركات والأعمال الكبرى</p>
-                            <span class="flip-card__hint">♡ مرّ للتفاصيل</span>
-                        </div>
-
-                        <!-- BACK -->
-                        <div class="flip-card__face flip-card__face--back">
-                            <h3 class="flip-card__back-title">باقة النمو</h3>
-                            <p class="flip-card__back-desc">خدمات التسويق - باقة النمو</p>
-                            <ul class="flip-card__features">
-                                <li>إعداد خطة تسويقية متكاملة</li>
-                                <li>إنشاء وإعداد متجرك الإلكتروني مع زد أو سلة</li>
-                                <li>إدارة جميع مواقع التواصل الاجتماعي</li>
-                                <li>تحسين محركات البحث (SEO)</li>
-                                <li>إدارة الحملات الإعلانية المدفوعة (جميع المنصات)</li>
-                                <li>إدارة الحملات عبر منصة الواتس اب</li>
-                                <li>تصميم موشن جرافيك "العدد 1"</li>
-                                <li>إعلانات على شاهد / نون / إمازون</li>
-                                <li>إعداد التقارير الشهري لقياس مؤشرات الأداء التسويقي</li>
-                                <li>ربط جميع الأدوات التسويقية (زوهو / ميل شيب / اسانا)</li>
-                            </ul>
-                            <a href="#contact" class="flip-card__cta">أشتراك</a>
-                        </div>
-
-                    </div>
+                <!-- Card 3 — Growth -->
+                <div class="pkg-card">
+                    <h3 class="pkg-card__title">باقة النمو</h3>
+                    <p class="pkg-card__subtitle">حلول متكاملة للشركات لضمان الاستحواذ التام على السوق</p>
+                    <ul class="pkg-card__features">
+                        <li>إدارة شاملة لجميع المنصات</li>
+                        <li>نشر يومي للمحتوى</li>
+                        <li>تحسين محركات البحث SEO</li>
+                        <li>إدارة الحملات بميزانيات ضخمة</li>
+                        <li>إنتاج فيديو موشن جرافيك شهرياً</li>
+                    </ul>
+                    <a href="#contact" class="pkg-card__cta">أطلب هذه الباقة</a>
                 </div>
 
             </div><!-- /pkg-grid -->

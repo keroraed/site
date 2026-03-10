@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
@@ -23,11 +25,18 @@
                 </div>
                 <div class="navbar__links" id="navLinks">
                     <a href="#" class="nav-link">الرئيسية</a>
-                    <a href="#packages" class="nav-link">الباقات</a>
-                    <a href="#contact" class="nav-link">أطلب خدمة</a>
-                    <a href="#footer" class="nav-link">موقعنا</a>
+                    <a href="#how-we-work" class="nav-link">كيف نعمل</a>
+                    <a href="#services" class="nav-link"> خدماتنا</a>
+                    <a href="#footer" class="nav-link">قصص عملاؤنا</a>
+                    <a href="#footer" class="nav-link">أعمالنا </a>
+                    <a href="#footer" class="nav-link">قصص عملاؤنا</a>
+
+                    <a href="https://offers.rosomat.net/" class="navbar__packages--mobile"><i class="ri-vip-crown-2-fill"></i> الباقات</a>
                 </div>
-                <a href="#contact" class="navbar__cta">ابدأ الأن</a>
+                <div class="navbar__actions">
+                    <a href="https://offers.rosomat.net/" class="navbar__packages"><i class="ri-vip-crown-2-fill"></i> الباقات</a>
+                    <a href="#contact" class="navbar__cta">بروفايل الشركة</a>
+                </div>
                 <button class="navbar__hamburger" id="hamburgerBtn" aria-label="فتح القائمة" aria-expanded="false">
                     <span></span>
                     <span></span>
@@ -53,7 +62,7 @@
                 </p>
                 <div class="hero-cta-wrap">
                     <a href="#contact" class="hero-cta-btn">
-                        أطلب باقة
+                        أطلب عرض السعر
                     </a>
                 </div>
             </div>
@@ -66,56 +75,215 @@
                 <div class="hero-glow hero-glow--outer"></div>
                 <div class="hero-glow hero-glow--bloom"></div>
 
-                <img
-                    src="images/center-image.png"
-                    alt="لوحة تحكم المبيعات"
-                    class="hero-illustration"
-                >
+                <img src="images/center-image.png" alt="لوحة تحكم المبيعات" class="hero-slide active">
             </div>
 
         </div>
     </section>
 
     <!-- ═══════════════════════════════════════════
+         HOW WE WORK SECTION — كيف نعمل
+    ════════════════════════════════════════════ -->
+    <section id="how-we-work" class="process-section">
+        <div class="process-sticky">
+
+            <!-- Header -->
+            <div class="process-hdr">
+                <h2 class="process-title">كيف نعمل</h2>
+                <p class="process-subtitle">نمتلك في رسومات مجموعة كبيرة من المهندسين أصحاب الخبرة والكفاءة حيث نعمل على تطوير فريق عملنا بشكل دائم ليواكب آخر التقنيات المستخدمة</p>
+            </div>
+
+            <!-- Step indicator -->
+            <div class="process-ind">
+                <span class="process-ind__label">01 / 04</span>
+                <div class="process-ind__bar"><div class="process-ind__fill"></div></div>
+            </div>
+
+            <!-- Horizontal cards track -->
+            <div class="process-track-wrap">
+                <div class="process-track">
+
+                    <!-- Card 1 -->
+                    <div class="process-card is-active">
+                        <span class="process-card__bg-num">01</span>
+                        <div class="process-card__icon"><i class="ri-quill-pen-line"></i></div>
+                        <h3 class="process-card__title">نكتب</h3>
+                        <p class="process-card__desc">نحول الأفكار المميزة إلى كلمات مقروءة، ثم نعيد صياغتها لتصل بأبسط الكلمات وأكثرها تناسبًا مع مفاهيم الجمهور الذي تستهدفه.</p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="process-card">
+                        <span class="process-card__bg-num">02</span>
+                        <div class="process-card__icon"><i class="ri-search-eye-line"></i></div>
+                        <h3 class="process-card__title">نبحث</h3>
+                        <p class="process-card__desc">نستخدم أحدث التقنيات لرصد التفاصيل المحيطة بمحتوى منصات التواصل الاجتماعي وحملاتك الإعلانية، ونُخضعها للقراءة والتحليل.</p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="process-card">
+                        <span class="process-card__bg-num">03</span>
+                        <div class="process-card__icon"><i class="ri-megaphone-line"></i></div>
+                        <h3 class="process-card__title">نتكلم</h3>
+                        <p class="process-card__desc">نُكوِّن حملات إعلانية متكاملة وشاملة لكل أهدافك مستغلين خبراتنا المتخصصة بالتسويق الإلكتروني لمختلف منصات التواصل الاجتماعي.</p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="process-card">
+                        <span class="process-card__bg-num">04</span>
+                        <div class="process-card__icon"><i class="ri-palette-line"></i></div>
+                        <h3 class="process-card__title">نرسم</h3>
+                        <p class="process-card__desc">نشكّل كل المحتوى الخاص بك في مجموعة من التصاميم والرسوم القادرة على جذب الانتباه وإيصال المعلومة بالصورة الأفضل.</p>
+                    </div>
+
+                </div><!-- /process-track -->
+            </div><!-- /process-track-wrap -->
+
+            <!-- Step dots navigation -->
+            <div class="process-dots">
+                <button class="process-dot is-active" data-step="0" aria-label="الخطوة 1"></button>
+                <button class="process-dot" data-step="1" aria-label="الخطوة 2"></button>
+                <button class="process-dot" data-step="2" aria-label="الخطوة 3"></button>
+                <button class="process-dot" data-step="3" aria-label="الخطوة 4"></button>
+            </div>
+
+        </div><!-- /process-sticky -->
+    </section>
+
+    <!-- ═══════════════════════════════════════════
          SERVICES SECTION — خدماتنا
     ════════════════════════════════════════════ -->
     <section id="services" class="services-section">
-        <!-- Subtle semicircle background decoration -->
-        <div class="services-bg-shape" aria-hidden="true"></div>
+        <div class="services-bg-decor" aria-hidden="true"></div>
+        <div class="services-bg-decor services-bg-decor--2" aria-hidden="true"></div>
 
         <div class="container">
-            <!-- Section Title -->
-            <h2 class="services-title">خدماتنا</h2>
+            <!-- Section Header -->
+            <div class="services-header">
+                <h2 class="services-title">خدماتنا</h2>
+                <p class="services-subtitle">إنجازنا في رسومات طويل وخبرتنا بهذا الانجاز يزداد، عندما تريد إنشاء مشروع ستحتاج لفريق يقدم لك الخدمة والنُّصح والإرشاد وخبراته المتراكمة</p>
+            </div>
 
-            <!-- Services Grid — 5 items -->
-            <div class="services-grid">
+            <!-- Services Bento Grid -->
+            <div class="services-bento">
 
-                <!-- Service 1 -->
-                <div class="service-card">
-                    <img src="images/service_1.png" alt="التسويق عبر البريد الإلكتروني" class="service-card__img">
+                <!-- Card 1 — Featured large -->
+                <div class="srv-card srv-card--lg">
+                    <div class="srv-card__icon"><i class="ri-line-chart-line"></i></div>
+                    <h3 class="srv-card__title">التسويق الرقمي</h3>
+                    <p class="srv-card__desc">صناعة المحتوى التسويقي المتناسب مع خدمات ومنتجات وتوجهات الشركة نعمل على التسويق الرقمي الذي يبدأ من مواقع التواصل الاجتماعي مروراً بمحركات البحث، لضمان تفاعل الجمهور من خلال تلك المواقع</p>
                 </div>
 
-                <!-- Service 2 -->
-                <div class="service-card">
-                    <img src="images/service_2.png" alt="التسويق عبر محركات البحث" class="service-card__img">
+                <!-- Card 2 -->
+                <div class="srv-card">
+                    <div class="srv-card__icon"><i class="ri-smartphone-line"></i></div>
+                    <h3 class="srv-card__title">حسابات التواصل الإجتماعي</h3>
+                    <p class="srv-card__desc">الوصول إلى شريحة كبيرة من العملاء والزوار من خلال إنشاء محتوى إبداعي وتسويقي وتصاميم إبداعية ومتابعة العملاء على مدار الساعة مما يساهم في زيادة عدد المستخدمين والعملاء على صفحتك الرقمية</p>
                 </div>
 
-                <!-- Service 3 -->
-                <div class="service-card">
-                    <img src="images/service_3.png" alt="التسويق عبر المشاهير" class="service-card__img">
+                <!-- Card 3 -->
+                <div class="srv-card">
+                    <div class="srv-card__icon"><i class="ri-user-star-line"></i></div>
+                    <h3 class="srv-card__title">إدارة المشاهير والمؤثرين</h3>
+                    <p class="srv-card__desc">الاعلان عبر المشاهير أكثر أشكال الإعلانات ثقةً ويؤثر كثيراً على قرارات الشراء عند المستهلكين المستهدفين، رسومات تبدع وتوفر لك قائمة من المشاهير المعلنين في السوشيال ميديا بالمملكة العربية السعودية</p>
                 </div>
 
-                <!-- Service 4 -->
-                <div class="service-card">
-                    <img src="images/service_4.png" alt="التسويق عبر الحملات الإعلانية" class="service-card__img">
+                <!-- Card 4 -->
+                <div class="srv-card">
+                    <div class="srv-card__icon"><i class="ri-store-2-line"></i></div>
+                    <h3 class="srv-card__title">تصميم متاجر إلكترونية</h3>
+                    <p class="srv-card__desc">رسومات تبدع بإنشاء وتصميم متجر الكتروني محترف ومميز ويتناسب مع أنظمة التجارة الالكترونية من خلال فريقنا ليلبي هذا الكيان رغبات واحتياجات المستهلكين الباحثين عن المنتجات والخدمات عبر الانترنت</p>
                 </div>
 
-                <!-- Service 5 -->
-                <div class="service-card">
-                    <img src="images/service_5.png" alt="التسويق عبر الإعلام الاجتماعي" class="service-card__img">
+                <!-- Card 5 -->
+                <div class="srv-card">
+                    <div class="srv-card__icon"><i class="ri-brush-line"></i></div>
+                    <h3 class="srv-card__title">تصميم الجرافيك</h3>
+                    <p class="srv-card__desc">لدينا فريق متكامل من الخبراء المختصين ذوي الكفاءات العالية مع استخدام أفضل الأدوات والأفكار الإبداعية للخروج بتصميم جذاب يتناسب مع أذواق الجمهور المستهدف</p>
                 </div>
 
-            </div><!-- /services-grid -->
+                <!-- Card 6 — Featured large -->
+                <div class="srv-card srv-card--lg">
+                    <div class="srv-card__icon"><i class="ri-movie-2-line"></i></div>
+                    <h3 class="srv-card__title">إنتاج الرسوم المتحركة</h3>
+                    <p class="srv-card__desc">رسومات تبدع بتحويل البيانات والمعلومات إلى فيديو متحرك على هيئة انفوجرافيك، بهدف إيصالها للمشاهد بطريقة سهلة ومبسطة ويتضمن معلومات معينة بطريقة جميلة تجذب المتابع للفيديو</p>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="srv-card">
+                    <div class="srv-card__icon"><i class="ri-global-line"></i></div>
+                    <h3 class="srv-card__title">المواقع الإلكترونية</h3>
+                    <p class="srv-card__desc">لدينا فريق متكامل من الخبراء المختصين ذوي الكفاءة وبمجرد أن نبدأ في إنشاء موقعك ستصل لمن تُريد للتعريف بنشاطك التجاري ولتحقيق أفضل النتائج والانطباع في السوق المحلي السعودي والعالمي</p>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="srv-card">
+                    <div class="srv-card__icon"><i class="ri-apps-2-line"></i></div>
+                    <h3 class="srv-card__title">تصميم تطبيقات الجوال</h3>
+                    <p class="srv-card__desc">لدينا فريق من المبرمجين يمتلك الخبرة الكافية من أجل تحويل الفكرة الى واقع عبر تطوير تطبيق احترافي يسهل الترويج لمشروعك وأعمالك ويلبي احتياجات المستخدمين ويشكل حلقة وصل بينك وبين عملائك</p>
+                </div>
+
+                <!-- Card 9 — Featured large -->
+                <div class="srv-card srv-card--lg">
+                    <div class="srv-card__icon"><i class="ri-camera-lens-line"></i></div>
+                    <h3 class="srv-card__title">التصوير الاحترافي</h3>
+                    <p class="srv-card__desc">اختصاصنا التصوير الاحترافي، ومن ذلك نعلم أن أهمية المحتوى المتحرك المتمثل في الفيديو أو الصور الفوتوغرافية، تتماشى جنبا إلى جنب مع أهمية التسويق فهو أهم عنصر لجذب العملاء عموماً والأشخاص المهتمين خصوصاً</p>
+                </div>
+
+            </div><!-- /services-bento -->
+
+            <!-- View All CTA -->
+            <div class="services-cta-wrap">
+                <a href="services.html" class="services-all-btn">
+                    <span>استعرض جميع خدماتنا</span>
+                    <i class="ri-arrow-left-line"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         WHY US SECTION
+    ════════════════════════════════════════════ -->
+    <section class="why-section">
+        <div class="container">
+
+            <!-- Row 1: stat LEFT, text RIGHT -->
+            <div class="why-row">
+                <div class="why-visual animate-fade-right">
+                    <img src="images/slider1.png" alt="نتائج حقيقية" class="why-img animate-scale animate-delay-2">
+                </div>
+                <div class="why-content animate-fade-left">
+                    <h2 class="why-title">ضاعف مبيعات مشروعك بذكاء</h2>
+                    <p class="why-desc">حوّل زيارات متجرك إلى أرباح حقيقية واستفد من حلول تسويقية مدروسة ترفع معدل التحويل وتزيد قيمة كل عميل.</p>
+                    <ul class="why-list">
+                        <li class="animate-fade-left animate-delay-1">استراتيجيات تسويق رقمية موجهة</li>
+                        <li class="animate-fade-left animate-delay-2">حملات إعلانية تحقق نتائج فعلية</li>
+                        <li class="animate-fade-left animate-delay-3">أتمتة ذكية لمتابعة العملاء</li>
+                        <li class="animate-fade-left animate-delay-4">تحسين تجربة المستخدم لزيادة الشراء</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Row 2: text LEFT, stat RIGHT -->
+            <div class="why-row why-row--reverse">
+                <div class="why-visual animate-fade-left">
+                    <img src="images/slider2.png" alt="زيادة المبيعات" class="why-img animate-scale animate-delay-2">
+                </div>
+                <div class="why-content animate-fade-right">
+                    <h2 class="why-title">أرقامنا تتكلم</h2>
+                    <p class="why-desc">نحوّل الأهداف إلى نتائج… والأفكار إلى نمو حقيقي.</p>
+                    <ul class="why-list">
+                        <li class="animate-fade-right animate-delay-1">+150 مشروع تم تنفيذه</li>
+                        <li class="animate-fade-right animate-delay-2">+300 حملة إعلانية ناجحة</li>
+                        <li class="animate-fade-right animate-delay-3">+40% متوسط زيادة في المبيعات</li>
+                        <li class="animate-fade-right animate-delay-4">7× تحسين في معدل التحويل</li>
+                        <li class="animate-fade-right animate-delay-5">أكثر من 16 مليون ريال مبيعات عملائنا</li>
+                        <li class="animate-fade-right animate-delay-5">100% تركيز على النتائج</li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -129,6 +297,16 @@
                 <p class="section-desc">حدد الباقة التي تليق بك واجعل الإبداع علينا</p>
             </div>
 
+            <!-- Billing Toggle -->
+            <div class="billing-toggle-wrap">
+                <span class="billing-label" id="label-monthly">شهرياً</span>
+                <div class="billing-switch" id="billing-switch" role="switch" aria-checked="false" tabindex="0">
+                    <div class="billing-switch__thumb"></div>
+                </div>
+                <span class="billing-label" id="label-yearly">سنوياً</span>
+                <span class="billing-save" id="billing-save">🎁 شهران مجاناً</span>
+            </div>
+
             <!-- Cards Grid -->
             <div class="pkg-grid">
 
@@ -136,6 +314,10 @@
                 <div class="pkg-card">
                     <h3 class="pkg-card__title">باقة الانطلاقة (التأسيس)</h3>
                     <p class="pkg-card__subtitle">مثالية للمشاريع الناشئة لبدء التواجد الرقمي</p>
+                    <div class="pkg-card__price">
+                        <span class="pkg-card__amount" data-monthly="500" data-yearly="417">500</span>
+                        <span class="pkg-card__currency">ر.س / شهر</span>
+                    </div>
                     <ul class="pkg-card__features">
                         <li>إدارة حسابين تواصل اجتماعي</li>
                         <li>إنشاء محتوى (8 منشورات شهرياً)</li>
@@ -150,6 +332,10 @@
                     <div class="pkg-card__badge">الأكثر طلباً🔥</div>
                     <h3 class="pkg-card__title">الباقة الاحتراف</h3>
                     <p class="pkg-card__subtitle">للعلامات التجارية التي تطمح لزيادة المبيعات والانتشار</p>
+                    <div class="pkg-card__price">
+                        <span class="pkg-card__amount" data-monthly="1000" data-yearly="833">1000</span>
+                        <span class="pkg-card__currency">ر.س / شهر</span>
+                    </div>
                     <ul class="pkg-card__features pkg-card__features--green">
                         <li>إدارة 4 حسابات تواصل اجتماعي</li>
                         <li>إنشاء محتوى (15 منشوراً شهرياً)</li>
@@ -164,6 +350,10 @@
                 <div class="pkg-card">
                     <h3 class="pkg-card__title">باقة النمو</h3>
                     <p class="pkg-card__subtitle">حلول متكاملة للشركات لضمان الاستحواذ التام على السوق</p>
+                    <div class="pkg-card__price">
+                        <span class="pkg-card__amount" data-monthly="2000" data-yearly="1667">2000</span>
+                        <span class="pkg-card__currency">ر.س / شهر</span>
+                    </div>
                     <ul class="pkg-card__features">
                         <li>إدارة شاملة لجميع المنصات</li>
                         <li>نشر يومي للمحتوى</li>
@@ -178,6 +368,18 @@
         </div>
     </section>
 
+    <!-- Profile Download CTA -->
+    <div class="spui-cta fade-up is-visible">
+        <div class="spui-cta__text">
+            <h2>تعرف على رسومات بشكل أعمق</h2>
+            <p>حمّل بروفايل الشركة الآن واطلع على خدماتنا وأعمالنا وقصص نجاحنا</p>
+        </div>
+        <a href="https://rosomat.net/public/profile/18092025.10.0249929143.pdf" class="spui-cta__btn" download target="_blank">
+            تحميل بروفايل الشركة
+            <i class="ri-download-line"></i>
+        </a>
+    </div>
+
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="container container--sm">
@@ -185,7 +387,7 @@
                 <div class="contact-decor"></div>
                 
                 <div class="contact-header">
-                    <h2 class="contact-title">تواصل معنا</h2>
+                    <h2 class="contact-title">عرض السعر</h2>
                     <p class="text-muted">نحن هنا للإجابة على جميع استفساراتك ومساعدتك في اختيار ما يناسبك.</p>
                 </div>
 
@@ -207,13 +409,18 @@
                     </div>
 
                     <div>
-                        <label for="package" class="form-label">اختر اسم باقتك</label>
-                        <select id="package" name="package" class="form-input form-select">
-                            <option value="" disabled selected>يرجى اختيار الباقة...</option>
-                            <option value="starter">باقة الانطلاقة (التأسيس)</option>
-                            <option value="pro">الباقة الاحتراف</option>
-                            <option value="growth">باقة النمو</option>
-                            <option value="custom">باقة مخصصة</option>
+                        <label for="service" class="form-label">اختر الخدمة المطلوبة</label>
+                        <select id="service" name="service" class="form-input form-select">
+                            <option value="" disabled selected>يرجى اختيار الخدمة...</option>
+                            <option value="1">التسويق الرقمي</option>
+                            <option value="2">حسابات التواصل الاجتماعي</option>
+                            <option value="3">إدارة المشاهير والمؤثرين</option>
+                            <option value="4">تصميم متاجر إلكترونية</option>
+                            <option value="5">تصميم الجرافيك</option>
+                            <option value="6">إنتاج الرسوم المتحركة</option>
+                            <option value="7">المواقع الإلكترونية</option>
+                            <option value="8">تصميم تطبيقات الجوال</option>
+                            <option value="9">التصوير الاحترافي</option>
                         </select>
                     </div>
 
@@ -230,6 +437,86 @@
         </div>
     </section>
 
+    <!-- ═══════════════════════════════════════════
+         FAQ SECTION — الأسئلة الشائعة
+    ════════════════════════════════════════════ -->
+    <section id="faq" class="faq-section">
+        <div class="container container--sm">
+            <h2 class="faq-title">الأسئلة الشائعة</h2>
+            <p class="faq-subtitle">إجابات على أكثر الأسئلة اللي تتكرر من عملائنا</p>
+
+            <div class="faq-list">
+
+                <!-- Q1 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>من نحن؟</span>
+                        <i class="ri-add-line faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>نحن وكالة رسومات (Rosomat) — وكالة تسويق رقمي متخصصة في صناعة العلامات التجارية، إدارة الحملات الإعلانية، وتطوير استراتيجيات النمو للمشاريع في السعودية والإمارات.</p>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>ما هي الخدمات التي تقدمونها؟</span>
+                        <i class="ri-add-line faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>نقدم مجموعة متكاملة من الخدمات تشمل: التسويق عبر وسائل التواصل الاجتماعي، تحسين محركات البحث (SEO)، إدارة الحملات الإعلانية المدفوعة، التسويق عبر البريد الإلكتروني، التسويق عبر المشاهير، وتصميم الهوية البصرية.</p>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>كم تكلفة الباقات؟</span>
+                        <i class="ri-add-line faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>نوفر باقات تبدأ من باقة الانطلاقة (التأسيس) وتصل إلى باقة النمو الشاملة، بأسعار مناسبة لكل مرحلة من مراحل مشروعك. يمكنك الاطلاع على تفاصيل الباقات في قسم الباقات أو التواصل معنا لباقة مخصصة.</p>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>كم المدة المتوقعة لرؤية نتائج؟</span>
+                        <i class="ri-add-line faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>تختلف المدة حسب نوع الخدمة — الحملات الإعلانية المدفوعة تعطي نتائج فورية خلال أيام، بينما تحسين محركات البحث والتسويق بالمحتوى يحتاج من 2 إلى 4 أشهر لرؤية نتائج ملموسة ومستدامة.</p>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>هل تخدمون عملاء خارج السعودية؟</span>
+                        <i class="ri-add-line faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>نعم! نتواجد في السعودية والإمارات ونخدم عملاء في جميع أنحاء الوطن العربي. جميع خدماتنا تُقدَّم عن بُعد بكفاءة عالية.</p>
+                    </div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>كيف أبدأ معكم؟</span>
+                        <i class="ri-add-line faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>ببساطة تواصل معنا عبر نموذج "أطلب خدمة" أو أرسل لنا على البريد الإلكتروني، وسيتواصل معك أحد أعضاء فريقنا خلال 24 ساعة لفهم احتياجاتك وتقديم أفضل حل مناسب.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer id="footer" class="site-footer">
         <div class="container">
@@ -242,6 +529,23 @@
                     <p class="footer-text">
                         وكالة تسويق رقمي متخصصة في صناعة العلامات التجارية وإدارة الحملات الإعلانية المبتكرة التي تحقق النمو والمبيعات المستدامة.
                     </p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="X (Twitter)">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="footer-col">
@@ -293,5 +597,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="lang-switch.js"></script>
 </body>
 </html>

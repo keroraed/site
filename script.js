@@ -1,4 +1,18 @@
 // ============================================================
+// Hero Slideshow — crossfade between images
+// ============================================================
+document.addEventListener('DOMContentLoaded', function () {
+    var slides = document.querySelectorAll('.hero-slide');
+    if (slides.length < 2) return;
+    var current = 0;
+    setInterval(function () {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+    }, 3000);
+});
+
+// ============================================================
 // Hamburger Menu — mobile nav toggle
 // ============================================================
 document.addEventListener('DOMContentLoaded', function () {
@@ -59,8 +73,11 @@ document.addEventListener('DOMContentLoaded', function () {
     var fadeTargets = [
         // Packages
         '.section-header',
+        // How We Work
+        '.process-title',
+        '.process-subtitle',
         // Services
-        '.services-title',
+        '.services-header',
         // Contact
         '.contact-card',
         // Footer
@@ -78,10 +95,11 @@ document.addEventListener('DOMContentLoaded', function () {
         card.classList.add('fade-up');
         card.style.transitionDelay = (i * 0.12) + 's';
     });
-    document.querySelectorAll('.service-card').forEach(function (card, i) {
+    document.querySelectorAll('.srv-card').forEach(function (card, i) {
         card.classList.add('fade-up');
-        card.style.transitionDelay = (i * 0.12) + 's';
+        card.style.transitionDelay = (i * 0.1) + 's';
     });
+    // process-step replaced with horizontal scroll cards — no fade-up needed
 
     // ── 2. Intersection Observer — reveal when 12% visible ──
     var observer = new IntersectionObserver(function (entries) {
@@ -115,4 +133,199 @@ document.addEventListener('DOMContentLoaded', function () {
     setTimeout(function () {
         if (heroVisual) heroVisual.classList.add('is-visible');
     }, 300);
+});
+
+// ============================================================
+// How We Work — Horizontal scroll-driven card reveal
+// ============================================================
+document.addEventListener('DOMContentLoaded', function () {
+    var section = document.getElementById('how-we-work');
+    if (!section) return;
+
+    var track     = section.querySelector('.process-track');
+    var cards     = Array.from(section.querySelectorAll('.process-card'));
+    var fill      = section.querySelector('.process-ind__fill');
+    var label     = section.querySelector('.process-ind__label');
+    var dots      = Array.from(section.querySelectorAll('.process-dot'));
+    var n         = cards.length;
+    var active    = 0;
+
+    function tx(progress) {
+        var vw    = window.innerWidth;
+        var pad   = 64;
+        var gap   = 28;
+        var cw    = cards[0].offsetWidth;
+        var initX = vw / 2 - pad - cw / 2;
+        var endX  = vw / 2 - (pad + (n - 1) * (cw + gap) + cw / 2);
+        var isRTL = document.documentElement.dir !== 'ltr';
+
+        if (isRTL) {
+            // RTL track starts from the right-most card visually.
+            return endX + progress * (initX - endX);
+        }
+
+        // LTR track starts from the first card visually.
+        return initX + progress * (endX - initX);
+    }
+
+    function update() {
+        var rect  = section.getBoundingClientRect();
+        var total = section.offsetHeight - window.innerHeight;
+        if (total <= 0) return;
+        var prog  = Math.min(1, Math.max(0, -rect.top / total));
+
+        track.style.transform = 'translateX(' + tx(prog).toFixed(2) + 'px)';
+        fill.style.width = (prog * 100).toFixed(1) + '%';
+
+        var step = Math.min(n - 1, Math.round(prog * (n - 1)));
+        if (step !== active) {
+            active = step;
+            cards.forEach(function (c, i) { c.classList.toggle('is-active', i === step); });
+            dots.forEach(function (d, i) { d.classList.toggle('is-active', i === step); });
+            label.textContent = '0' + (step + 1) + ' / 0' + n;
+        }
+    }
+
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+
+    dots.forEach(function (dot, i) {
+        dot.addEventListener('click', function () {
+            var total = section.offsetHeight - window.innerHeight;
+            var targetProg = (n < 2) ? 0 : i / (n - 1);
+            window.scrollTo({ top: section.offsetTop + targetProg * total, behavior: 'smooth' });
+        });
+    });
+});
+
+// ============================================================
+// Billing Toggle — monthly / yearly
+// ============================================================
+document.addEventListener('DOMContentLoaded', function () {
+    var toggle      = document.getElementById('billing-switch');
+    var saveBadge   = document.getElementById('billing-save');
+    var labelMonthly = document.getElementById('label-monthly');
+    var labelYearly  = document.getElementById('label-yearly');
+    var amounts     = document.querySelectorAll('.pkg-card__amount');
+
+    if (!toggle) return;
+
+    var isYearly = false;
+
+    function updatePrices() {
+        amounts.forEach(function (el) {
+            var val = isYearly ? el.dataset.yearly : el.dataset.monthly;
+            el.style.opacity = '0';
+            setTimeout(function () {
+                el.textContent = val;
+                el.style.opacity = '1';
+            }, 200);
+        });
+    }
+
+    function applyState() {
+        toggle.classList.toggle('is-yearly', isYearly);
+        toggle.setAttribute('aria-checked', isYearly);
+        saveBadge.classList.toggle('visible', isYearly);
+        labelMonthly.classList.toggle('active', !isYearly);
+        labelYearly.classList.toggle('active', isYearly);
+        updatePrices();
+    }
+
+    // set initial active label
+    labelMonthly.classList.add('active');
+
+    toggle.addEventListener('click', function () {
+        isYearly = !isYearly;
+        applyState();
+    });
+
+    toggle.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            isYearly = !isYearly;
+            applyState();
+        }
+    });
+});
+
+// ============================================================
+// Scroll Entrance Animations — IntersectionObserver
+// ============================================================
+document.addEventListener('DOMContentLoaded', function () {
+    var animatedEls = document.querySelectorAll(
+        '.animate-fade-up, .animate-fade-left, .animate-fade-right, .animate-scale'
+    );
+
+    if (!('IntersectionObserver' in window)) {
+        animatedEls.forEach(function (el) { el.classList.add('animate-visible'); });
+        return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    animatedEls.forEach(function (el) { observer.observe(el); });
+});
+
+// ============================================================
+// Pre-select Service from URL param  ?service=N
+// — Used when arriving from services.html or service-detail.html
+// ============================================================
+document.addEventListener('DOMContentLoaded', function () {
+    var params    = new URLSearchParams(window.location.search);
+    var serviceId = params.get('service');
+    if (!serviceId) return;
+
+    var select  = document.getElementById('service');
+    var section = document.getElementById('contact');
+    if (!select || !section) return;
+
+    // Pre-select the option
+    select.value = serviceId;
+
+    // Pulse-highlight the field so the user notices it
+    select.style.transition   = 'box-shadow 0.4s ease, border-color 0.4s ease';
+    select.style.borderColor  = '#d42b1e';
+    select.style.boxShadow    = '0 0 0 3px rgba(212,43,30,0.20)';
+    setTimeout(function () {
+        select.style.borderColor = '';
+        select.style.boxShadow   = '';
+    }, 2200);
+
+    // Smooth-scroll to the contact section
+    setTimeout(function () {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 120);
+});
+
+// ============================================================
+// FAQ Accordion
+// ============================================================
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.faq-question').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var item = btn.closest('.faq-item');
+            var isOpen = item.classList.contains('active');
+
+            // Close all items first (single-open accordion)
+            document.querySelectorAll('.faq-item.active').forEach(function (openItem) {
+                openItem.classList.remove('active');
+                openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+            });
+
+            // Toggle the clicked one
+            if (!isOpen) {
+                item.classList.add('active');
+                btn.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
 });

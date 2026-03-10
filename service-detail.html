@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل الخدمة | Rosomat رسومات</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar">
+        <div class="container">
+            <div class="navbar__row">
+                <div class="navbar__logo">
+                    <a href="index.html">
+                        <img src="images/logo-2.png" alt="رسومات" class="navbar__logo-img">
+                    </a>
+                </div>
+                <div class="navbar__links" id="navLinks">
+                    <a href="index.html" class="nav-link">الرئيسية</a>
+                    <a href="index.html#how-we-work" class="nav-link">كيف نعمل</a>
+                    <a href="services.html#services" class="nav-link">خدماتنا</a>
+                    <a href="index.html#contact" class="nav-link">تواصل معنا</a>
+                    <a href="https://offers.rosomat.net/" class="navbar__packages--mobile"><i class="ri-vip-crown-2-fill"></i> الباقات</a>
+                </div>
+                <div class="navbar__actions">
+                    <a href="https://offers.rosomat.net/" class="navbar__packages"><i class="ri-vip-crown-2-fill"></i> الباقات</a>
+                    <a href="index.html#contact" class="navbar__cta">بروفايل الشركة</a>
+                </div>
+                <button class="navbar__hamburger" id="hamburgerBtn" aria-label="فتح المكتب" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ══ HERO ══ -->
+    <section class="sdet-hero" id="sdetHero">
+        <div class="sdet-hero__orb sdet-hero__orb--1"></div>
+        <div class="sdet-hero__orb sdet-hero__orb--2"></div>
+        <div class="sdet-hero__orb sdet-hero__orb--3"></div>
+
+        <div class="sdet-hero__inner">
+
+            <!-- Text — right side (RTL) -->
+            <div class="sdet-hero__text">
+                <a href="services.html" class="sdet-hero__breadcrumb">
+                    <i class="ri-arrow-right-line"></i>
+                    خدماتنا
+                </a>
+
+                <div class="sdet-hero__icon-wrap" id="heroIcon">
+                    <i id="heroIconI"></i>
+                </div>
+
+                <span class="sdet-hero__num" id="heroNum"></span>
+                <h1 class="sdet-hero__title" id="heroTitle">جاري التحميل…</h1>
+                <p class="sdet-hero__tagline" id="heroTagline"></p>
+                <p class="sdet-hero__desc" id="heroDesc"></p>
+
+                <div class="sdet-hero__actions">
+                    <a href="index.html#contact" class="sdet-hero__cta">
+                        اطلب الخدمة الآن <i class="ri-arrow-left-line"></i>
+                    </a>
+                    <a href="services.html" class="sdet-hero__ghost">
+                        <i class="ri-grid-line"></i> جميع الخدمات
+                    </a>
+                </div>
+            </div>
+
+            <!-- Image — left side (RTL) -->
+            <div class="sdet-hero__visual">
+                <div class="hero-glow hero-glow--core"></div>
+                <div class="hero-glow hero-glow--mid"></div>
+                <div class="hero-glow hero-glow--outer"></div>
+                <img src="images/service1-trans.png" alt="خدمة رسومات" class="sdet-hero__img">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ══ FEATURES ══ -->
+    <section class="sdet-features">
+        <div class="container">
+            <div class="sdet-sec-header">
+                <span class="sdet-sec-label">ما تشمله الخدمة</span>
+                <h2 class="sdet-sec-title" id="featTitle">مزايا الخدمة</h2>
+                <p class="sdet-sec-sub">نقدم حلولاً شاملة ومتكاملة تلبي احتياجاتك وتتجاوز توقعاتك</p>
+            </div>
+            <div class="sdet-feat-grid" id="featGrid"></div>
+        </div>
+    </section>
+
+    <!-- ══ PROCESS ══ -->
+    <section class="sdet-process">
+        <div class="container">
+            <div class="sdet-sec-header">
+                <span class="sdet-sec-label">آلية العمل</span>
+                <h2 class="sdet-sec-title">كيف ننفّذ الخدمة؟</h2>
+                <p class="sdet-sec-sub">خطوات واضحة ومنهجية تضمن تسليم نتائج استثنائية في الوقت المحدد</p>
+            </div>
+            <div class="sdet-steps" id="processSteps"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">
+                        <img src="images/logo-trans.png" alt="رسومات" class="footer-logo-img">
+                    </a>
+                    <p class="footer-text">
+                        وكالة تسويق رقمي متخصصة في صناعة العلامات التجارية وإدارة الحملات الإعلانية المبتكرة التي تحقق النمو والمبيعات المستدامة.
+                    </p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">أين نتواجد</h4>
+                    <ul class="footer-list">
+                        <li class="footer-list-item"><span class="footer-dot"></span>المملكة العربية السعودية (Sa)</li>
+                        <li class="footer-list-item"><span class="footer-dot"></span>الإمارات العربية المتحدة (UAE)</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">معلومات التواصل</h4>
+                    <ul class="footer-list">
+                        <li><a href="mailto:info@rosomat.com" class="footer-link"><span class="footer-icon">✉️</span> info@rosomat.com</a></li>
+                        <li><a href="tel:+966500000000" class="footer-link" dir="ltr"><span class="footer-icon">📞</span> +966 50 000 0000</a></li>
+                        <li><a href="tel:+971500000000" class="footer-link" dir="ltr"><span class="footer-icon">📞</span> +971 50 000 0000</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 رسومات (Rosomat). جميع الحقوق محفوظة.</p>
+                <div class="footer-bottom-links">
+                    <a href="#" class="footer-bottom-link">سياسة الخصوصية</a>
+                    <span>•</span>
+                    <a href="#" class="footer-bottom-link">الشروط والأحكام</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // ══════════════════════════════════════════════
+    // Service Data
+    // ══════════════════════════════════════════════
+    var SERVICES = {
+        1: {
+            title: 'التسويق الرقمي',
+            icon: 'ri-line-chart-line',
+            num: '01',
+            tagline: 'وصول أوسع، نتائج أقوى',
+            desc: 'نصنع لك حضوراً رقمياً متكاملاً من خلال استراتيجيات تسويقية مدروسة تجمع بين إبداع المحتوى وقوة البيانات، لنحوّل زوار موقعك إلى عملاء فعليين ونحقق لك أهدافك التجارية بأعلى عائد استثمار.',
+            features: [
+                { icon: 'ri-search-eye-line',     title: 'تحسين محركات البحث (SEO)',    desc: 'نعمل على تحسين ترتيب موقعك في نتائج البحث لجذب زوار مستهدفين بشكل عضوي ومستدام على المدى البعيد.' },
+                { icon: 'ri-advertisement-line',  title: 'الإعلانات المدفوعة (PPC)',    desc: 'إدارة حملات إعلانية احترافية على جوجل وبينج بأعلى عائد استثمار ممكن وأقل تكلفة لكل تحويل.' },
+                { icon: 'ri-mail-send-line',       title: 'التسويق بالبريد الإلكتروني', desc: 'بناء قوائم بريدية وإرسال حملات مخصصة تحقق معدلات فتح وتفاعل استثنائية.' },
+                { icon: 'ri-bar-chart-2-line',     title: 'تحليل البيانات والتقارير',   desc: 'تقارير دورية شاملة تعكس أداء حملاتك وتساعدك على اتخاذ قرارات مبنية على بيانات حقيقية.' },
+                { icon: 'ri-article-line',         title: 'تسويق المحتوى',              desc: 'إنشاء محتوى تسويقي ذو قيمة يجذب جمهورك المستهدف ويرسّخ مكانتك كمرجع في مجالك.' },
+                { icon: 'ri-focus-2-line',         title: 'الاستهداف الدقيق للجمهور',  desc: 'تحديد شرائح جمهورك المثالي بدقة عالية لضمان وصول رسالتك لمن يهمه فعلاً.' }
+            ],
+            process: ['تحليل السوق والمنافسين', 'وضع الاستراتيجية التسويقية', 'إطلاق الحملات والمحتوى', 'قياس الأداء وإعداد التقارير', 'التحسين المستمر والتطوير']
+        },
+        2: {
+            title: 'حسابات التواصل الاجتماعي',
+            icon: 'ri-smartphone-line',
+            num: '02',
+            tagline: 'احضر بقوة، كن في كل مكان',
+            desc: 'ندير حساباتك على منصات التواصل الاجتماعي باحترافية تامة ومحتوى إبداعي مصمم لجذب الانتباه وبناء مجتمع متفاعل حول علامتك التجارية، مما يعني نمواً حقيقياً ومستداماً في قاعدة عملائك.',
+            features: [
+                { icon: 'ri-instagram-line',           title: 'إدارة كاملة للحسابات',       desc: 'إنشاء وإدارة حساباتك على إنستغرام وسناب شات وتيك توك وتويتر/X وفيسبوك ولينكدإن.' },
+                { icon: 'ri-palette-line',              title: 'تصميم محتوى إبداعي',         desc: 'تصميم بصري متناسق مع هوية علامتك التجارية يجذب الأعين ويحفز التفاعل والمشاركة.' },
+                { icon: 'ri-calendar-schedule-line',   title: 'جدولة ذكية للمنشورات',       desc: 'جدولة المحتوى في أفضل الأوقات لضمان أعلى وصول ومشاركة من جمهورك المستهدف.' },
+                { icon: 'ri-customer-service-2-line',  title: 'إدارة التفاعل والمجتمع',     desc: 'الرد على التعليقات والرسائل وبناء علاقة قوية ومستدامة مع متابعيك وعملائك.' },
+                { icon: 'ri-line-chart-line',           title: 'تحليل النمو والأداء',        desc: 'رصد وتحليل مؤشرات الأداء الرئيسية لتحسين الاستراتيجية باستمرار.' },
+                { icon: 'ri-advertisement-line',        title: 'إعلانات السوشيال ميديا',     desc: 'إطلاق حملات إعلانية مدفوعة مستهدفة على المنصات المختلفة لتحقيق أهدافك بسرعة.' }
+            ],
+            process: ['تحليل حساباتك الحالية', 'وضع خطة المحتوى وهوية البراند', 'إنتاج وجدولة المحتوى', 'التفاعل مع الجمهور يومياً', 'مراجعة الأداء وتحسين الاستراتيجية']
+        },
+        3: {
+            title: 'إدارة المشاهير والمؤثرين',
+            icon: 'ri-user-star-line',
+            num: '03',
+            tagline: 'الثقة أقوى من أي إعلان',
+            desc: 'نربطك بالمؤثرين الأنسب لعلامتك التجارية من قاعدتنا الواسعة في المملكة العربية السعودية والعالم العربي، ونضمن لك حملات تسويقية عبر المشاهير تحقق أعلى مستويات الثقة والانتشار.',
+            features: [
+                { icon: 'ri-database-2-line',       title: 'قاعدة بيانات ضخمة',          desc: 'نمتلك قاعدة بيانات من آلاف المؤثرين السعوديين والعرب عبر جميع المنصات والتخصصات.' },
+                { icon: 'ri-user-search-line',       title: 'اختيار المؤثر المناسب',      desc: 'نحلل جمهور كل مؤثر ومدى توافقه مع علامتك التجارية وجمهورك المستهدف.' },
+                { icon: 'ri-price-tag-3-line',       title: 'التفاوض وإدارة العقود',      desc: 'نتولى التفاوض على الأسعار وإعداد العقود لحماية حقوقك وضمان تنفيذ الحملة.' },
+                { icon: 'ri-film-line',              title: 'إشراف على إنتاج المحتوى',    desc: 'نتابع إنتاج المحتوى الإعلاني للتأكد من تقديمه بأعلى جودة وبما يتوافق مع هويتك.' },
+                { icon: 'ri-bar-chart-box-line',     title: 'قياس نتائج التأثير',         desc: 'تتبع مؤشرات الأداء كالوصول والتفاعل ومعدل التحويل لقياس العائد الفعلي.' },
+                { icon: 'ri-repeat-line',            title: 'بناء علاقات طويلة الأمد',    desc: 'نساعدك في بناء شراكات مع مؤثرين سفراء لعلامتك التجارية على المدى البعيد.' }
+            ],
+            process: ['تحديد أهداف الحملة والجمهور', 'اختيار المؤثرين المناسبين', 'إعداد العقود والتفاوض', 'الإشراف على إنتاج المحتوى', 'نشر المحتوى وقياس النتائج']
+        },
+        4: {
+            title: 'تصميم متاجر إلكترونية',
+            icon: 'ri-store-2-line',
+            num: '04',
+            tagline: 'متجرك الرقمي.. بوابتك للنجاح',
+            desc: 'نصمم لك متجراً إلكترونياً احترافياً يعكس هوية علامتك التجارية ويمنح زوارك تجربة تسوق سلسة وممتعة، مع ربط كامل لبوابات الدفع وأنظمة المتابعة لضمان تدفق المبيعات وتحقيق أعلى معدلات التحويل.',
+            features: [
+                { icon: 'ri-layout-5-line',         title: 'تصميم واجهة احترافية',       desc: 'واجهة مستخدم جميلة وسهلة الاستخدام مصممة خصيصاً لتحويل الزائر إلى مشتري.' },
+                { icon: 'ri-bank-card-line',         title: 'ربط بوابات الدفع',           desc: 'ربط آمن وسلس مع أبرز بوابات الدفع المحلية والدولية كـ Mada وVisa وPayPal.' },
+                { icon: 'ri-smartphone-line',        title: 'تجاوب تام مع الجوال',        desc: 'تجربة تسوق مثالية على جميع الأجهزة من موبايل وتابلت وكمبيوتر.' },
+                { icon: 'ri-search-eye-line',        title: 'تحسين لمحركات البحث',        desc: 'بنية تقنية محسّنة لخوارزميات جوجل لضمان ظهور متجرك في نتائج البحث.' },
+                { icon: 'ri-settings-4-line',        title: 'لوحة تحكم سهلة',             desc: 'لوحة إدارة بسيطة تمكّنك من إضافة المنتجات وتتبع الطلبات وإدارة المخزون بسهولة.' },
+                { icon: 'ri-customer-service-2-line',title: 'دعم فني بعد الإطلاق',        desc: 'فريق دعم متاح دائماً لمساعدتك في أي تغييرات أو مشاكل بعد إطلاق المتجر.' }
+            ],
+            process: ['تحليل متطلباتك ونشاطك التجاري', 'تصميم الواجهات والنماذج', 'التطوير وربط الأنظمة', 'الاختبار وضمان الجودة', 'الإطلاق والدعم المستمر']
+        },
+        5: {
+            title: 'تصميم الجرافيك',
+            icon: 'ri-brush-line',
+            num: '05',
+            tagline: 'هويتك البصرية.. أول ما يُرى',
+            desc: 'نخلق لك هوية بصرية قوية وتصاميم إبداعية تعكس روح علامتك التجارية وتترك انطباعاً لا يُنسى عند جمهورك، بفريق من مصممين موهوبين يجمعون بين الإبداع الفني واحترافية تلبية متطلبات السوق.',
+            features: [
+                { icon: 'ri-fingerprint-line',  title: 'تصميم الهوية البصرية',         desc: 'بناء هوية بصرية متكاملة تشمل الشعار والألوان والخطوط وجميع عناصر البراند.' },
+                { icon: 'ri-quill-pen-line',    title: 'تصميم الشعارات',               desc: 'شعارات فريدة ومميزة تعبّر عن قيم وشخصية علامتك التجارية بشكل احترافي.' },
+                { icon: 'ri-newspaper-line',    title: 'المطبوعات التسويقية',          desc: 'تصميم البروشورات والفلايرات والبطاقات التجارية واللافتات وجميع المواد المطبوعة.' },
+                { icon: 'ri-image-2-line',      title: 'التصاميم الرقمية',             desc: 'منشورات سوشيال ميديا وإعلانات رقمية وبانرات مواقع بتصاميم جذابة ومؤثرة.' },
+                { icon: 'ri-gift-2-line',       title: 'تصميم تغليف المنتجات',        desc: 'تصميم عبوات وتغليف احترافي يجعل منتجك يبرز على الرفوف ويجذب المشتري.' },
+                { icon: 'ri-file-copy-2-line',  title: 'ملفات مصدرية كاملة',          desc: 'تسليم جميع التصاميم بصيغ عالية الجودة وملفات مصدرية قابلة للتعديل.' }
+            ],
+            process: ['جلسة استيعاب متطلباتك وتوقعاتك', 'البحث والإلهام والتخطيط', 'تقديم المفاهيم والأفكار الأولية', 'التعديل وصقل التصميم', 'التسليم النهائي بجميع الصيغ']
+        },
+        6: {
+            title: 'إنتاج الرسوم المتحركة',
+            icon: 'ri-movie-2-line',
+            num: '06',
+            tagline: 'اجعل فكرتك تتحرك وتتكلم',
+            desc: 'نحوّل أفكارك وبياناتك إلى محتوى مرئي متحرك يشرح ويجذب ويحفز الجمهور على التفاعل. فيديوهاتنا المتحركة تنقل رسالتك بوضوح مبدع وتبقى عالقة في ذاكرة مشاهديها لفترة طويلة.',
+            features: [
+                { icon: 'ri-movie-line',         title: 'رسوم متحركة 2D و3D',          desc: 'إنتاج رسوم متحركة ثنائية وثلاثية الأبعاد بأعلى مستوى من الجودة والاحترافية.' },
+                { icon: 'ri-play-circle-line',   title: 'موشن جرافيك',                 desc: 'تحريك العناصر الجرافيكية والنصوص والأيقونات في مقاطع موشن غرافيك احترافية.' },
+                { icon: 'ri-pie-chart-2-line',   title: 'فيديوهات الإنفوجرافيك',       desc: 'تحويل البيانات والإحصاءات إلى رسوم متحركة ملوّنة سهلة الفهم والاستيعاب.' },
+                { icon: 'ri-slideshow-line',     title: 'فيديوهات الشرح والتعريف',     desc: 'إنتاج فيديوهات تعريفية بالشركات والمنتجات والخدمات بأسلوب سردي جذاب.' },
+                { icon: 'ri-draft-line',         title: 'رسوم الوايت بورد',            desc: 'أسلوب الوايت بورد لشرح الأفكار المعقدة بطريقة مبسطة وجذابة.' },
+                { icon: 'ri-magic-line',         title: 'تأثيرات بصرية احترافية',      desc: 'إضافة تأثيرات بصرية خاصة ومتطورة ترتقي بمستوى إنتاجك المرئي.' }
+            ],
+            process: ['فهم الرسالة وكتابة السيناريو', 'رسم الستوريبورد والتخطيط', 'التصميم وإنتاج الأصول البصرية', 'التحريك والمونتاج', 'التسليم والمراجعة النهائية']
+        },
+        7: {
+            title: 'المواقع الإلكترونية',
+            icon: 'ri-global-line',
+            num: '07',
+            tagline: 'موقعك.. واجهتك الأولى للعالم',
+            desc: 'نبني لك موقعاً إلكترونياً يجمع بين التصميم الجمالي المؤثر والأداء التقني الفائق، موقع سريع ومحسّن وآمن يمثل علامتك التجارية بأبهى صورة ويحوّل زواره إلى عملاء فعليين.',
+            features: [
+                { icon: 'ri-layout-5-line',      title: 'تصميم مخصص واحترافي',        desc: 'تصميم فريد يعكس هوية علامتك التجارية ويتميز باكتماله البصري والوظيفي.' },
+                { icon: 'ri-smartphone-line',    title: 'متجاوب مع جميع الأجهزة',     desc: 'تجربة مثالية على الهاتف والتابلت والكمبيوتر بجميع أحجام الشاشات.' },
+                { icon: 'ri-speed-line',         title: 'سرعة تحميل عالية',          desc: 'تحسين الأداء والسرعة لضمان تجربة مستخدم سلسة وتصنيف أفضل في محركات البحث.' },
+                { icon: 'ri-shield-check-line',  title: 'حماية وأمان كاملان',         desc: 'تطبيق أعلى معايير الأمان وشهادات SSL وحماية من الاختراقات والهجمات.' },
+                { icon: 'ri-search-eye-line',    title: 'محسّن لمحركات البحث',        desc: 'بنية SEO تقنية متكاملة لضمان ظهور موقعك في الصفحات الأولى من نتائج البحث.' },
+                { icon: 'ri-settings-4-line',    title: 'نظام إدارة محتوى سهل',       desc: 'لوحة تحكم سهلة تمكّنك من تحديث محتوى موقعك بنفسك دون الحاجة لخبرة تقنية.' }
+            ],
+            process: ['جمع المتطلبات وتحديد الأهداف', 'تصميم الواجهات وتجربة المستخدم', 'التطوير والبرمجة', 'الاختبار وضمان الجودة', 'الإطلاق والمتابعة']
+        },
+        8: {
+            title: 'تصميم تطبيقات الجوال',
+            icon: 'ri-apps-2-line',
+            num: '08',
+            tagline: 'تطبيقك في جيب كل عميل',
+            desc: 'نطوّر تطبيقات جوال احترافية لنظامي iOS وAndroid بتصميم UX/UI متميز وأداء تقني عالٍ، مع كامل الدعم من مرحلة الفكرة حتى النشر على متاجر التطبيقات وما بعدها.',
+            features: [
+                { icon: 'ri-paint-brush-line',  title: 'تصميم UI/UX متميز',           desc: 'تصميم واجهة تطبيق جذابة وتجربة مستخدم بديهية تجعل المستخدمين يعودون مراراً.' },
+                { icon: 'ri-apple-line',         title: 'تطوير iOS و Android',         desc: 'تطوير تطبيقات أصلية أو هجينة للمنصتين بنفس الجودة والأداء العالي.' },
+                { icon: 'ri-server-line',        title: 'تطوير الخادم والـ API',       desc: 'بناء باكند قوي وتطوير APIs آمنة وفعّالة لدعم جميع وظائف تطبيقك.' },
+                { icon: 'ri-store-line',         title: 'النشر على المتاجر',           desc: 'نتولى نشر تطبيقك على App Store وGoogle Play مع استيفاء جميع المتطلبات.' },
+                { icon: 'ri-test-tube-line',     title: 'اختبار شامل لضمان الجودة',   desc: 'اختبار مكثف على أجهزة ومحاكيات متعددة لضمان خلو التطبيق من الأخطاء.' },
+                { icon: 'ri-tools-line',         title: 'دعم ما بعد الإطلاق',         desc: 'صيانة مستمرة وتحديثات دورية وإصلاح سريع لأي مشكلات عقب الإطلاق.' }
+            ],
+            process: ['دراسة الفكرة وتحليل السوق', 'تصميم UX وبناء النماذج', 'التطوير والبرمجة', 'الاختبار والتحسين', 'النشر والدعم المستمر']
+        },
+        9: {
+            title: 'التصوير الاحترافي',
+            icon: 'ri-camera-lens-line',
+            num: '09',
+            tagline: 'صورة واحدة تساوي ألف كلمة',
+            desc: 'نلتقط لك صوراً احترافية تعكس جودة منتجاتك وخدماتك بأعلى مستوى، مستخدمين أحدث المعدات وفريقاً من المصورين المحترفين الذين يجيدون الجمع بين التقنية والإبداع.',
+            features: [
+                { icon: 'ri-camera-3-line',        title: 'تصوير المنتجات',             desc: 'تصوير منتجاتك بأسلوب احترافي يبرز مميزاتها ويجعلها أكثر جاذبية للمشتري.' },
+                { icon: 'ri-building-2-line',      title: 'التصوير المؤسسي',            desc: 'تصوير فريق العمل والمقر والأنشطة الداخلية لتعزيز صورة شركتك المهنية.' },
+                { icon: 'ri-calendar-event-line',  title: 'تغطية الفعاليات',            desc: 'توثيق مؤتمراتك وحفلات الإطلاق والفعاليات الخاصة بصور ومقاطع احترافية.' },
+                { icon: 'ri-magic-line',           title: 'المعالجة الاحترافية',        desc: 'تحرير احترافي للصور بأحدث برامج المعالجة للحصول على نتائج مذهلة.' },
+                { icon: 'ri-home-2-line',          title: 'تصوير في الستوديو والخارج', desc: 'نمتلك استوديو مجهزاً بالكامل كما نوفر فرق تصوير متنقلة لأي موقع.' },
+                { icon: 'ri-time-line',            title: 'تسليم سريع للملفات',         desc: 'نسليمك الصور المعالجة بجميع الصيغ والمقاسات في وقت قياسي.' }
+            ],
+            process: ['تحديد المتطلبات والأفكار', 'الإعداد والتجهيز للجلسة', 'جلسة التصوير الاحترافية', 'المعالجة والتحرير', 'التسليم والمراجعة']
+        }
+    };
+
+    // ══════════════════════════════════════════════
+    // Render page from URL ?id=
+    // ══════════════════════════════════════════════
+    (function () {
+        var params = new URLSearchParams(window.location.search);
+        var id = parseInt(params.get('id'), 10);
+        var s = SERVICES[id];
+
+        if (!s) {
+            // Fallback: redirect to services list
+            window.location.href = 'services.html';
+            return;
+        }
+
+        // Update <title>
+        document.title = s.title + ' | Rosomat رسومات';
+
+        // Hero
+        document.getElementById('heroIconI').className = s.icon;
+        document.getElementById('heroNum').textContent   = 'خدمة رقم ' + s.num;
+        document.getElementById('heroTitle').textContent = s.title;
+        document.getElementById('heroTagline').textContent = s.tagline;
+        document.getElementById('heroDesc').textContent  = s.desc;
+        document.getElementById('featTitle').textContent = 'ما يشمله ' + s.title;
+
+        // Features grid
+        var featGrid = document.getElementById('featGrid');
+        s.features.forEach(function (f) {
+            featGrid.insertAdjacentHTML('beforeend',
+                '<div class="sdet-feat-card">' +
+                    '<div class="sdet-feat-card__icon"><i class="' + f.icon + '"></i></div>' +
+                    '<h3 class="sdet-feat-card__title">' + f.title + '</h3>' +
+                    '<p class="sdet-feat-card__desc">' + f.desc + '</p>' +
+                '</div>'
+            );
+        });
+
+        // Process steps
+        var stepsEl = document.getElementById('processSteps');
+        s.process.forEach(function (label, i) {
+            stepsEl.insertAdjacentHTML('beforeend',
+                '<div class="sdet-step">' +
+                    '<div class="sdet-step__bubble">' + (i + 1) + '</div>' +
+                    '<p class="sdet-step__label">' + label + '</p>' +
+                '</div>'
+            );
+        });
+
+        // Update CTA button to pre-select this service in the contact form
+        var ctaBtn = document.querySelector('.sdet-hero__cta');
+        if (ctaBtn) ctaBtn.href = 'index.html?service=' + id + '#contact';
+    })();
+
+    // ══════════════════════════════════════════════
+    // Navbar scroll effect
+    // ══════════════════════════════════════════════
+    var nav = document.getElementById('navbar');
+    function updateNav() {
+        var ratio = Math.min(window.scrollY / 120, 1);
+        nav.style.background           = 'rgba(247, 241, 234, ' + (ratio * 0.85).toFixed(3) + ')';
+        nav.style.backdropFilter       = 'blur(' + (ratio * 18).toFixed(1) + 'px)';
+        nav.style.webkitBackdropFilter = 'blur(' + (ratio * 18).toFixed(1) + 'px)';
+        nav.style.boxShadow            = ratio > 0.05 ? '0 1px 16px rgba(0,0,0,' + (ratio * 0.06).toFixed(3) + ')' : 'none';
+        nav.style.borderBottomColor    = ratio > 0.1 ? 'rgba(0,0,0,' + (ratio * 0.06).toFixed(2) + ')' : 'transparent';
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+
+    // ══════════════════════════════════════════════
+    // Hamburger
+    // ══════════════════════════════════════════════
+    var btn   = document.getElementById('hamburgerBtn');
+    var links = document.getElementById('navLinks');
+    btn.addEventListener('click', function () {
+        var open = links.classList.toggle('is-open');
+        btn.classList.toggle('is-open', open);
+        btn.setAttribute('aria-expanded', open);
+    });
+    links.querySelectorAll('.nav-link').forEach(function (link) {
+        link.addEventListener('click', function () {
+            links.classList.remove('is-open');
+            btn.classList.remove('is-open');
+            btn.setAttribute('aria-expanded', 'false');
+        });
+    });
+
+    // ══════════════════════════════════════════════
+    // Scroll-triggered fade-in for feature cards & steps
+    // ══════════════════════════════════════════════
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (e.isIntersecting) {
+                e.target.classList.add('is-visible');
+                observer.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+
+    // Observe after a short tick so dynamic content is rendered
+    setTimeout(function () {
+        document.querySelectorAll('.sdet-feat-card').forEach(function (el, i) {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(28px)';
+            el.style.transition = 'opacity 0.55s ease ' + (i * 0.07) + 's, transform 0.55s ease ' + (i * 0.07) + 's';
+            observer.observe(el);
+            el.addEventListener('intersect', function(){});
+        });
+        document.querySelectorAll('.sdet-step').forEach(function (el, i) {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease ' + (i * 0.1) + 's, transform 0.5s ease ' + (i * 0.1) + 's';
+            observer.observe(el);
+        });
+    }, 50);
+
+    // Custom is-visible handler for inline-styled elements
+    var io2 = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (e.isIntersecting) {
+                e.target.style.opacity = '1';
+                e.target.style.transform = 'none';
+                io2.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+
+    setTimeout(function () {
+        document.querySelectorAll('.sdet-feat-card, .sdet-step').forEach(function (el) {
+            io2.observe(el);
+        });
+    }, 80);
+    </script>
+    <script src="lang-switch.js"></script>
+</body>
+</html>

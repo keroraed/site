@@ -160,6 +160,56 @@
         </div>
     </footer>
 
+    <!-- ══ Contact Request Modal ══ -->
+    <div id="contactModal" class="sdet-modal" role="dialog" aria-modal="true" aria-labelledby="modalFormTitle">
+        <div class="sdet-modal__backdrop"></div>
+        <div class="sdet-modal__box">
+            <button class="sdet-modal__close" id="modalClose" aria-label="إغلاق">
+                <i class="ri-close-line"></i>
+            </button>
+            <div class="contact-header">
+                <h2 class="contact-title" id="modalFormTitle">اطلب الخدمة الآن</h2>
+                <p class="text-muted">نحن هنا للإجابة على جميع استفساراتك ومساعدتك في اختيار ما يناسبك.</p>
+            </div>
+            <form class="contact-form" id="modalContactForm" novalidate>
+                <div class="form-grid">
+                    <div>
+                        <label for="modal-name" class="form-label">الاسم</label>
+                        <input type="text" id="modal-name" name="name" placeholder="محمد أحمد..." class="form-input">
+                    </div>
+                    <div>
+                        <label for="modal-phone" class="form-label">رقم الجوال</label>
+                        <input type="tel" id="modal-phone" name="phone" placeholder="05X XXX XXXX" dir="ltr" class="form-input form-input--ltr">
+                    </div>
+                </div>
+                <div>
+                    <label for="modal-email" class="form-label">البريد الإلكتروني</label>
+                    <input type="email" id="modal-email" name="email" placeholder="example@domain.com" class="form-input">
+                </div>
+                <div>
+                    <label for="modal-service" class="form-label">الخدمة المطلوبة</label>
+                    <select id="modal-service" name="service" class="form-input form-select">
+                        <option value="" disabled>يرجى اختيار الخدمة...</option>
+                        <option value="1">التسويق الرقمي</option>
+                        <option value="2">حسابات التواصل الاجتماعي</option>
+                        <option value="3">إدارة المشاهير والمؤثرين</option>
+                        <option value="4">تصميم متاجر إلكترونية</option>
+                        <option value="5">تصميم الجرافيك</option>
+                        <option value="6">إنتاج الرسوم المتحركة</option>
+                        <option value="7">المواقع الإلكترونية</option>
+                        <option value="8">تصميم تطبيقات الجوال</option>
+                        <option value="9">التصوير الاحترافي</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="modal-details" class="form-label">تفاصيل المشروع</label>
+                    <textarea id="modal-details" name="details" rows="4" placeholder="حدثنا عن مشروعك وأهدافك..." class="form-input form-textarea"></textarea>
+                </div>
+                <button type="button" class="form-submit">إرسال الطلب</button>
+            </form>
+        </div>
+    </div>
+
     <script>
     // ══════════════════════════════════════════════
     // Service Data
@@ -359,9 +409,32 @@
             );
         });
 
-        // Update CTA button to pre-select this service in the contact form
+        // CTA button opens contact modal with current service pre-selected
         var ctaBtn = document.querySelector('.sdet-hero__cta');
-        if (ctaBtn) ctaBtn.href = 'index.html?service=' + id + '#contact';
+        if (ctaBtn) {
+            ctaBtn.setAttribute('href', '#');
+            ctaBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.getElementById('modal-service').value = id;
+                document.getElementById('contactModal').classList.add('is-open');
+                document.body.classList.add('modal-open');
+            });
+        }
+    })();
+
+    // ══════════════════════════════════════════════
+    // Modal close logic
+    // ══════════════════════════════════════════════
+    (function () {
+        function closeModal() {
+            document.getElementById('contactModal').classList.remove('is-open');
+            document.body.classList.remove('modal-open');
+        }
+        document.getElementById('modalClose').addEventListener('click', closeModal);
+        document.querySelector('.sdet-modal__backdrop').addEventListener('click', closeModal);
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closeModal();
+        });
     })();
 
     // ══════════════════════════════════════════════

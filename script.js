@@ -329,3 +329,259 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+// ============================================================
+// Portfolio Filter — Two-layer spring system
+//   .pf-active-pill  light orange — locked to selected category
+//   .pf-slider       strong orange — follows cursor, hidden on leave
+// ============================================================
+document.addEventListener('DOMContentLoaded', function () {
+    var filterBars = document.querySelectorAll('.portfolio-filters, .aw-filters');
+    var items      = document.querySelectorAll('.pf-item');
+
+    // ── Spring integrator ──
+    function springStep(cur, target, vel, stiffness, damping, dt) {
+        dt = Math.min(dt, 0.05);
+        var acc = -stiffness * (cur - target) - damping * vel;
+        vel = vel + acc * dt;
+        cur = cur + vel * dt;
+        return { pos: cur, vel: vel };
+    }
+
+    filterBars.forEach(function (bar) {
+        var slider     = bar.querySelector('.pf-slider');
+        var activePill = bar.querySelector('.pf-active-pill');
+        var buttons    = Array.from(bar.querySelectorAll('.pf-filter'));
+        if (!slider || !buttons.length) return;
+
+        // Hover slider spring state
+        var hX = 0, hW = 0, hVX = 0, hVW = 0, hTX = 0, hTW = 0;
+        // Active pill spring state
+        var aX = 0, aW = 0, aVX = 0, aVW = 0, aTX = 0, aTW = 0;
+
+        var rafId = null, lastT = 0;
+        var hoveredBtn = null;
+
+        function btnRect(btn) {
+            var barL = bar.getBoundingClientRect().left;
+            var b    = btn.getBoundingClientRect();
+            return { x: b.left - barL, w: b.width };
+        }
+
+        function applySlider() {
+            slider.style.transform = 'translateX(' + hX.toFixed(2) + 'px)';
+            slider.style.width     = Math.max(0, hW).toFixed(2) + 'px';
+        }
+
+        function applyPill() {
+            if (!activePill) return;
+            activePill.style.transform = 'translateX(' + aX.toFixed(2) + 'px)';
+            activePill.style.width     = Math.max(0, aW).toFixed(2) + 'px';
+        }
+
+        function settled(cur, tgt, vel) {
+            return Math.abs(cur - tgt) < 0.15 && Math.abs(vel) < 0.5;
+        }
+
+        function startAnim() {
+            if (rafId) return;
+            lastT = 0;
+            rafId = requestAnimationFrame(function loop(now) {
+                if (!lastT) lastT = now;
+                var dt = (now - lastT) / 1000;
+                lastT = now;
+
+                // Animate hover slider (snappier spring)
+                var rx = springStep(hX, hTX, hVX, 320, 26, dt);
+                var rw = springStep(hW, hTW, hVW, 320, 26, dt);
+                hX = rx.pos; hVX = rx.vel;
+                hW = rw.pos; hVW = rw.vel;
+                applySlider();
+
+                // Animate active pill (slightly slower spring)
+                var ax = springStep(aX, aTX, aVX, 200, 22, dt);
+                var aw = springStep(aW, aTW, aVW, 200, 22, dt);
+                aX = ax.pos; aVX = ax.vel;
+                aW = aw.pos; aVW = aw.vel;
+                applyPill();
+
+                var hDone = settled(hX, hTX, hVX) && settled(hW, hTW, hVW);
+                var aDone = settled(aX, aTX, aVX) && settled(aW, aTW, aVW);
+
+                if (hDone && aDone) {
+                    hX = hTX; hW = hTW; hVX = 0; hVW = 0;
+                    aX = aTX; aW = aTW; aVX = 0; aVW = 0;
+                    applySlider(); applyPill();
+                    rafId = null;
+                } else {
+                    rafId = requestAnimationFrame(loop);
+                }
+            });
+        }
+
+        // Find button whose center is closest to a bar-relative x
+        function findClosest(relX) {
+            var barL = bar.getBoundingClientRect().left;
+            var closest = null, minDist = Infinity;
+            buttons.forEach(function (btn) {
+                var r      = btn.getBoundingClientRect();
+                var center = (r.left + r.width / 2) - barL;
+                var dist   = Math.abs(relX - center);
+                if (dist < minDist) { minDist = dist; closest = btn; }
+            });
+            return closest;
+        }
+
+        // ── Init: snap both elements to active button ──
+        var initBtn = bar.querySelector('.pf-filter.is-active');
+        if (initBtn) {
+            var m = btnRect(initBtn);
+            hX = m.x; hW = m.w; hTX = m.x; hTW = m.w;
+            aX = m.x; aW = m.w; aTX = m.x; aTW = m.w;
+            applySlider(); applyPill();
+            requestAnimationFrame(function () {
+                if (activePill) activePill.classList.add('is-ready');
+                // Slider starts hidden — revealed only on hover
+            });
+        }
+
+        window.addEventListener('resize', function () {
+            var cur = bar.querySelector('.pf-filter.is-active');
+            if (!cur) return;
+            var bm = btnRect(cur);
+            hX = bm.x; hW = bm.w; hTX = bm.x; hTW = bm.w;
+            aX = bm.x; aW = bm.w; aTX = bm.x; aTW = bm.w;
+            applySlider(); applyPill();
+        });
+
+        // ── Mouse enters bar: snap slider to nearest btn, then reveal ──
+        bar.addEventListener('mouseenter', function (e) {
+            var barL   = bar.getBoundingClientRect().left;
+            var relX   = e.clientX - barL;
+            var closest = findClosest(relX);
+            if (closest) {
+                var bm = btnRect(closest);
+                hX = bm.x; hW = bm.w; hTX = bm.x; hTW = bm.w;
+                hVX = 0; hVW = 0;
+                applySlider();
+                // Mark hovered button
+                if (hoveredBtn && hoveredBtn !== closest) hoveredBtn.classList.remove('is-hovered');
+                closest.classList.add('is-hovered');
+                hoveredBtn = closest;
+            }
+            slider.classList.add('is-hovering');
+        });
+
+        // ── Mouse moves: track closest button ──
+        bar.addEventListener('mousemove', function (e) {
+            var barL    = bar.getBoundingClientRect().left;
+            var relX    = e.clientX - barL;
+            var closest = findClosest(relX);
+            if (!closest) return;
+
+            if (hoveredBtn !== closest) {
+                if (hoveredBtn) hoveredBtn.classList.remove('is-hovered');
+                closest.classList.add('is-hovered');
+                hoveredBtn = closest;
+            }
+
+            var bm = btnRect(closest);
+            hTX = bm.x;
+            hTW = bm.w;
+            startAnim();
+        });
+
+        // ── Mouse leaves bar: hide slider, clear hover text ──
+        bar.addEventListener('mouseleave', function () {
+            slider.classList.remove('is-hovering');
+            if (hoveredBtn) { hoveredBtn.classList.remove('is-hovered'); hoveredBtn = null; }
+            // Reset slider target to active pill position (keeps it in sync)
+            hTX = aTX; hTW = aTW;
+            startAnim();
+        });
+
+        // ── Click: animate active pill to new button ──
+        buttons.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var cat = btn.getAttribute('data-filter');
+
+                filterBars.forEach(function (otherBar) {
+                    var oPill   = otherBar.querySelector('.pf-active-pill');
+                    var oSlider = otherBar.querySelector('.pf-slider');
+                    otherBar.querySelectorAll('.pf-filter').forEach(function (f) {
+                        f.classList.remove('is-active');
+                        if (f.getAttribute('data-filter') === cat) {
+                            f.classList.add('is-active');
+                            var obL = otherBar.getBoundingClientRect().left;
+                            var fr  = f.getBoundingClientRect();
+                            var ox  = fr.left - obL, ow = fr.width;
+
+                            if (otherBar === bar) {
+                                // Spring animate pill to new active
+                                aTX = ox; aTW = ow;
+                                // Also re-aim slider if mouse is still inside
+                                if (slider.classList.contains('is-hovering') && hoveredBtn) {
+                                    var hbm = btnRect(hoveredBtn);
+                                    hTX = hbm.x; hTW = hbm.w;
+                                } else {
+                                    hTX = ox; hTW = ow;
+                                }
+                                startAnim();
+                            } else {
+                                // Instant snap for other page's bar
+                                if (oPill) {
+                                    oPill.style.transform = 'translateX(' + ox.toFixed(2) + 'px)';
+                                    oPill.style.width     = ow.toFixed(2) + 'px';
+                                    if (!oPill.classList.contains('is-ready')) oPill.classList.add('is-ready');
+                                }
+                                if (oSlider) {
+                                    oSlider.style.transform = 'translateX(' + ox.toFixed(2) + 'px)';
+                                    oSlider.style.width     = ow.toFixed(2) + 'px';
+                                }
+                            }
+                        }
+                    });
+                });
+
+                // Filter portfolio items
+                items.forEach(function (item) {
+                    var match = (cat === 'all' || item.getAttribute('data-category') === cat);
+                    if (!match) {
+                        item.classList.add('is-animating-out');
+                        item.classList.remove('is-animating-in');
+                        setTimeout(function () {
+                            item.classList.add('is-hidden');
+                            item.classList.remove('is-animating-out');
+                        }, 350);
+                    } else {
+                        item.classList.remove('is-hidden', 'is-animating-out');
+                        item.classList.add('is-animating-in');
+                        setTimeout(function () { item.classList.remove('is-animating-in'); }, 500);
+                    }
+                });
+            });
+        });
+    });
+
+    // Staggered fade-up for portfolio items + observe them
+    var pfObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                pfObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+
+    items.forEach(function (item, i) {
+        item.classList.add('fade-up');
+        item.style.transitionDelay = (i * 0.08) + 's';
+        pfObserver.observe(item);
+    });
+
+    // Fade-up for header and filters
+    var pfHeader = document.querySelector('.portfolio-header');
+    var pfFilters = document.querySelector('.portfolio-filters');
+    if (pfHeader) { pfHeader.classList.add('fade-up'); pfObserver.observe(pfHeader); }
+    if (pfFilters) { pfFilters.classList.add('fade-up'); pfObserver.observe(pfFilters); }
+});

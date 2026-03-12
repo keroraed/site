@@ -71,8 +71,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // ── 1. Mark animatable elements with the fade-up class ──
     // NOTE: Hero elements have fade-up in HTML so they're hidden from first paint.
     var fadeTargets = [
-        // Packages
-        '.section-header',
         // How We Work
         '.process-title',
         '.process-subtitle',
@@ -90,11 +88,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (el) el.classList.add('fade-up');
     });
 
-    // Staggered children: pkg-cards & service cards
-    document.querySelectorAll('.pkg-card').forEach(function (card, i) {
-        card.classList.add('fade-up');
-        card.style.transitionDelay = (i * 0.12) + 's';
-    });
     document.querySelectorAll('.srv-card').forEach(function (card, i) {
         card.classList.add('fade-up');
         card.style.transitionDelay = (i * 0.1) + 's';
@@ -196,57 +189,6 @@ document.addEventListener('DOMContentLoaded', function () {
             var targetProg = (n < 2) ? 0 : i / (n - 1);
             window.scrollTo({ top: section.offsetTop + targetProg * total, behavior: 'smooth' });
         });
-    });
-});
-
-// ============================================================
-// Billing Toggle — monthly / yearly
-// ============================================================
-document.addEventListener('DOMContentLoaded', function () {
-    var toggle      = document.getElementById('billing-switch');
-    var saveBadge   = document.getElementById('billing-save');
-    var labelMonthly = document.getElementById('label-monthly');
-    var labelYearly  = document.getElementById('label-yearly');
-    var amounts     = document.querySelectorAll('.pkg-card__amount');
-
-    if (!toggle) return;
-
-    var isYearly = false;
-
-    function updatePrices() {
-        amounts.forEach(function (el) {
-            var val = isYearly ? el.dataset.yearly : el.dataset.monthly;
-            el.style.opacity = '0';
-            setTimeout(function () {
-                el.textContent = val;
-                el.style.opacity = '1';
-            }, 200);
-        });
-    }
-
-    function applyState() {
-        toggle.classList.toggle('is-yearly', isYearly);
-        toggle.setAttribute('aria-checked', isYearly);
-        saveBadge.classList.toggle('visible', isYearly);
-        labelMonthly.classList.toggle('active', !isYearly);
-        labelYearly.classList.toggle('active', isYearly);
-        updatePrices();
-    }
-
-    // set initial active label
-    labelMonthly.classList.add('active');
-
-    toggle.addEventListener('click', function () {
-        isYearly = !isYearly;
-        applyState();
-    });
-
-    toggle.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            isYearly = !isYearly;
-            applyState();
-        }
     });
 });
 

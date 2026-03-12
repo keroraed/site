@@ -339,6 +339,45 @@ document.addEventListener('DOMContentLoaded', function () {
     var filterBars = document.querySelectorAll('.portfolio-filters, .aw-filters');
     var items      = document.querySelectorAll('.pf-item');
 
+    // ── Inject Behance + arrow actions into every card ──
+    document.querySelectorAll('.pf-item__inner').forEach(function (inner) {
+        var actions = document.createElement('div');
+        actions.className = 'pf-item__actions';
+
+        // Arrow wrap: label + icon
+        var arrowWrap = document.createElement('div');
+        arrowWrap.className = 'pf-item__arrow-wrap';
+
+        var label = document.createElement('span');
+        label.className = 'pf-item__view-label';
+        label.textContent = '\u0639\u0631\u0636 \u0627\u0644\u0639\u0645\u0644';
+
+        var arrowIcon = document.createElement('i');
+        arrowIcon.className = 'ri-arrow-right-up-line pf-item__arrow-icon';
+        arrowIcon.setAttribute('aria-hidden', 'true');
+
+        arrowWrap.appendChild(label);
+        arrowWrap.appendChild(arrowIcon);
+
+        // Behance link (following sibling so CSS ~ selector works)
+        var behance = document.createElement('a');
+        behance.className = 'pf-item__behance';
+        behance.href = 'https://www.behance.net/rosomat';
+        behance.target = '_blank';
+        behance.rel = 'noopener noreferrer';
+        behance.setAttribute('aria-label', 'Behance');
+
+        var bImg = document.createElement('img');
+        bImg.src = 'images/behance-logo.png';
+        bImg.alt = 'Behance';
+        bImg.width = 17;
+
+        behance.appendChild(bImg);
+        actions.appendChild(arrowWrap);
+        actions.appendChild(behance);
+        inner.appendChild(actions);
+    });
+
     // ── Spring integrator ──
     function springStep(cur, target, vel, stiffness, damping, dt) {
         dt = Math.min(dt, 0.05);
@@ -584,4 +623,16 @@ document.addEventListener('DOMContentLoaded', function () {
     var pfFilters = document.querySelector('.portfolio-filters');
     if (pfHeader) { pfHeader.classList.add('fade-up'); pfObserver.observe(pfHeader); }
     if (pfFilters) { pfFilters.classList.add('fade-up'); pfObserver.observe(pfFilters); }
+
+    // All-works page: drop-in filter reveal when scrolled into view
+    var awFilterBar = document.querySelector('.aw-portfolio .aw-filters');
+    if (awFilterBar) {
+        var awFilterObs = new IntersectionObserver(function (entries) {
+            if (entries[0].isIntersecting) {
+                awFilterBar.classList.add('is-revealed');
+                awFilterObs.disconnect();
+            }
+        }, { threshold: 0.1 });
+        awFilterObs.observe(awFilterBar);
+    }
 });

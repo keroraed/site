@@ -221,10 +221,41 @@
         // Hamburger
         const btn = document.getElementById('hamburgerBtn');
         const links = document.getElementById('navLinks');
-        btn.addEventListener('click', function () {
-            const open = links.classList.toggle('is-open');
+        const navbar = document.getElementById('navbar');
+
+        function setMenuState(open) {
+            links.classList.toggle('is-open', open);
             btn.classList.toggle('is-open', open);
-            btn.setAttribute('aria-expanded', open);
+            btn.setAttribute('aria-expanded', String(open));
+            document.body.classList.toggle('nav-menu-open', open);
+        }
+
+        btn.addEventListener('click', function () {
+            setMenuState(!links.classList.contains('is-open'));
+        });
+
+        links.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                setMenuState(false);
+            });
+        });
+
+        document.addEventListener('click', function (event) {
+            if (!links.classList.contains('is-open')) return;
+            if (navbar.contains(event.target)) return;
+            setMenuState(false);
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                setMenuState(false);
+            }
+        });
+
+        window.addEventListener('resize', function () {
+            if (window.innerWidth >= 1024) {
+                setMenuState(false);
+            }
         });
 
         // Wire "اطلب الخدمة" links to pre-select matching service in contact form

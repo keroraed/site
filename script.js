@@ -18,21 +18,42 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     const btn = document.getElementById('hamburgerBtn');
     const links = document.getElementById('navLinks');
-    if (!btn || !links) return;
+    const navbar = document.getElementById('navbar');
+    if (!btn || !links || !navbar) return;
+
+    function setMenuState(isOpen) {
+        links.classList.toggle('is-open', isOpen);
+        btn.classList.toggle('is-open', isOpen);
+        btn.setAttribute('aria-expanded', String(isOpen));
+        document.body.classList.toggle('nav-menu-open', isOpen);
+    }
 
     btn.addEventListener('click', function () {
-        const isOpen = links.classList.toggle('is-open');
-        btn.classList.toggle('is-open', isOpen);
-        btn.setAttribute('aria-expanded', isOpen);
+        setMenuState(!links.classList.contains('is-open'));
     });
 
-    // Close menu when any nav link is clicked
-    links.querySelectorAll('.nav-link').forEach(function (link) {
+    links.querySelectorAll('a').forEach(function (link) {
         link.addEventListener('click', function () {
-            links.classList.remove('is-open');
-            btn.classList.remove('is-open');
-            btn.setAttribute('aria-expanded', 'false');
+            setMenuState(false);
         });
+    });
+
+    document.addEventListener('click', function (event) {
+        if (!links.classList.contains('is-open')) return;
+        if (navbar.contains(event.target)) return;
+        setMenuState(false);
+    });
+
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            setMenuState(false);
+        }
+    });
+
+    window.addEventListener('resize', function () {
+        if (window.innerWidth >= 1024) {
+            setMenuState(false);
+        }
     });
 });
 
@@ -135,6 +156,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var section = document.getElementById('how-we-work');
     if (!section) return;
 
+    var wrap      = section.querySelector('.process-track-wrap');
     var track     = section.querySelector('.process-track');
     var cards     = Array.from(section.querySelectorAll('.process-card'));
     var fill      = section.querySelector('.process-ind__fill');
@@ -142,6 +164,39 @@ document.addEventListener('DOMContentLoaded', function () {
     var dots      = Array.from(section.querySelectorAll('.process-dot'));
     var n         = cards.length;
     var active    = 0;
+    var isCompact = false;
+
+    function setActive(step) {
+        active = step;
+        cards.forEach(function (card, index) {
+            card.classList.toggle('is-active', index === step);
+        });
+        dots.forEach(function (dot, index) {
+            dot.classList.toggle('is-active', index === step);
+        });
+        fill.style.width = (n < 2 ? 100 : (step / (n - 1)) * 100).toFixed(1) + '%';
+        label.textContent = '0' + (step + 1) + ' / 0' + n;
+    }
+
+    function updateCompactActive() {
+        if (!wrap) return;
+        var wrapRect = wrap.getBoundingClientRect();
+        var wrapCenter = wrapRect.left + wrapRect.width / 2;
+        var closestIndex = 0;
+        var minDistance = Infinity;
+
+        cards.forEach(function (card, index) {
+            var rect = card.getBoundingClientRect();
+            var cardCenter = rect.left + rect.width / 2;
+            var distance = Math.abs(cardCenter - wrapCenter);
+            if (distance < minDistance) {
+                minDistance = distance;
+                closestIndex = index;
+            }
+        });
+
+        setActive(closestIndex);
+    }
 
     function tx(progress) {
         var vw    = window.innerWidth;
@@ -162,29 +217,58 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function update() {
+        if (isCompact) {
+            track.style.transform = 'translateX(0)';
+            updateCompactActive();
+            return;
+        }
+
         var rect  = section.getBoundingClientRect();
         var total = section.offsetHeight - window.innerHeight;
         if (total <= 0) return;
         var prog  = Math.min(1, Math.max(0, -rect.top / total));
 
         track.style.transform = 'translateX(' + tx(prog).toFixed(2) + 'px)';
-        fill.style.width = (prog * 100).toFixed(1) + '%';
 
         var step = Math.min(n - 1, Math.round(prog * (n - 1)));
         if (step !== active) {
-            active = step;
-            cards.forEach(function (c, i) { c.classList.toggle('is-active', i === step); });
-            dots.forEach(function (d, i) { d.classList.toggle('is-active', i === step); });
-            label.textContent = '0' + (step + 1) + ' / 0' + n;
+            setActive(step);
         }
     }
 
+    function syncMode() {
+        isCompact = window.innerWidth <= 1023;
+
+        if (isCompact) {
+            track.style.transform = 'translateX(0)';
+            cards[active].scrollIntoView({ behavior: 'auto', inline: 'center', block: 'nearest' });
+            updateCompactActive();
+            return;
+        }
+
+        update();
+    }
+
     window.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update);
-    update();
+    window.addEventListener('resize', syncMode);
+
+    if (wrap) {
+        wrap.addEventListener('scroll', function () {
+            if (isCompact) updateCompactActive();
+        }, { passive: true });
+    }
+
+    setActive(0);
+    syncMode();
 
     dots.forEach(function (dot, i) {
         dot.addEventListener('click', function () {
+            if (isCompact) {
+                cards[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                setActive(i);
+                return;
+            }
+
             var total = section.offsetHeight - window.innerHeight;
             var targetProg = (n < 2) ? 0 : i / (n - 1);
             window.scrollTo({ top: section.offsetTop + targetProg * total, behavior: 'smooth' });
@@ -343,10 +427,21 @@ document.addEventListener('DOMContentLoaded', function () {
         var rafId = null, lastT = 0;
         var hoveredBtn = null;
 
+        function buttonRectInBar(btn, currentBar) {
+            return { x: btn.offsetLeft, w: btn.offsetWidth };
+        }
+
         function btnRect(btn) {
-            var barL = bar.getBoundingClientRect().left;
-            var b    = btn.getBoundingClientRect();
-            return { x: b.left - barL, w: b.width };
+            return buttonRectInBar(btn, bar);
+        }
+
+        function scrollButtonIntoView(btn) {
+            if (!btn || window.innerWidth > 1024) return;
+            btn.scrollIntoView({
+                behavior: 'smooth',
+                inline: 'center',
+                block: 'nearest'
+            });
         }
 
         function applySlider() {
@@ -402,11 +497,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Find button whose center is closest to a bar-relative x
         function findClosest(relX) {
-            var barL = bar.getBoundingClientRect().left;
             var closest = null, minDist = Infinity;
             buttons.forEach(function (btn) {
-                var r      = btn.getBoundingClientRect();
-                var center = (r.left + r.width / 2) - barL;
+                var center = btn.offsetLeft + btn.offsetWidth / 2;
                 var dist   = Math.abs(relX - center);
                 if (dist < minDist) { minDist = dist; closest = btn; }
             });
@@ -424,6 +517,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (activePill) activePill.classList.add('is-ready');
                 // Slider starts hidden — revealed only on hover
             });
+            scrollButtonIntoView(initBtn);
         }
 
         window.addEventListener('resize', function () {
@@ -433,12 +527,13 @@ document.addEventListener('DOMContentLoaded', function () {
             hX = bm.x; hW = bm.w; hTX = bm.x; hTW = bm.w;
             aX = bm.x; aW = bm.w; aTX = bm.x; aTW = bm.w;
             applySlider(); applyPill();
+            scrollButtonIntoView(cur);
         });
 
         // ── Mouse enters bar: snap slider to nearest btn, then reveal ──
         bar.addEventListener('mouseenter', function (e) {
             var barL   = bar.getBoundingClientRect().left;
-            var relX   = e.clientX - barL;
+            var relX   = e.clientX - barL + bar.scrollLeft;
             var closest = findClosest(relX);
             if (closest) {
                 var bm = btnRect(closest);
@@ -456,7 +551,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // ── Mouse moves: track closest button ──
         bar.addEventListener('mousemove', function (e) {
             var barL    = bar.getBoundingClientRect().left;
-            var relX    = e.clientX - barL;
+            var relX    = e.clientX - barL + bar.scrollLeft;
             var closest = findClosest(relX);
             if (!closest) return;
 
@@ -493,9 +588,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         f.classList.remove('is-active');
                         if (f.getAttribute('data-filter') === cat) {
                             f.classList.add('is-active');
-                            var obL = otherBar.getBoundingClientRect().left;
-                            var fr  = f.getBoundingClientRect();
-                            var ox  = fr.left - obL, ow = fr.width;
+                            var fr  = buttonRectInBar(f, otherBar);
+                            var ox  = fr.x, ow = fr.w;
 
                             if (otherBar === bar) {
                                 // Spring animate pill to new active
@@ -520,6 +614,8 @@ document.addEventListener('DOMContentLoaded', function () {
                                     oSlider.style.width     = ow.toFixed(2) + 'px';
                                 }
                             }
+
+                            scrollButtonIntoView(f);
                         }
                     });
                 });

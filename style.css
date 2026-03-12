@@ -93,6 +93,7 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 96px;
+    gap: 16px;
 }
 .navbar__logo {
     flex-shrink: 0;
@@ -108,8 +109,9 @@ body {
     flex: 1;
     justify-content: center;
     gap: 32px;
+    min-width: 0;
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .navbar__links { display: flex; }
 }
 
@@ -172,7 +174,7 @@ html[lang="en"] .navbar__actions {
 .navbar__hamburger.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .navbar__hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .navbar__hamburger { display: none; }
 }
 
@@ -183,8 +185,49 @@ html[lang="en"] .navbar__actions {
     gap: 10px;
     flex-shrink: 0;
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .navbar__actions { display: flex; }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+    .navbar__row {
+        gap: 12px;
+    }
+
+    .navbar__links {
+        gap: 18px;
+    }
+
+    .nav-link {
+        font-size: 0.92rem;
+    }
+
+    .navbar__packages,
+    .navbar__cta {
+        padding: 10px 18px;
+        font-size: 0.88rem;
+    }
+}
+
+@media (max-width: 1023px) {
+    .navbar__row {
+        height: 88px;
+    }
+
+    .navbar__logo-img {
+        height: 56px;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar__row {
+        height: 80px;
+        gap: 12px;
+    }
+
+    .navbar__logo-img {
+        height: 48px;
+    }
 }
 
 /* ── Navbar CTA Button ── */
@@ -265,29 +308,42 @@ html[lang="en"] .navbar__actions {
 .navbar__links.is-open {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 0;
+    align-items: stretch;
+    gap: 4px;
     position: absolute;
-    top: 96px;
-    left: 0;
-    right: 0;
-    background: rgba(247, 241, 234, 0.97);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(0,0,0,0.08);
-    padding: 16px 0 24px;
+    top: calc(100% + 12px);
+    left: 16px;
+    right: 16px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    background: rgba(247, 241, 234, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 24px;
+    padding: 12px;
     z-index: 49;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
 }
 .navbar__links.is-open .nav-link {
     width: 100%;
-    text-align: center;
-    padding: 14px 24px;
-    font-size: 1.05rem;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    text-align: right;
+    padding: 14px 16px;
+    font-size: 1rem;
+    border: 1px solid transparent;
+    border-radius: 16px;
 }
 .navbar__links.is-open .nav-link:last-child {
     border-bottom: none;
+}
+
+.navbar__links.is-open .nav-link:hover {
+    background: rgba(212, 43, 30, 0.06);
+    border-color: rgba(212, 43, 30, 0.10);
+}
+
+.navbar__links.is-open .nav-link::after {
+    display: none;
 }
 
 /* Packages link in mobile menu */
@@ -299,8 +355,8 @@ html[lang="en"] .navbar__actions {
     justify-content: center;
     align-items: center;
     gap: 6px;
-    width: auto;
-    margin: 12px auto 0;
+    width: 100%;
+    margin: 8px 0 0;
     padding: 12px 28px;
     font-size: 1rem;
     font-weight: 800;
@@ -316,6 +372,31 @@ html[lang="en"] .navbar__actions {
     color: #fff;
     background: linear-gradient(135deg, #d42b1e 0%, #e07428 100%);
     border-color: transparent;
+}
+
+body.nav-menu-open {
+    overflow: hidden;
+}
+
+@media (max-width: 767px) {
+    .navbar__links.is-open {
+        top: calc(100% + 10px);
+        left: 12px;
+        right: 12px;
+        max-height: calc(100vh - 100px);
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    .navbar__links.is-open .nav-link {
+        padding: 13px 14px;
+        font-size: 0.96rem;
+    }
+
+    .navbar__links.is-open .navbar__packages--mobile {
+        padding: 12px 18px;
+        font-size: 0.95rem;
+    }
 }
 
 /* ============================================================
@@ -1968,6 +2049,12 @@ html { scroll-behavior: smooth; }
     margin-left: auto;
     margin-right: auto;
     isolation: isolate;
+    scrollbar-width: none;
+}
+
+.portfolio-filters::-webkit-scrollbar,
+.aw-filters::-webkit-scrollbar {
+    display: none;
 }
 
 /* ── Active Pill — light orange, persists on selected category ── */
@@ -2348,6 +2435,25 @@ html { scroll-behavior: smooth; }
 }
 
 /* ── Mobile tweaks ── */
+@media (max-width: 1024px) {
+    .portfolio-filters,
+    .aw-filters {
+        justify-content: flex-start;
+        width: min(100%, 1000px);
+        max-width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x proximity;
+        padding: 5px;
+    }
+
+    .pf-filter {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+    }
+}
+
 @media (max-width: 768px) {
     .portfolio-grid {
         grid-template-columns: 1fr;
@@ -2358,11 +2464,8 @@ html { scroll-behavior: smooth; }
     .aw-filters {
         gap: 3px;
         padding: 4px;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        width: auto;
-        max-width: 100%;
+        width: 100%;
+        border-radius: 24px;
     }
     .pf-filter {
         padding: 8px 14px;
@@ -3167,21 +3270,102 @@ body.modal-open {
     background: linear-gradient(90deg, #d42b1e, #e07428);
 }
 
-/* Mobile: smaller cards, shorter section */
-@media (max-width: 640px) {
+@media (max-width: 1023px) {
     .process-section {
-        height: 280vh;
+        height: auto;
+        padding: 0 0 72px;
+    }
+
+    .process-sticky {
+        position: relative;
+        top: auto;
+        height: auto;
+        overflow: visible;
+        justify-content: flex-start;
+        padding-top: 104px;
+    }
+
+    .process-hdr {
+        margin-bottom: 20px;
+        padding: 0 20px;
+    }
+
+    .process-subtitle {
+        max-width: 720px;
+        font-size: 0.98rem;
+    }
+
+    .process-ind {
+        margin-bottom: 18px;
+    }
+
+    .process-ind__bar {
+        width: min(180px, 38vw);
+    }
+
+    .process-track-wrap {
+        overflow-x: auto;
+        overflow-y: visible;
+        align-items: stretch;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 0 20px 12px;
+    }
+
+    .process-track-wrap::-webkit-scrollbar {
+        display: none;
+    }
+
+    .process-track-wrap::before,
+    .process-track-wrap::after {
+        width: 72px;
+    }
+
+    .process-track {
+        gap: 20px;
+        padding: 12px 0;
+        width: max-content;
+    }
+
+    .process-card {
+        width: min(420px, calc(100vw - 88px));
+        min-height: 100%;
+        opacity: 1;
+        transform: none;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+    }
+
+    .process-card.is-active {
+        transform: translateY(-4px);
+    }
+
+    .process-dots {
+        padding: 12px 0 0;
+    }
+}
+
+/* Mobile: smaller cards, shorter section */
+@media (max-width: 767px) {
+    .process-section {
+        padding-bottom: 56px;
     }
     .process-sticky {
         padding-top: 88px;
     }
+    .process-hdr {
+        padding: 0 16px;
+    }
     .process-card {
-        width: 270px;
+        width: calc(100vw - 56px);
         padding: 32px 24px 28px;
     }
     .process-track {
-        padding: 16px 40px;
-        gap: 20px;
+        gap: 16px;
+    }
+    .process-track-wrap {
+        padding: 0 12px 10px;
     }
     .process-ind__bar {
         width: 120px;
@@ -3192,6 +3376,13 @@ body.modal-open {
     }
     .process-card__bg-num {
         font-size: 4.5rem;
+    }
+    .process-card__title {
+        font-size: 1.15rem;
+    }
+    .process-card__desc {
+        font-size: 0.86rem;
+        line-height: 1.75;
     }
 }
 
@@ -3418,6 +3609,20 @@ html[dir='ltr'] .ri-arrow-right-line {
 
 .aw-portfolio .aw-filters.is-revealed {
     animation: awFilterReveal 0.72s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@media (max-width: 1024px) {
+    .aw-portfolio .aw-filters {
+        top: 104px;
+        margin-bottom: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .aw-portfolio .aw-filters {
+        top: 88px;
+        margin-bottom: 24px;
+    }
 }
 
 @keyframes awFilterReveal {

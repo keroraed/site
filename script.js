@@ -367,12 +367,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // ── Inject Behance + arrow actions into every card ──
     document.querySelectorAll('.pf-item__inner').forEach(function (inner) {
+        var pfItem   = inner.closest('.pf-item');
+        var workId   = pfItem ? (pfItem.dataset.workId || '') : '';
+        var detailUrl = workId ? 'work-detail.html?id=' + workId : '#';
+
         var actions = document.createElement('div');
         actions.className = 'pf-item__actions';
 
-        // Arrow wrap: label + icon
-        var arrowWrap = document.createElement('div');
+        // Arrow wrap: link to work detail page
+        var arrowWrap = document.createElement('a');
         arrowWrap.className = 'pf-item__arrow-wrap';
+        arrowWrap.href = detailUrl;
 
         var label = document.createElement('span');
         label.className = 'pf-item__view-label';
@@ -402,6 +407,16 @@ document.addEventListener('DOMContentLoaded', function () {
         actions.appendChild(arrowWrap);
         actions.appendChild(behance);
         inner.appendChild(actions);
+
+        // Click anywhere on the card (outside Behance) → work detail
+        if (workId) {
+            inner.style.cursor = 'pointer';
+            inner.addEventListener('click', function (e) {
+                if (!e.target.closest('.pf-item__behance')) {
+                    window.location.href = detailUrl;
+                }
+            });
+        }
     });
 
     // ── Spring integrator ──
@@ -672,5 +687,64 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }, { threshold: 0.1 });
         awFilterObs.observe(awFilterBar);
+    }
+});
+
+// ============================================================
+// CTA Modal — open contact form as popup, redirect on submit
+// ============================================================
+document.addEventListener('DOMContentLoaded', function () {
+    var openBtn  = document.getElementById('ctaModalBtn');
+    var overlay  = document.getElementById('ctaModalOverlay');
+    var closeBtn = document.getElementById('ctaModalClose');
+    var form     = document.getElementById('ctaContactForm');
+    var formWrap = document.getElementById('ctaModalForm');
+    var success  = document.getElementById('ctaModalSuccess');
+
+    if (!openBtn || !overlay) return;
+
+    function openModal() {
+        overlay.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+        // Focus close button for accessibility
+        setTimeout(function () { if (closeBtn) closeBtn.focus(); }, 350);
+    }
+
+    function closeModal() {
+        overlay.classList.remove('is-open');
+        document.body.style.overflow = '';
+        // Reset to form view if success was shown
+        if (success && formWrap) {
+            success.style.display = 'none';
+            formWrap.style.display = '';
+        }
+    }
+
+    openBtn.addEventListener('click', openModal);
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+
+    // Close when clicking outside the modal card
+    overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) closeModal();
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeModal();
+    });
+
+    // Form submit → show success → redirect to index.html#contact
+    if (form) {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (formWrap) formWrap.style.display = 'none';
+            if (success)  success.style.display = 'block';
+            setTimeout(function () {
+                window.location.href = 'index.html#contact';
+            }, 1800);
+        });
     }
 });

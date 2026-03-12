@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل العمل | Rosomat رسومات</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* ── Work Detail Page ─────────────────────────────────────── */
+        :root {
+            --wd-brand: #d42b1e;
+            --wd-orange: #e07428;
+            --wd-gradient: linear-gradient(135deg, #bc0000 0%, #e06228 100%);
+            --wd-bg: #f7f1ea;
+            --wd-dark: #1f2937;
+            --wd-gray: #6b7280;
+            --wd-radius: 16px;
+        }
+
+        /* ── Hero ───────────────────────────────────────────────────── */
+        .wd-hero {
+            position: relative;
+            min-height: 72vh;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+        }
+        .wd-hero__bg {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 75% 70% at 55% 65%, rgba(195, 25, 18, 0.36) 0%, rgba(210, 50, 30, 0.22) 22%, rgba(225, 80, 55, 0.10) 44%, transparent 72%),
+                radial-gradient(ellipse 65% 65% at 35% 60%, rgba(230, 125, 35, 0.32) 0%, rgba(238, 150, 55, 0.18) 22%, rgba(242, 175, 90, 0.08) 44%, transparent 70%),
+                radial-gradient(ellipse 42% 48% at 46% 50%, rgba(222, 90, 40, 0.18) 0%, rgba(235, 130, 70, 0.08) 38%, transparent 66%),
+                radial-gradient(circle at 50% 62%, rgba(242, 184, 160, 0.18) 0%, transparent 55%),
+                #f7f1ea;
+        }
+        .wd-hero__bg::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: linear-gradient(to bottom, transparent 0%, #f7f1ea 100%);
+        }
+        .wd-hero__noise {
+            position: absolute;
+            inset: 0;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+        /* Floating circles */
+        .wd-hero__circles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .wd-hero__circles span {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(195, 55, 20, 0.08);
+        }
+        .wd-hero__circles span:nth-child(1) { width: 480px; height: 480px; top: -120px; left: -80px; }
+        .wd-hero__circles span:nth-child(2) { width: 320px; height: 320px; bottom: -60px; right: -40px; border-color: rgba(195, 55, 20, 0.05); }
+        .wd-hero__circles span:nth-child(3) { width: 160px; height: 160px; top: 30%; right: 18%; border-color: rgba(195, 55, 20, 0.1); }
+
+        /* Icon blob */
+        .wd-hero__icon-blob {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -52%);
+            width: 160px;
+            height: 160px;
+            background: rgba(195, 55, 20, 0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(195, 55, 20, 0.15);
+            animation: wdIconFloat 4s ease-in-out infinite;
+        }
+        .wd-hero__icon-blob i {
+            font-size: 4rem;
+            color: #c13a1a;
+        }
+        @keyframes wdIconFloat {
+            0%, 100% { transform: translate(-50%, -52%); }
+            50%       { transform: translate(-50%, -56%); }
+        }
+        .wd-hero__content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            padding-bottom: 64px;
+        }
+        .wd-hero__breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: .82rem;
+            color: rgba(80, 30, 15, 0.55);
+            margin-bottom: 20px;
+        }
+        .wd-hero__breadcrumb a {
+            color: rgba(80, 30, 15, 0.55);
+            text-decoration: none;
+            transition: color .2s;
+        }
+        .wd-hero__breadcrumb a:hover { color: #c13a1a; }
+        .wd-hero__breadcrumb i { font-size: .75rem; }
+        .wd-hero__cat {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 14px;
+            background: rgba(195, 55, 20, 0.1);
+            border: 1px solid rgba(195, 55, 20, 0.22);
+            border-radius: 100px;
+            font-size: .78rem;
+            font-weight: 700;
+            color: #c13a1a;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            margin-bottom: 18px;
+            backdrop-filter: blur(6px);
+        }
+        .wd-hero__title {
+            font-size: clamp(2.4rem, 5.5vw, 4rem);
+            font-weight: 800;
+            color: #1f2937;
+            line-height: 1.15;
+            margin: 0 0 16px;
+            text-shadow: none;
+        }
+        .wd-hero__desc {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: rgba(55, 30, 15, 0.72);
+            max-width: 600px;
+            line-height: 1.7;
+            text-shadow: none;
+        }
+        /* Scroll hint */
+        .wd-hero__scroll {
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            color: rgba(175, 60, 22, 0.72);
+            font-size: .72rem;
+            letter-spacing: .08em;
+            z-index: 2;
+            animation: wdScrollBounce 2s ease-in-out infinite;
+        }
+        .wd-hero__scroll i { font-size: 1.2rem; }
+        @keyframes wdScrollBounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50%       { transform: translateX(-50%) translateY(6px); }
+        }
+
+        /* ── Details Section ────────────────────────────────────────── */
+        .wd-details {
+            background: var(--wd-bg);
+            padding: 80px 0;
+        }
+        .wd-details__grid {
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 48px;
+            align-items: start;
+        }
+        /* Description */
+        .wd-desc__label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: .78rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--wd-brand);
+            margin-bottom: 16px;
+        }
+        .wd-desc__label::before {
+            content: '';
+            display: block;
+            width: 28px; height: 2px;
+            background: var(--wd-gradient);
+            border-radius: 2px;
+        }
+        .wd-desc__title {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 800;
+            color: var(--wd-dark);
+            margin: 0 0 24px;
+            line-height: 1.3;
+        }
+        .wd-desc__body {
+            font-size: 1.05rem;
+            color: #374151;
+            line-height: 1.9;
+            white-space: pre-line;
+        }
+        /* Results */
+        .wd-results {
+            margin-top: 36px;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        .wd-results__title {
+            font-size: .82rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--wd-gray);
+            margin-bottom: 14px;
+        }
+        .wd-result-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0,0,0,.06);
+        }
+        .wd-result-item:last-child { border-bottom: none; }
+        .wd-result-item i {
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            background: var(--wd-gradient);
+            display: flex; align-items: center; justify-content: center;
+            color: #fff;
+            font-size: .95rem;
+            flex-shrink: 0;
+        }
+        .wd-result-item span {
+            font-size: .95rem;
+            font-weight: 600;
+            color: var(--wd-dark);
+        }
+
+        /* Meta Card */
+        .wd-meta-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 40px rgba(0,0,0,.07);
+            position: sticky;
+            top: 110px;
+        }
+        .wd-meta-card__header {
+            padding: 24px 28px;
+            background: var(--wd-gradient);
+        }
+        .wd-meta-card__header-title {
+            font-size: .78rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.7);
+            margin-bottom: 4px;
+        }
+        .wd-meta-card__project-name {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #fff;
+        }
+        .wd-meta-card__body {
+            padding: 24px 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        .wd-meta-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 14px 0;
+            border-bottom: 1px solid #f3ede6;
+        }
+        .wd-meta-row:last-child { border-bottom: none; }
+        .wd-meta-row__icon {
+            width: 34px; height: 34px;
+            border-radius: 9px;
+            background: #f7f1ea;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--wd-brand);
+            font-size: .9rem;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        .wd-meta-row__label {
+            font-size: .73rem;
+            color: var(--wd-gray);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            margin-bottom: 3px;
+        }
+        .wd-meta-row__value {
+            font-size: .93rem;
+            color: var(--wd-dark);
+            font-weight: 600;
+            line-height: 1.5;
+        }
+        /* Tags */
+        .wd-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 28px;
+        }
+        .wd-tag {
+            padding: 4px 12px;
+            background: #f7f1ea;
+            border-radius: 100px;
+            font-size: .78rem;
+            font-weight: 600;
+            color: var(--wd-dark);
+            border: 1px solid rgba(0,0,0,.06);
+        }
+
+        /* ── Gallery Section ────────────────────────────────────────── */
+        .wd-gallery {
+            background: #fff;
+            padding: 80px 0;
+        }
+        .wd-section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .wd-section-header__label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: .78rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--wd-brand);
+            margin-bottom: 12px;
+        }
+        .wd-section-header__title {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 800;
+            color: var(--wd-dark);
+            margin: 0;
+        }
+        .wd-gallery__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+        .wd-gallery__item {
+            position: relative;
+            aspect-ratio: 4/3;
+            border-radius: 14px;
+            overflow: hidden;
+            cursor: pointer;
+            background: #1a1a2e;
+        }
+        .wd-gallery__item:first-child {
+            grid-column: span 2;
+            aspect-ratio: 16/9;
+        }
+        .wd-gallery__item-bg {
+            position: absolute;
+            inset: 0;
+            transition: transform .45s cubic-bezier(.25,.46,.45,.94);
+        }
+        .wd-gallery__item:hover .wd-gallery__item-bg {
+            transform: scale(1.06);
+        }
+        .wd-gallery__item-icon {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: rgba(255,255,255,.18);
+        }
+        .wd-gallery__item-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,.55) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity .3s;
+            display: flex;
+            align-items: flex-end;
+            padding: 18px;
+        }
+        .wd-gallery__item:hover .wd-gallery__item-overlay { opacity: 1; }
+        .wd-gallery__zoom-btn {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.18);
+            border: 1px solid rgba(255,255,255,.3);
+            backdrop-filter: blur(8px);
+            display: flex; align-items: center; justify-content: center;
+            color: #fff;
+            font-size: 1.1rem;
+            margin-right: auto;
+        }
+
+        /* ── Lightbox ───────────────────────────────────────────────── */
+        .wd-lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0,0,0,.92);
+            backdrop-filter: blur(20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .3s;
+        }
+        .wd-lightbox.is-open {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .wd-lightbox__inner {
+            position: relative;
+            width: min(90vw, 900px);
+            aspect-ratio: 16/9;
+            border-radius: 16px;
+            overflow: hidden;
+            transform: scale(.92);
+            transition: transform .35s cubic-bezier(.34,1.56,.64,1);
+        }
+        .wd-lightbox.is-open .wd-lightbox__inner {
+            transform: scale(1);
+        }
+        .wd-lightbox__bg {
+            position: absolute;
+            inset: 0;
+        }
+        .wd-lightbox__icon {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: rgba(255,255,255,.2);
+        }
+        .wd-lightbox__close {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 46px; height: 46px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.12);
+            border: 1px solid rgba(255,255,255,.2);
+            backdrop-filter: blur(8px);
+            color: #fff;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: background .2s;
+            z-index: 2;
+        }
+        .wd-lightbox__close:hover { background: rgba(255,255,255,.22); }
+        .wd-lightbox__nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 46px; height: 46px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.12);
+            border: 1px solid rgba(255,255,255,.2);
+            backdrop-filter: blur(8px);
+            color: #fff;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: background .2s;
+            z-index: 2;
+        }
+        .wd-lightbox__nav:hover { background: rgba(255,255,255,.22); }
+        .wd-lightbox__nav--prev { right: -64px; }
+        .wd-lightbox__nav--next { left: -64px; }
+        .wd-lightbox__counter {
+            position: absolute;
+            bottom: -36px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: .8rem;
+            color: rgba(255,255,255,.45);
+            white-space: nowrap;
+        }
+
+        /* ── Work Navigation ────────────────────────────────────────── */
+        .wd-nav {
+            background: var(--wd-bg);
+            padding: 56px 0;
+            border-top: 1px solid rgba(0,0,0,.06);
+        }
+        .wd-nav__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        .wd-nav__card {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 24px 28px;
+            background: #fff;
+            border-radius: 16px;
+            border: 1px solid rgba(0,0,0,.06);
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            transition: box-shadow .25s, transform .25s;
+            position: relative;
+            overflow: hidden;
+        }
+        .wd-nav__card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--wd-gradient);
+            opacity: 0;
+            transition: opacity .25s;
+        }
+        .wd-nav__card:hover { box-shadow: 0 8px 32px rgba(0,0,0,.1); transform: translateY(-2px); }
+        .wd-nav__card:hover::before { opacity: .04; }
+        .wd-nav__card--next { text-align: start; }
+        .wd-nav__card--prev { text-align: end; }
+        .wd-nav__direction {
+            font-size: .73rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--wd-gray);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .wd-nav__card--prev .wd-nav__direction { justify-content: flex-end; }
+        .wd-nav__card__thumb {
+            width: 52px; height: 52px;
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem;
+            color: rgba(255,255,255,.8);
+            flex-shrink: 0;
+        }
+        .wd-nav__card--next { flex-direction: row; align-items: center; gap: 16px; text-align: start; }
+        .wd-nav__card--prev { flex-direction: row-reverse; align-items: center; gap: 16px; text-align: end; }
+        .wd-nav__card__info { flex: 1; min-width: 0; }
+        .wd-nav__cat {
+            font-size: .78rem;
+            color: var(--wd-gray);
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        .wd-nav__title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--wd-dark);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .wd-nav__arrow {
+            font-size: 1.4rem;
+            color: var(--wd-brand);
+            flex-shrink: 0;
+        }
+
+        /* ── Loading state ──────────────────────────────────────────── */
+        .wd-loading {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 16px;
+            background: var(--wd-bg);
+        }
+        .wd-loading__spinner {
+            width: 52px; height: 52px;
+            border-radius: 50%;
+            border: 3px solid rgba(212,43,30,.15);
+            border-top-color: var(--wd-brand);
+            animation: spin .7s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .wd-loading__text { color: var(--wd-gray); font-size: .95rem; }
+
+        /* ── Fade-in animation ──────────────────────────────────────── */
+        .wd-fade-up {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .6s ease, transform .6s ease;
+        }
+        .wd-fade-up.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* ── Responsive ─────────────────────────────────────────────── */
+        @media (max-width: 1024px) {
+            .wd-details__grid { grid-template-columns: 1fr; }
+            .wd-meta-card { position: static; }
+            .wd-gallery__grid { grid-template-columns: repeat(2, 1fr); }
+            .wd-gallery__item:first-child { grid-column: span 2; }
+            .wd-lightbox__nav--prev { right: -54px; }
+            .wd-lightbox__nav--next { left: -54px; }
+        }
+        @media (max-width: 768px) {
+            .wd-hero { min-height: 80vh; }
+            .wd-hero__icon-blob { width: 110px; height: 110px; }
+            .wd-hero__icon-blob i { font-size: 2.8rem; }
+            .wd-gallery__grid { grid-template-columns: 1fr; }
+            .wd-gallery__item:first-child { grid-column: span 1; }
+            .wd-nav__grid { grid-template-columns: 1fr; }
+            .wd-lightbox__inner { width: 92vw; }
+            .wd-lightbox__nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar">
+        <div class="container">
+            <div class="navbar__row">
+                <div class="navbar__logo">
+                    <a href="index.html">
+                        <img src="images/logo-2.png" alt="رسومات" class="navbar__logo-img">
+                    </a>
+                </div>
+                <div class="navbar__links" id="navLinks">
+                    <a href="index.html" class="nav-link">الرئيسية</a>
+                    <a href="index.html#how-we-work" class="nav-link">كيف نعمل</a>
+                    <a href="index.html#services" class="nav-link">خدماتنا</a>
+                    <a href="all-works.html" class="nav-link">أعمالنا</a>
+                    <a href="index.html#contact" class="nav-link">تواصل معنا</a>
+                    <a href="https://offers.rosomat.net/" class="navbar__packages--mobile"><i class="ri-vip-crown-2-fill"></i> الباقات</a>
+                </div>
+                <div class="navbar__actions">
+                    <a href="https://offers.rosomat.net/" class="navbar__packages"><i class="ri-vip-crown-2-fill"></i> الباقات</a>
+                    <a href="index.html#contact" class="navbar__cta">بروفايل الشركة</a>
+                </div>
+                <button class="navbar__hamburger" id="hamburgerBtn" aria-label="فتح القائمة" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Root -->
+    <div id="wdRoot">
+        <!-- Loading spinner shown until JS renders page -->
+        <div class="wd-loading" id="wdLoading">
+            <div class="wd-loading__spinner"></div>
+            <p class="wd-loading__text">جاري تحميل العمل...</p>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="wd-lightbox" id="wdLightbox" role="dialog" aria-modal="true" aria-label="معرض الصور">
+        <button class="wd-lightbox__close" id="wdLbClose" aria-label="إغلاق"><i class="ri-close-line"></i></button>
+        <div style="position:relative;">
+            <div class="wd-lightbox__inner" id="wdLbInner">
+                <div class="wd-lightbox__bg" id="wdLbBg"></div>
+                <div class="wd-lightbox__icon" id="wdLbIcon"></div>
+            </div>
+            <button class="wd-lightbox__nav wd-lightbox__nav--prev" id="wdLbPrev" aria-label="السابق"><i class="ri-arrow-right-line"></i></button>
+            <button class="wd-lightbox__nav wd-lightbox__nav--next" id="wdLbNext" aria-label="التالي"><i class="ri-arrow-left-line"></i></button>
+            <div class="wd-lightbox__counter" id="wdLbCounter"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="works-data.js"></script>
+    <script>
+    (function () {
+
+        /* ── helpers ────────────────────────────────────────────── */
+        function el(tag, cls, html) {
+            var e = document.createElement(tag);
+            if (cls) e.className = cls;
+            if (html !== undefined) e.innerHTML = html;
+            return e;
+        }
+        function getParam(key) {
+            return new URLSearchParams(window.location.search).get(key);
+        }
+
+        /* ── derive 6 gallery gradient variants ─────────────────── */
+        function makeGalleryItems(work) {
+            var c = work.colors;
+            var icons = work.galleryIcons;
+            // Mix the 3 brand colors in different combos
+            return [
+                { bg: 'linear-gradient(135deg, ' + c[0] + ' 0%, ' + c[1] + ' 100%)', icon: icons[0] },
+                { bg: 'linear-gradient(135deg, ' + c[1] + ' 0%, ' + c[2] + ' 100%)', icon: icons[1] },
+                { bg: 'linear-gradient(135deg, ' + c[2] + ' 0%, ' + c[0] + ' 100%)', icon: icons[2] },
+                { bg: 'linear-gradient(160deg, ' + c[0] + ' 0%, ' + c[2] + ' 100%)', icon: icons[3] },
+                { bg: 'linear-gradient(160deg, ' + c[1] + ' 0%, ' + c[0] + ' 100%)', icon: icons[4] },
+                { bg: 'linear-gradient(160deg, ' + c[2] + ' 0%, ' + c[1] + ' 100%)', icon: icons[5] },
+            ];
+        }
+
+        /* ── find prev / next work ──────────────────────────────── */
+        function getSiblings(work) {
+            var idx = WORKS_DATA.findIndex(function (w) { return w.id === work.id; });
+            return {
+                prev: idx > 0 ? WORKS_DATA[idx - 1] : null,
+                next: idx < WORKS_DATA.length - 1 ? WORKS_DATA[idx + 1] : null
+            };
+        }
+
+        /* ── render page ────────────────────────────────────────── */
+        function renderPage(work) {
+            var gallery = makeGalleryItems(work);
+            var siblings = getSiblings(work);
+
+            document.title = work.title + ' | Rosomat رسومات';
+
+            var html = '';
+
+            /* ── Hero ── */
+            html += '<section class="wd-hero">';
+            html += '  <div class="wd-hero__bg"></div>';
+            html += '  <div class="container wd-hero__content">';
+            html += '    <div class="wd-hero__breadcrumb">';
+            html += '      <a href="index.html">الرئيسية</a><i class="ri-arrow-left-s-line"></i>';
+            html += '      <a href="all-works.html">أعمالنا</a><i class="ri-arrow-left-s-line"></i>';
+            html += '      <span>' + work.title + '</span>';
+            html += '    </div>';
+            html += '    <div class="wd-hero__cat"><i class="' + work.icon + '"></i>' + work.categoryLabel + '</div>';
+            html += '    <h1 class="wd-hero__title">' + work.title + '</h1>';
+            html += '    <p class="wd-hero__desc">' + work.shortDesc + '</p>';
+            html += '  </div>';
+            html += '  <div class="wd-hero__scroll"><i class="ri-arrow-down-line"></i><span>اكتشف</span></div>';
+            html += '</section>';
+
+            /* ── Details ── */
+            html += '<section class="wd-details">';
+            html += '  <div class="container">';
+            html += '    <div class="wd-details__grid">';
+
+            // Left: description
+            html += '    <div class="wd-fade-up">';
+            html += '      <div class="wd-desc__label">عن المشروع</div>';
+            html += '      <h2 class="wd-desc__title">' + work.title + '</h2>';
+            html += '      <p class="wd-desc__body">' + work.fullDesc + '</p>';
+
+            // Results
+            html += '      <div class="wd-results">';
+            html += '        <div class="wd-results__title">أبرز النتائج</div>';
+            work.results.forEach(function (r) {
+                html += '<div class="wd-result-item"><i class="ri-checkbox-circle-fill"></i><span>' + r + '</span></div>';
+            });
+            html += '      </div>';
+
+            // Tags
+            html += '      <div class="wd-tags">';
+            work.tags.forEach(function (t) {
+                html += '<span class="wd-tag">' + t + '</span>';
+            });
+            html += '      </div>';
+            html += '    </div>';
+
+            // Right: meta card
+            html += '    <div class="wd-fade-up" style="transition-delay:.12s">';
+            html += '      <div class="wd-meta-card">';
+            html += '        <div class="wd-meta-card__header">';
+            html += '          <div class="wd-meta-card__header-title">تفاصيل المشروع</div>';
+            html += '          <div class="wd-meta-card__project-name">' + work.title + '</div>';
+            html += '        </div>';
+            html += '        <div class="wd-meta-card__body">';
+
+            html += buildMetaRow('ri-user-3-line', 'العميل', work.client);
+            html += buildMetaRow('ri-calendar-line', 'السنة', work.year);
+            html += buildMetaRow('ri-price-tag-3-line', 'التصنيف', work.categoryLabel);
+            html += buildMetaRow('ri-service-line', 'الخدمات', work.services.join(' · '));
+
+            html += '        </div>';
+            html += '      </div>';
+            html += '    </div>';
+
+            html += '    </div>'; // /details__grid
+            html += '  </div>';  // /container
+            html += '</section>';
+
+            /* ── Gallery ── */
+            html += '<section class="wd-gallery">';
+            html += '  <div class="container">';
+            html += '    <div class="wd-section-header wd-fade-up">';
+            html += '      <div class="wd-section-header__label"><i class="ri-gallery-line"></i> معرض الأعمال</div>';
+            html += '      <h2 class="wd-section-header__title">لقطات من المشروع</h2>';
+            html += '    </div>';
+            html += '    <div class="wd-gallery__grid">';
+            gallery.forEach(function (item, i) {
+                html += '<div class="wd-gallery__item wd-fade-up" data-gallery-idx="' + i + '" style="transition-delay:' + (i * 0.07) + 's">';
+                html += '  <div class="wd-gallery__item-bg" style="background:' + item.bg + ';"></div>';
+                html += '  <div class="wd-gallery__item-icon"><i class="' + item.icon + '"></i></div>';
+                html += '  <div class="wd-gallery__item-overlay"><div class="wd-gallery__zoom-btn"><i class="ri-zoom-in-line"></i></div></div>';
+                html += '</div>';
+            });
+            html += '    </div>';
+            html += '  </div>';
+            html += '</section>';
+
+            /* ── Work Nav ── */
+            html += '<section class="wd-nav">';
+            html += '  <div class="container">';
+            html += '    <div class="wd-nav__grid">';
+
+            if (siblings.next) {
+                html += buildNavCard('next', siblings.next);
+            } else {
+                html += '<div></div>';
+            }
+            if (siblings.prev) {
+                html += buildNavCard('prev', siblings.prev);
+            } else {
+                html += '<div></div>';
+            }
+
+            html += '    </div>';
+            html += '  </div>';
+            html += '</section>';
+
+            /* ── CTA ── */
+            html += '<section class="aw-cta-section">';
+            html += '  <div class="container">';
+            html += '    <div class="aw-cta-card">';
+            html += '      <h2 class="aw-cta-card__title">عندك مشروع مشابه؟ خلنا نبدع لك!</h2>';
+            html += '      <p class="aw-cta-card__desc">تواصل معنا الحين واحصل على عرض سعر مخصص لمشروعك</p>';
+            html += '      <a href="index.html#contact" class="aw-cta-card__btn"><span>أطلب عرض السعر</span><i class="ri-arrow-left-line"></i></a>';
+            html += '    </div>';
+            html += '  </div>';
+            html += '</section>';
+
+            /* ── Footer ── */
+            html += buildFooter();
+
+            // Replace loading screen
+            document.getElementById('wdRoot').innerHTML = html;
+
+            // Init interactions
+            initGallery(gallery);
+            initScrollObserver();
+        }
+
+        function buildMetaRow(icon, label, value) {
+            return '<div class="wd-meta-row">' +
+                '<div class="wd-meta-row__icon"><i class="' + icon + '"></i></div>' +
+                '<div><div class="wd-meta-row__label">' + label + '</div><div class="wd-meta-row__value">' + value + '</div></div>' +
+                '</div>';
+        }
+
+        function buildNavCard(dir, work) {
+            var isNext = dir === 'next';
+            return '<a class="wd-nav__card wd-nav__card--' + dir + '" href="work-detail.html?id=' + work.id + '">' +
+                '<div class="wd-nav__card__thumb" style="background:' + work.gradient + '"><i class="' + work.icon + '"></i></div>' +
+                '<div class="wd-nav__card__info">' +
+                '<div class="wd-nav__direction"><i class="' + (isNext ? 'ri-arrow-right-line' : 'ri-arrow-left-line') + '"></i>' + (isNext ? 'العمل التالي' : 'العمل السابق') + '</div>' +
+                '<div class="wd-nav__cat">' + work.categoryLabel + '</div>' +
+                '<div class="wd-nav__title">' + work.title + '</div>' +
+                '</div>' +
+                '<i class="ri-arrow-' + (isNext ? 'right' : 'left') + '-line wd-nav__arrow"></i>' +
+                '</a>';
+        }
+
+        function buildFooter() {
+            return '<footer id="footer" class="site-footer">' +
+                '<div class="container"><div class="footer-grid">' +
+                '<div class="footer-col">' +
+                '<a href="index.html" class="footer-logo"><img src="images/logo-trans.png" alt="رسومات" class="footer-logo-img"></a>' +
+                '<p class="footer-text">وكالة تسويق رقمي متخصصة في صناعة العلامات التجارية وإدارة الحملات الإعلانية المبتكرة التي تحقق النمو والمبيعات المستدامة.</p>' +
+                '<div class="social-icons">' +
+                '<a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>' +
+                '<a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>' +
+                '<a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>' +
+                '<a href="#" class="social-icon" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>' +
+                '<a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>' +
+                '</div></div>' +
+                '<div class="footer-col"><h4 class="footer-heading">أين نتواجد</h4><ul class="footer-list">' +
+                '<li class="footer-list-item"><span class="footer-dot"></span> المملكة العربية السعودية (Sa)</li>' +
+                '<li class="footer-list-item"><span class="footer-dot"></span> الإمارات العربية المتحدة (UAE)</li>' +
+                '</ul></div>' +
+                '<div class="footer-col"><h4 class="footer-heading">معلومات التواصل</h4><ul class="footer-list">' +
+                '<li><a href="mailto:info@rosomat.com" class="footer-link"><span class="footer-icon">✉️</span> info@rosomat.com</a></li>' +
+                '<li><a href="tel:+966500000000" class="footer-link" dir="ltr"><span class="footer-icon">📞</span> +966 50 000 0000</a></li>' +
+                '<li><a href="tel:+971500000000" class="footer-link" dir="ltr"><span class="footer-icon">📞</span> +971 50 000 0000</a></li>' +
+                '</ul></div>' +
+                '</div>' +
+                '<div class="footer-bottom"><p>&copy; 2026 رسومات (Rosomat). جميع الحقوق محفوظة.</p>' +
+                '<div class="footer-bottom-links"><a href="#" class="footer-bottom-link">سياسة الخصوصية</a><span>•</span><a href="#" class="footer-bottom-link">الشروط والأحكام</a></div>' +
+                '</div></div>' +
+                '</footer>';
+        }
+
+        /* ── Gallery / Lightbox ──────────────────────────────────── */
+        var lbItems = [];
+        var lbCurrent = 0;
+
+        function initGallery(gallery) {
+            lbItems = gallery;
+            document.querySelectorAll('.wd-gallery__item').forEach(function (item) {
+                item.addEventListener('click', function () {
+                    openLightbox(parseInt(item.dataset.galleryIdx, 10));
+                });
+            });
+        }
+
+        function openLightbox(idx) {
+            lbCurrent = idx;
+            renderLightbox();
+            document.getElementById('wdLightbox').classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('wdLightbox').classList.remove('is-open');
+            document.body.style.overflow = '';
+        }
+
+        function renderLightbox() {
+            var item = lbItems[lbCurrent];
+            document.getElementById('wdLbBg').style.background = item.bg;
+            document.getElementById('wdLbIcon').innerHTML = '<i class="' + item.icon + '"></i>';
+            document.getElementById('wdLbCounter').textContent = (lbCurrent + 1) + ' / ' + lbItems.length;
+        }
+
+        document.getElementById('wdLbClose').addEventListener('click', closeLightbox);
+        document.getElementById('wdLightbox').addEventListener('click', function (e) {
+            if (e.target === this) closeLightbox();
+        });
+        document.getElementById('wdLbPrev').addEventListener('click', function () {
+            lbCurrent = (lbCurrent + 1) % lbItems.length;
+            renderLightbox();
+        });
+        document.getElementById('wdLbNext').addEventListener('click', function () {
+            lbCurrent = (lbCurrent - 1 + lbItems.length) % lbItems.length;
+            renderLightbox();
+        });
+        document.addEventListener('keydown', function (e) {
+            var lb = document.getElementById('wdLightbox');
+            if (!lb.classList.contains('is-open')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') { lbCurrent = (lbCurrent + 1) % lbItems.length; renderLightbox(); }
+            if (e.key === 'ArrowLeft')  { lbCurrent = (lbCurrent - 1 + lbItems.length) % lbItems.length; renderLightbox(); }
+        });
+
+        /* ── Scroll fade-up observer ─────────────────────────────── */
+        function initScrollObserver() {
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        io.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+            document.querySelectorAll('.wd-fade-up').forEach(function (el) { io.observe(el); });
+        }
+
+        /* ── Init ─────────────────────────────────────────────────── */
+        var workId = getParam('id');
+        var work = WORKS_DATA.find(function (w) { return w.id === workId; });
+
+        if (!work) {
+            // 404 state
+            document.getElementById('wdRoot').innerHTML =
+                '<div class="wd-loading" style="flex-direction:column;gap:16px;">' +
+                '<i class="ri-error-warning-line" style="font-size:4rem;color:#d42b1e;"></i>' +
+                '<p style="font-size:1.2rem;font-weight:700;color:#1f2937;">العمل غير موجود</p>' +
+                '<a href="all-works.html" style="color:#d42b1e;font-weight:700;text-decoration:none;">← العودة لجميع الأعمال</a>' +
+                '</div>';
+        } else {
+            renderPage(work);
+        }
+
+    }());
+    </script>
+    <script src="script.js"></script>
+    <script src="lang-switch.js"></script>
+</body>
+</html>

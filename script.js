@@ -1,3 +1,9 @@
+// Disable browser scroll restoration so the page always opens at the top
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
 // ============================================================
 // Hero Slideshow — crossfade between images
 // ============================================================
@@ -165,6 +171,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var n         = cards.length;
     var active    = 0;
     var isCompact = false;
+    var initialized = false;
 
     function setActive(step) {
         active = step;
@@ -241,7 +248,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (isCompact) {
             track.style.transform = 'translateX(0)';
-            cards[active].scrollIntoView({ behavior: 'auto', inline: 'center', block: 'nearest' });
+            // Only re-center the card on resize, not on initial page load
+            if (initialized) {
+                cards[active].scrollIntoView({ behavior: 'auto', inline: 'center', block: 'nearest' });
+            }
             updateCompactActive();
             return;
         }
@@ -260,6 +270,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     setActive(0);
     syncMode();
+    initialized = true;
 
     dots.forEach(function (dot, i) {
         dot.addEventListener('click', function () {
@@ -747,4 +758,136 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 1800);
         });
     }
+});
+
+// ============================================================
+// Testimonials Slider — Horizontal slider with arrows & dots
+// ============================================================
+document.addEventListener('DOMContentLoaded', function () {
+    var section = document.querySelector('.testimonials-section');
+    if (!section) return;
+
+    var track     = section.querySelector('.testimonials-track');
+    var cards     = Array.from(section.querySelectorAll('.testimonial-card'));
+    var prevBtn   = section.querySelector('.testimonials-arrow--prev');
+    var nextBtn   = section.querySelector('.testimonials-arrow--next');
+    var dotsWrap  = section.querySelector('.testimonials-dots');
+    var slider    = section.querySelector('.testimonials-slider');
+
+    if (!track || cards.length === 0) return;
+
+    var currentIndex = 0;
+    var visibleCount = getVisibleCount();
+    var totalPages   = Math.max(1, cards.length - visibleCount + 1);
+
+    function getVisibleCount() {
+        return 1;
+    }
+
+    // Build dots
+    function buildDots() {
+        dotsWrap.innerHTML = '';
+        totalPages = Math.max(1, cards.length - visibleCount + 1);
+        for (var i = 0; i < totalPages; i++) {
+            var dot = document.createElement('button');
+            dot.className = 'testimonials-dot' + (i === currentIndex ? ' is-active' : '');
+            dot.setAttribute('aria-label', 'شريحة ' + (i + 1));
+            dot.dataset.index = i;
+            dot.addEventListener('click', function () {
+                goTo(parseInt(this.dataset.index));
+            });
+            dotsWrap.appendChild(dot);
+        }
+    }
+
+    // Update slider position
+    function goTo(index) {
+        if (index < 0) index = 0;
+        if (index >= totalPages) index = totalPages - 1;
+        currentIndex = index;
+
+        var cardWidth = cards[0].offsetWidth;
+        // RTL: translate positive direction
+        var offset = currentIndex * cardWidth;
+        track.style.transform = 'translateX(' + offset + 'px)';
+
+        // Update dots
+        var dots = dotsWrap.querySelectorAll('.testimonials-dot');
+        dots.forEach(function (dot, i) {
+            dot.classList.toggle('is-active', i === currentIndex);
+        });
+
+        // Update arrow states
+        if (prevBtn) prevBtn.disabled = currentIndex === 0;
+        if (nextBtn) nextBtn.disabled = currentIndex >= totalPages - 1;
+    }
+
+    // Arrow events
+    if (prevBtn) {
+        prevBtn.addEventListener('click', function () {
+            goTo(currentIndex - 1);
+        });
+    }
+    if (nextBtn) {
+        nextBtn.addEventListener('click', function () {
+            goTo(currentIndex + 1);
+        });
+    }
+
+    // Touch/swipe support
+    var startX = 0;
+    var isDragging = false;
+
+    slider.addEventListener('touchstart', function (e) {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+    }, { passive: true });
+
+    slider.addEventListener('touchend', function (e) {
+        if (!isDragging) return;
+        isDragging = false;
+        var diff = startX - e.changedTouches[0].clientX;
+        // RTL: swipe directions are reversed
+        if (diff < -50) {
+            goTo(currentIndex + 1);
+        } else if (diff > 50) {
+            goTo(currentIndex - 1);
+        }
+    }, { passive: true });
+
+    // Handle resize
+    function onResize() {
+        var newVisible = getVisibleCount();
+        if (newVisible !== visibleCount) {
+            visibleCount = newVisible;
+            totalPages = Math.max(1, cards.length - visibleCount + 1);
+            if (currentIndex >= totalPages) currentIndex = totalPages - 1;
+            buildDots();
+        }
+        goTo(currentIndex);
+    }
+
+    window.addEventListener('resize', onResize);
+
+    // Init
+    buildDots();
+    goTo(0);
+
+    // Fade-up animation for testimonials section
+    var tHeader = section.querySelector('.testimonials-header');
+    var tSliderWrap = section.querySelector('.testimonials-slider-wrap');
+    if (tHeader) tHeader.classList.add('fade-up');
+    if (tSliderWrap) tSliderWrap.classList.add('fade-up');
+
+    var tObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                tObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+
+    if (tHeader) tObserver.observe(tHeader);
+    if (tSliderWrap) tObserver.observe(tSliderWrap);
 });

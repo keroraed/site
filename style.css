@@ -3311,6 +3311,8 @@ body.modal-open {
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         padding: 0 20px 12px;
+        scroll-padding-inline: 50%;
+        overscroll-behavior-x: contain;
     }
 
     .process-track-wrap::-webkit-scrollbar {
@@ -3352,37 +3354,65 @@ body.modal-open {
         padding-bottom: 56px;
     }
     .process-sticky {
-        padding-top: 88px;
+        padding-top: 80px;
     }
     .process-hdr {
         padding: 0 16px;
+        margin-bottom: 16px;
+    }
+    .process-subtitle {
+        font-size: 0.88rem;
     }
     .process-card {
-        width: calc(100vw - 56px);
-        padding: 32px 24px 28px;
+        width: calc(100vw - 40px);
+        padding: 28px 20px 24px;
     }
     .process-track {
-        gap: 16px;
+        gap: 12px;
     }
     .process-track-wrap {
-        padding: 0 12px 10px;
+        padding: 0 20px 10px;
+        scroll-padding-inline: 50%;
+    }
+    .process-ind {
+        margin-bottom: 14px;
     }
     .process-ind__bar {
-        width: 120px;
+        width: 100px;
     }
+    /* Edge fades not needed when cards are near full-viewport width */
     .process-track-wrap::before,
     .process-track-wrap::after {
-        width: 60px;
+        display: none;
     }
     .process-card__bg-num {
         font-size: 4.5rem;
     }
     .process-card__title {
-        font-size: 1.15rem;
+        font-size: 1.1rem;
     }
     .process-card__desc {
-        font-size: 0.86rem;
+        font-size: 0.85rem;
         line-height: 1.75;
+    }
+    /* Larger tap targets for dots */
+    .process-dots {
+        gap: 12px;
+        padding: 14px 0 0;
+    }
+    .process-dot {
+        width: 10px;
+        height: 10px;
+        /* Expand tap area without affecting layout */
+        position: relative;
+    }
+    .process-dot::after {
+        content: '';
+        position: absolute;
+        inset: -12px;
+    }
+    .process-dot.is-active {
+        width: 32px;
     }
 }
 

@@ -1,9 +1,37 @@
-// Disable browser scroll restoration so the page always opens at the top
+// ── Scroll position: save on leave, restore on refresh ──
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
 }
-window.scrollTo(0, 0);
-window.addEventListener('load', function () { window.scrollTo(0, 0); });
+(function () {
+    var SK = 'scroll_y_' + location.pathname;
+
+    // Save position before leaving / refreshing
+    window.addEventListener('beforeunload', function () {
+        sessionStorage.setItem(SK, window.scrollY);
+    });
+
+    // Restore position after page fully loads
+    window.addEventListener('load', function () {
+        var saved = sessionStorage.getItem(SK);
+        sessionStorage.removeItem(SK);
+        if (saved !== null) {
+            var y = parseInt(saved, 10);
+            if (y > 0) {
+                // Instantly reveal any fade-up elements that would already be above the fold
+                document.querySelectorAll('.fade-up').forEach(function (el) {
+                    var rect = el.getBoundingClientRect();
+                    if (rect.top < y + window.innerHeight) {
+                        el.classList.add('is-visible');
+                    }
+                });
+                window.scrollTo({ top: y, behavior: 'instant' });
+                return;
+            }
+        }
+        // No saved position → start at top
+        window.scrollTo(0, 0);
+    });
+})();
 
 // ============================================================
 // Hero Slideshow — crossfade between images
@@ -251,7 +279,8 @@ document.addEventListener('DOMContentLoaded', function () {
             track.style.transform = 'translateX(0)';
             // Only re-center the card on resize, not on initial page load
             if (initialized) {
-                cards[active].scrollIntoView({ behavior: 'auto', inline: 'center', block: 'nearest' });
+                var targetLeft = cards[active].offsetLeft - (wrap.clientWidth - cards[active].offsetWidth) / 2;
+                wrap.scrollTo({ left: Math.max(0, targetLeft), behavior: 'auto' });
             }
             updateCompactActive();
             return;
@@ -276,7 +305,8 @@ document.addEventListener('DOMContentLoaded', function () {
     dots.forEach(function (dot, i) {
         dot.addEventListener('click', function () {
             if (isCompact) {
-                cards[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                var targetLeft = cards[i].offsetLeft - (wrap.clientWidth - cards[i].offsetWidth) / 2;
+                wrap.scrollTo({ left: Math.max(0, targetLeft), behavior: 'smooth' });
                 setActive(i);
                 return;
             }

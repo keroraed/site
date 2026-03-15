@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blog.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -30,12 +31,13 @@
                     <a href="#portfolio" class="nav-link">أعمالنا </a>
                     <a href="#testimonials" class="nav-link">قصص عملاؤنا</a>
                     <a href="#clients" class="nav-link">عملاؤنا</a>
+                    <a href="blog.html" class="nav-link">مدونة</a>
 
                     <a href="https://offers.rosomat.net/" class="navbar__packages--mobile"><i class="ri-vip-crown-2-fill"></i> الباقات</a>
                 </div>
                 <div class="navbar__actions">
                     <a href="https://offers.rosomat.net/" class="navbar__packages"><i class="ri-vip-crown-2-fill"></i> الباقات</a>
-                    <a href="#contact" class="navbar__cta">بروفايل الشركة</a>
+                    <a href="#profile" class="navbar__cta">بروفايل الشركة</a>
                 </div>
                 <button class="navbar__hamburger" id="hamburgerBtn" aria-label="فتح القائمة" aria-expanded="false">
                     <span></span>
@@ -728,43 +730,122 @@
     </section>
 
     <!-- ═══════════════════════════════════════════
-         WHY US SECTION
+         PLATFORMS SECTION — القنوات المدعومة
+    ════════════════════════════════════════════ -->
+    <section id="platforms" class="platforms-section">
+        <div class="container">
+
+            <div class="section-header fade-up">
+                <span class="platforms-badge">منصات التسويق التي نعمل عليها</span>
+                <h2 class="section-title">القنوات المدعومة</h2>
+                <p class="platforms-subtitle">نساعد عملاءنا على الوصول إلى جمهورهم عبر أهم منصات التسويق الرقمي وإدارة حملات فعالة تحقق أفضل النتائج.</p>
+            </div>
+
+            <div class="platforms-grid fade-up">
+
+                <div class="platform-card">
+                    <img src="images/platforms/google.png" alt="Google Ads">
+                    <span>Google Ads</span>
+                </div>
+
+                <div class="platform-card">
+                    <img src="images/platforms/facebook.png" alt="Facebook">
+                    <span>Facebook</span>
+                </div>
+
+                <div class="platform-card">
+                    <img src="images/platforms/instagram.png" alt="Instagram">
+                    <span>Instagram</span>
+                </div>
+
+                <div class="platform-card">
+                    <img src="images/platforms/tiktok.png" alt="TikTok">
+                    <span>TikTok</span>
+                </div>
+
+                <div class="platform-card">
+                    <img src="images/platforms/snapchat.png" alt="Snapchat">
+                    <span>Snapchat</span>
+                </div>
+
+                <div class="platform-card">
+                    <img src="images/platforms/linkedin.png" alt="LinkedIn">
+                    <span>LinkedIn</span>
+                </div>
+
+                <div class="platform-card">
+                    <img src="images/platforms/youtube.png" alt="YouTube">
+                    <span>YouTube</span>
+                </div>
+
+                <div class="platform-card">
+                    <img src="images/platforms/whatsapp.png" alt="WhatsApp">
+                    <span>WhatsApp Marketing</span>
+                </div>
+
+            </div><!-- /platforms-grid -->
+
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         نتائج حملاتنا السابقة
     ════════════════════════════════════════════ -->
     <section class="why-section">
         <div class="container">
 
-            <!-- Row 1: stat LEFT, text RIGHT -->
+            <div class="section-header" style="text-align:center;margin-bottom:56px;">
+                <h2 class="section-title">نتائج حملاتنا السابقة</h2>
+                <p class="section-subtitle">نحوّل الاستراتيجيات التسويقية إلى نتائج حقيقية تنعكس على نمو أعمال عملائنا.</p>
+            </div>
+
+            <!-- Row 1: بيت الذوق -->
             <div class="why-row">
                 <div class="why-visual animate-fade-right">
-                    <img src="images/slider1.png" alt="نتائج حقيقية" class="why-img animate-scale animate-delay-2">
+                    <img src="images/campaign1.png" alt="حملة بيت الذوق" class="why-img animate-scale animate-delay-2">
                 </div>
                 <div class="why-content animate-fade-left">
-                    <h2 class="why-title">ضاعف مبيعات مشروعك بذكاء</h2>
-                    <p class="why-desc">حوّل زيارات متجرك إلى أرباح حقيقية واستفد من حلول تسويقية مدروسة ترفع معدل التحويل وتزيد قيمة كل عميل.</p>
+                    <h2 class="why-title">حملة إعلانية لمطعم بيت الذوق</h2>
+                    <p class="why-desc">أطلقنا حملة تسويق رقمي متكاملة عبر منصات التواصل الاجتماعي استهدفت العملاء المحتملين في المنطقة وزادت من الوعي بالعلامة التجارية.</p>
                     <ul class="why-list">
-                        <li class="animate-fade-left animate-delay-1">استراتيجيات تسويق رقمية موجهة</li>
-                        <li class="animate-fade-left animate-delay-2">حملات إعلانية تحقق نتائج فعلية</li>
-                        <li class="animate-fade-left animate-delay-3">أتمتة ذكية لمتابعة العملاء</li>
-                        <li class="animate-fade-left animate-delay-4">تحسين تجربة المستخدم لزيادة الشراء</li>
+                        <li class="animate-fade-left animate-delay-1"><span class="result-num">+180%</span> زيادة في المبيعات</li>
+                        <li class="animate-fade-left animate-delay-2"><span class="result-num">+220%</span> زيادة في التفاعل</li>
+                        <li class="animate-fade-left animate-delay-3"><span class="result-num">+95%</span> زيادة في الطلبات عبر الإنترنت</li>
+                        <li class="animate-fade-left animate-delay-4">تحسين كبير في وصول العلامة التجارية للجمهور المستهدف</li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Row 2: text LEFT, stat RIGHT -->
+            <!-- Row 2: زونا للعطور -->
             <div class="why-row why-row--reverse">
                 <div class="why-visual animate-fade-left">
-                    <img src="images/slider2.png" alt="زيادة المبيعات" class="why-img animate-scale animate-delay-2">
+                    <img src="images/campaign2.png" alt="حملة زونا للعطور" class="why-img animate-scale animate-delay-2">
                 </div>
                 <div class="why-content animate-fade-right">
-                    <h2 class="why-title">أرقامنا تتكلم</h2>
-                    <p class="why-desc">نحوّل الأهداف إلى نتائج… والأفكار إلى نمو حقيقي.</p>
+                    <h2 class="why-title">نجاح حملة متجر زونا للعطور</h2>
+                    <p class="why-desc">قمنا بإدارة حملة إعلانية موجهة لزيادة المبيعات وتحسين معدل التحويل في المتجر الإلكتروني.</p>
                     <ul class="why-list">
-                        <li class="animate-fade-right animate-delay-1">+150 مشروع تم تنفيذه</li>
-                        <li class="animate-fade-right animate-delay-2">+300 حملة إعلانية ناجحة</li>
-                        <li class="animate-fade-right animate-delay-3">+40% متوسط زيادة في المبيعات</li>
-                        <li class="animate-fade-right animate-delay-4">7× تحسين في معدل التحويل</li>
-                        <li class="animate-fade-right animate-delay-5">أكثر من 16 مليون ريال مبيعات عملائنا</li>
-                        <li class="animate-fade-right animate-delay-5">100% تركيز على النتائج</li>
+                        <li class="animate-fade-right animate-delay-1"><span class="result-num">+200%</span> زيادة في الطلبات</li>
+                        <li class="animate-fade-right animate-delay-2"><span class="result-num">+150%</span> نمو في المتابعين</li>
+                        <li class="animate-fade-right animate-delay-3"><span class="result-num">+70%</span> تحسن في معدل التحويل</li>
+                        <li class="animate-fade-right animate-delay-4">زيادة ملحوظة في ولاء العملاء للعلامة التجارية</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Row 3: مسار التعليمية -->
+            <div class="why-row">
+                <div class="why-visual animate-fade-right">
+                    <img src="images/campaign3.png" alt="حملة مسار التعليمية" class="why-img animate-scale animate-delay-2">
+                </div>
+                <div class="why-content animate-fade-left">
+                    <h2 class="why-title">حملة إطلاق منصة مسار التعليمية</h2>
+                    <p class="why-desc">ساعدنا المنصة التعليمية على الوصول لطلاب جدد من خلال استراتيجية تسويق رقمي تعتمد على البيانات.</p>
+                    <ul class="why-list">
+                        <li class="animate-fade-left animate-delay-1"><span class="result-num">+300%</span> زيادة في التسجيلات</li>
+                        <li class="animate-fade-left animate-delay-2"><span class="result-num">+250%</span> زيادة في الزيارات للموقع</li>
+                        <li class="animate-fade-left animate-delay-3"><span class="result-num">+120%</span> نمو في العملاء المحتملين</li>
+                        <li class="animate-fade-left animate-delay-4">تحسين ملحوظ في انتشار العلامة التعليمية</li>
                     </ul>
                 </div>
             </div>
@@ -772,8 +853,81 @@
         </div>
     </section>
 
+    <!-- ═══════════════════════════════════════════
+         BLOG SECTION — مدونة
+    ════════════════════════════════════════════ -->
+    <section id="blog" class="blog-section">
+        <div class="container">
+
+            <div class="blog-header fade-up">
+                <h2 class="blog-section-title">مدونة</h2>
+                <p class="blog-section-subtitle">نشارككم أحدث المقالات والنصائح في عالم التسويق الرقمي ونمو الأعمال.</p>
+            </div>
+
+            <div class="blog-grid">
+
+                <!-- Blog Card 1 -->
+                <div class="blog-card fade-up">
+                    <div class="blog-image blog-image--1 blog-image--placeholder">
+                        <i class="ri-line-chart-fill"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta-row">
+                            <span class="blog-category">التسويق الرقمي</span>
+                            <span class="blog-read-time"><i class="ri-time-line"></i> 5 دقائق</span>
+                        </div>
+                        <h3 class="blog-title">كيف تزيد مبيعات متجرك الإلكتروني باستخدام الإعلانات الذكية</h3>
+                        <p class="blog-excerpt">تعرف على أهم الاستراتيجيات التي تساعدك في تحويل الزيارات إلى مبيعات حقيقية ومستدامة لمتجرك.</p>
+                        <a href="blog-single.html" class="blog-read">قراءة المقال <i class="ri-arrow-left-line"></i></a>
+                    </div>
+                </div>
+
+                <!-- Blog Card 2 -->
+                <div class="blog-card fade-up">
+                    <div class="blog-image blog-image--2 blog-image--placeholder">
+                        <i class="ri-instagram-fill"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta-row">
+                            <span class="blog-category">سوشيال ميديا</span>
+                            <span class="blog-read-time"><i class="ri-time-line"></i> 7 دقائق</span>
+                        </div>
+                        <h3 class="blog-title">أهم استراتيجيات السوشيال ميديا لعام 2025</h3>
+                        <p class="blog-excerpt">اكتشف الاتجاهات الجديدة التي ستساعدك على بناء حضور قوي على منصات التواصل الاجتماعي وجذب جمهورك.</p>
+                        <a href="blog-single.html" class="blog-read">قراءة المقال <i class="ri-arrow-left-line"></i></a>
+                    </div>
+                </div>
+
+                <!-- Blog Card 3 -->
+                <div class="blog-card fade-up">
+                    <div class="blog-image blog-image--3 blog-image--placeholder">
+                        <i class="ri-palette-fill"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta-row">
+                            <span class="blog-category">الهوية البصرية</span>
+                            <span class="blog-read-time"><i class="ri-time-line"></i> 6 دقائق</span>
+                        </div>
+                        <h3 class="blog-title">دليلك الشامل لبناء هوية بصرية قوية لعلامتك التجارية</h3>
+                        <p class="blog-excerpt">تعلّم كيف تبني هوية بصرية متماسكة تعكس قيم علامتك التجارية وتجذب عملاءك المستهدفين بثقة.</p>
+                        <a href="blog-single.html" class="blog-read">قراءة المقال <i class="ri-arrow-left-line"></i></a>
+                    </div>
+                </div>
+
+            </div><!-- /blog-grid -->
+
+            <div class="blog-cta-wrap fade-up">
+                <a href="blog.html" class="blog-all-btn">
+                    <span>عرض جميع المقالات</span>
+                    <i class="ri-arrow-left-line"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
     <!-- Profile Download CTA -->
-    <div class="spui-cta fade-up is-visible">
+    <div id="profile" class="spui-cta fade-up is-visible">
         <div class="spui-cta__text">
             <h2>تعرف على رسومات بشكل أعمق</h2>
             <p>حمّل بروفايل الشركة الآن واطلع على خدماتنا وأعمالنا وقصص نجاحنا</p>

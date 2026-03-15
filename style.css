@@ -2962,8 +2962,19 @@ html { scroll-behavior: smooth; }
 }
 
 /* ============================================================
-   WHY US SECTION
+   WHY US SECTION (نتائج حملاتنا السابقة)
    ============================================================ */
+.why-section .section-subtitle {
+    font-size: 1.125rem;
+    color: #6b7280;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.why-section .result-num {
+    font-weight: 800;
+    color: #d42b1e;
+    font-size: 1.05rem;
+}
 .why-section {
     padding: 96px 0;
     background: #fff;
@@ -3046,8 +3057,8 @@ html { scroll-behavior: smooth; }
     align-items: center;
     gap: 10px;
     font-size: 0.95rem;
-    color: #374151;
-    font-weight: 500;
+    color: #d42b1e;
+    font-weight: 600;
 }
 .why-list li::before {
     content: '';
@@ -5048,5 +5059,122 @@ html[dir='ltr'] .ri-arrow-right-line {
 @media (max-width: 600px) {
     .cta-modal {
         padding: 40px 20px 28px;
+    }
+}
+
+/* ============================================================
+   PLATFORMS SECTION — القنوات المدعومة
+   ============================================================ */
+.platforms-section {
+    padding: 100px 0;
+    background: #f7f1ea;
+    position: relative;
+    overflow: hidden;
+}
+
+.platforms-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(212, 43, 30, 0.08) 0%, rgba(224, 116, 40, 0.08) 100%);
+    color: #d42b1e;
+    font-size: 0.875rem;
+    font-weight: 700;
+    padding: 6px 20px;
+    border-radius: 50px;
+    border: 1px solid rgba(212, 43, 30, 0.2);
+    margin-bottom: 14px;
+    letter-spacing: 0.01em;
+}
+
+.platforms-subtitle {
+    font-size: 1.05rem;
+    color: #6b7280;
+    line-height: 1.8;
+    margin-top: 12px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Grid — mobile: 2 cols | tablet: 3 cols | desktop: 4 cols */
+.platforms-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+@media (min-width: 640px) {
+    .platforms-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .platforms-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+    }
+}
+
+/* Card */
+.platform-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 28px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    cursor: default;
+}
+
+.platform-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+    border-color: rgba(212, 43, 30, 0.15);
+}
+
+/* Logo */
+.platform-card img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.platform-card:hover img {
+    filter: grayscale(0%);
+}
+
+/* Label */
+.platform-card span {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #374151;
+    text-align: center;
+    line-height: 1.4;
+}
+
+@media (max-width: 480px) {
+    .platforms-section {
+        padding: 72px 0;
+    }
+
+    .platform-card {
+        padding: 22px 14px;
+    }
+
+    .platform-card img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .platform-card span {
+        font-size: 0.8rem;
     }
 }

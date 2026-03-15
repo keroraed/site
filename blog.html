@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدونة رسومات | أحدث مقالات التسويق الرقمي</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blog.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="blog-page">
+
+    <!-- ── Navbar ── -->
+    <nav id="navbar" class="navbar">
+        <div class="container">
+            <div class="navbar__row">
+                <div class="navbar__logo">
+                    <a href="index.html">
+                        <img src="images/logo-2.png" alt="رسومات" class="navbar__logo-img">
+                    </a>
+                </div>
+                <div class="navbar__links" id="navLinks">
+                    <a href="index.html" class="nav-link">الرئيسية</a>
+                    <a href="index.html#how-we-work" class="nav-link">كيف نعمل</a>
+                    <a href="index.html#services" class="nav-link">خدماتنا</a>
+                    <a href="index.html#portfolio" class="nav-link">أعمالنا</a>
+                    <a href="index.html#testimonials" class="nav-link">قصص عملاؤنا</a>
+                    <a href="index.html#clients" class="nav-link">عملاؤنا</a>
+                    <a href="blog.html" class="nav-link" style="color:#d42b1e;font-weight:800;">مدونة</a>
+
+                    <a href="https://offers.rosomat.net/" class="navbar__packages--mobile"><i class="ri-vip-crown-2-fill"></i> الباقات</a>
+                </div>
+                <div class="navbar__actions">
+                    <a href="https://offers.rosomat.net/" class="navbar__packages"><i class="ri-vip-crown-2-fill"></i> الباقات</a>
+                    <a href="index.html#contact" class="navbar__cta">بروفايل الشركة</a>
+                </div>
+                <button class="navbar__hamburger" id="hamburgerBtn" aria-label="فتح القائمة" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ── Page Hero ── -->
+    <section class="blog-hero">
+        <div class="container blog-hero__grid">
+
+            <div class="blog-hero__content">
+                <span class="blog-hero__badge">المدونة</span>
+                <h1 class="blog-hero__title">أحدث المقالات والنصائح</h1>
+                <p class="blog-hero__desc">نشارككم خبراتنا وأفضل ممارسات التسويق الرقمي، ومحتوى يساعدك على نمو أعمالك.</p>
+            </div>
+
+            <div class="blog-hero__visual">
+                <img src="images/blog.png" alt="مدونة رسومات">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ── Category Filter ── -->
+    <div class="blog-filters-wrap">
+        <div class="container">
+            <div class="blog-filters" id="blogFilters">
+                <button class="blog-filter-btn is-active" data-cat="all">الكل</button>
+                <button class="blog-filter-btn" data-cat="digital-marketing">التسويق الرقمي</button>
+                <button class="blog-filter-btn" data-cat="social-media">سوشيال ميديا</button>
+                <button class="blog-filter-btn" data-cat="identity">الهوية البصرية</button>
+                <button class="blog-filter-btn" data-cat="seo">تحسين السيو</button>
+                <button class="blog-filter-btn" data-cat="content">تسويق المحتوى</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Blog Listing ── -->
+    <section class="blog-listing-section">
+        <div class="container">
+            <div class="blog-listing-grid" id="blogGrid">
+
+                <!-- Card 1 -->
+                <div class="blog-card fade-up is-visible" data-cat="digital-marketing">
+                    <div class="blog-image blog-image--1 blog-image--placeholder">
+                        <i class="ri-line-chart-fill"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta-row">
+                            <span class="blog-category">التسويق الرقمي</span>
+                            <span class="blog-read-time"><i class="ri-time-line"></i> 5 دقائق</span>
+                        </div>
+                        <h3 class="blog-title">كيف تزيد مبيعات متجرك الإلكتروني باستخدام الإعلانات الذكية</h3>
+                        <p class="blog-excerpt">تعرف على أهم الاستراتيجيات التي تساعدك في تحويل الزيارات إلى مبيعات حقيقية ومستدامة لمتجرك.</p>
+                        <div class="blog-meta-row">
+                            <span class="blog-date"><i class="ri-calendar-line"></i> 10 مارس 2026</span>
+                        </div>
+                        <a href="blog-single.html" class="blog-read">قراءة المقال <i class="ri-arrow-left-line"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="blog-card fade-up is-visible" data-cat="social-media">
+                    <div class="blog-image blog-image--2 blog-image--placeholder">
+                        <i class="ri-instagram-fill"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta-row">
+                            <span class="blog-category">سوشيال ميديا</span>
+                            <span class="blog-read-time"><i class="ri-time-line"></i> 7 دقائق</span>
+                        </div>
+                        <h3 class="blog-title">أهم استراتيجيات السوشيال ميديا لعام 2025</h3>
+                        <p class="blog-excerpt">اكتشف الاتجاهات الجديدة التي ستساعدك على بناء حضور قوي على منصات التواصل الاجتماعي وجذب جمهورك.</p>
+                        <div class="blog-meta-row">
+                            <span class="blog-date"><i class="ri-calendar-line"></i> 5 مارس 2026</span>
+                        </div>
+                        <a href="blog-single.html" class="blog-read">قراءة المقال <i class="ri-arrow-left-line"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="blog-card fade-up is-visible" data-cat="identity">
+                    <div class="blog-image blog-image--3 blog-image--placeholder">
+                        <i class="ri-palette-fill"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta-row">
+                            <span class="blog-category">الهوية البصرية</span>
+                            <span class="blog-read-time"><i class="ri-time-line"></i> 6 دقائق</span>
+                        </div>
+                        <h3 class="blog-title">دليلك الشامل لبناء هوية بصرية قوية لعلامتك التجارية</h3>
+                        <p class="blog-excerpt">تعلّم كيف تبني هوية بصرية متماسكة تعكس قيم علامتك التجارية وتجذب عملاءك المستهدفين بثقة واحترافية.</p>
+                        <div class="blog-meta-row">
+                            <span class="blog-date"><i class="ri-calendar-line"></i> 1 مارس 2026</span>
+                        </div>
+                        <a href="blog-single.html" class="blog-read">قراءة المقال <i class="ri-arrow-left-line"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="blog-card fade-up is-visible" data-cat="seo">
+                    <div class="blog-image blog-image--4 blog-image--placeholder">
+                        <i class="ri-search-eye-fill"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta-row">
+                            <span class="blog-category">تحسين السيو</span>
+                            <span class="blog-read-time"><i class="ri-time-line"></i> 4 دقائق</span>
+                        </div>
+                        <h3 class="blog-title">كيف تختار الكلمات المفتاحية المناسبة لتحسين ظهور موقعك</h3>
+                        <p class="blog-excerpt">دليل عملي لفهم أساسيات البحث عن الكلمات المفتاحية وتطبيقها بشكل صحيح لرفع ترتيب موقعك في نتائج البحث.</p>
+                        <div class="blog-meta-row">
+                            <span class="blog-date"><i class="ri-calendar-line"></i> 24 فبراير 2026</span>
+                        </div>
+                        <a href="blog-single.html" class="blog-read">قراءة المقال <i class="ri-arrow-left-line"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="blog-card fade-up is-visible" data-cat="content">
+                    <div class="blog-image blog-image--5 blog-image--placeholder">
+                        <i class="ri-quill-pen-fill"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta-row">
+                            <span class="blog-category">تسويق المحتوى</span>
+                            <span class="blog-read-time"><i class="ri-time-line"></i> 8 دقائق</span>
+                        </div>
+                        <h3 class="blog-title">أسرار نجاح تسويق المحتوى في بناء ثقة العملاء</h3>
+                        <p class="blog-excerpt">كيف تنشئ محتوى ذا قيمة حقيقية يجذب جمهورك ويحوّله إلى عملاء مخلصين خطوة بخطوة.</p>
+                        <div class="blog-meta-row">
+                            <span class="blog-date"><i class="ri-calendar-line"></i> 18 فبراير 2026</span>
+                        </div>
+                        <a href="blog-single.html" class="blog-read">قراءة المقال <i class="ri-arrow-left-line"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="blog-card fade-up is-visible" data-cat="digital-marketing">
+                    <div class="blog-image blog-image--6 blog-image--placeholder">
+                        <i class="ri-megaphone-fill"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta-row">
+                            <span class="blog-category">التسويق الرقمي</span>
+                            <span class="blog-read-time"><i class="ri-time-line"></i> 6 دقائق</span>
+                        </div>
+                        <h3 class="blog-title">كيف تنجح حملات التسويق الرقمي في زيادة مبيعاتك</h3>
+                        <p class="blog-excerpt">خطوات عملية لتخطيط وإطلاق حملات إعلانية رقمية ناجحة تحقق أعلى عائد على الاستثمار.</p>
+                        <div class="blog-meta-row">
+                            <span class="blog-date"><i class="ri-calendar-line"></i> 10 فبراير 2026</span>
+                        </div>
+                        <a href="blog-single.html" class="blog-read">قراءة المقال <i class="ri-arrow-left-line"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="blog-card fade-up is-visible" data-cat="social-media">
+                    <div class="blog-image blog-image--2 blog-image--placeholder">
+                        <i class="ri-tiktok-fill"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta-row">
+                            <span class="blog-category">سوشيال ميديا</span>
+                            <span class="blog-read-time"><i class="ri-time-line"></i> 5 دقائق</span>
+                        </div>
+                        <h3 class="blog-title">تيك توك للأعمال: كيف تحول المشاهدات إلى مبيعات</h3>
+                        <p class="blog-excerpt">دليل شامل لاستخدام تيك توك كأداة تسويق فعّالة يساعدك على الوصول للجمهور الشاب وتحقيق مبيعات حقيقية.</p>
+                        <div class="blog-meta-row">
+                            <span class="blog-date"><i class="ri-calendar-line"></i> 3 فبراير 2026</span>
+                        </div>
+                        <a href="blog-single.html" class="blog-read">قراءة المقال <i class="ri-arrow-left-line"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="blog-card fade-up is-visible" data-cat="identity">
+                    <div class="blog-image blog-image--3 blog-image--placeholder">
+                        <i class="ri-brush-fill"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta-row">
+                            <span class="blog-category">الهوية البصرية</span>
+                            <span class="blog-read-time"><i class="ri-time-line"></i> 7 دقائق</span>
+                        </div>
+                        <h3 class="blog-title">الفرق بين الشعار الجيد والشعار الاحترافي لعلامتك</h3>
+                        <p class="blog-excerpt">تعرف على الخصائص التي تميز الشعار الاحترافي وكيف تختار التصميم المناسب الذي يعكس هوية علامتك التجارية.</p>
+                        <div class="blog-meta-row">
+                            <span class="blog-date"><i class="ri-calendar-line"></i> 27 يناير 2026</span>
+                        </div>
+                        <a href="blog-single.html" class="blog-read">قراءة المقال <i class="ri-arrow-left-line"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 9 -->
+                <div class="blog-card fade-up is-visible" data-cat="seo">
+                    <div class="blog-image blog-image--4 blog-image--placeholder">
+                        <i class="ri-bar-chart-fill"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta-row">
+                            <span class="blog-category">تحسين السيو</span>
+                            <span class="blog-read-time"><i class="ri-time-line"></i> 9 دقائق</span>
+                        </div>
+                        <h3 class="blog-title">أخطاء السيو الشائعة التي تدمر ترتيب موقعك</h3>
+                        <p class="blog-excerpt">اكتشف أكثر الأخطاء شيوعاً في تحسين محركات البحث وكيف تتجنبها لضمان نتائج أفضل وأسرع لموقعك.</p>
+                        <div class="blog-meta-row">
+                            <span class="blog-date"><i class="ri-calendar-line"></i> 20 يناير 2026</span>
+                        </div>
+                        <a href="blog-single.html" class="blog-read">قراءة المقال <i class="ri-arrow-left-line"></i></a>
+                    </div>
+                </div>
+
+            </div><!-- /blog-listing-grid -->
+
+            <!-- Pagination -->
+            <div class="blog-pagination" id="blogPagination">
+                <button class="pg-btn pg-btn--nav" id="pgPrev" aria-label="الصفحة السابقة">
+                    <i class="ri-arrow-right-s-line"></i>
+                </button>
+                <button class="pg-btn is-active" data-page="1">1</button>
+                <button class="pg-btn" data-page="2">2</button>
+                <button class="pg-btn" data-page="3">3</button>
+                <button class="pg-btn pg-btn--nav" id="pgNext" aria-label="الصفحة التالية">
+                    <i class="ri-arrow-left-s-line"></i>
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">
+                        <img src="images/logo-trans.png" alt="رسومات" class="footer-logo-img">
+                    </a>
+                    <p class="footer-text">وكالة تسويق رقمي متخصصة في صناعة العلامات التجارية وإدارة الحملات الإعلانية المبتكرة التي تحقق النمو والمبيعات المستدامة.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">أين نتواجد</h4>
+                    <ul class="footer-list">
+                        <li class="footer-list-item"><span class="footer-dot"></span>المملكة العربية السعودية (Sa)</li>
+                        <li class="footer-list-item"><span class="footer-dot"></span>الإمارات العربية المتحدة (UAE)</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">معلومات التواصل</h4>
+                    <ul class="footer-list">
+                        <li><a href="mailto:info@rosomat.com" class="footer-link"><span class="footer-icon">✉️</span> info@rosomat.com</a></li>
+                        <li><a href="tel:+966500000000" class="footer-link" dir="ltr"><span class="footer-icon">📞</span> +966 50 000 0000</a></li>
+                        <li><a href="tel:+971500000000" class="footer-link" dir="ltr"><span class="footer-icon">📞</span> +971 50 000 0000</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 رسومات (Rosomat). جميع الحقوق محفوظة.</p>
+                <div class="footer-bottom-links">
+                    <a href="#" class="footer-bottom-link">سياسة الخصوصية</a>
+                    <span>•</span>
+                    <a href="#" class="footer-bottom-link">الشروط والأحكام</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+    // ── Navbar peach → beige transition for blog hero ──
+    // Overrides script.js's updateNav so the navbar starts at the same
+    // peach tone as the hero top (#fff6f2) and eases into site beige (#f7f1ea).
+    (function () {
+        const nav = document.getElementById('navbar');
+        if (!nav) return;
+
+        function updateBlogNav() {
+            const scrollY = window.scrollY;
+            // Complete transition over 220px of scroll
+            const ratio  = Math.min(scrollY / 220, 1);
+
+            // Interpolate: hero-peach rgb(255,246,242) → site-beige rgb(247,241,234)
+            const r = Math.round(255 - 8  * ratio);
+            const g = Math.round(246 - 5  * ratio);
+            const b = Math.round(242 - 8  * ratio);
+
+            const blur   = (ratio * 18).toFixed(1);
+            const shadow = ratio > 0.05
+                ? `0 1px 16px rgba(0,0,0,${(ratio * 0.06).toFixed(3)})`
+                : 'none';
+            const border = ratio > 0.1
+                ? `rgba(0,0,0,${(ratio * 0.06).toFixed(2)})`
+                : 'transparent';
+
+            nav.style.background           = `rgb(${r},${g},${b})`;
+            nav.style.backdropFilter       = `blur(${blur}px)`;
+            nav.style.webkitBackdropFilter = `blur(${blur}px)`;
+            nav.style.boxShadow            = shadow;
+            nav.style.borderBottomColor    = border;
+        }
+
+        window.addEventListener('scroll', updateBlogNav, { passive: true });
+        updateBlogNav(); // set initial state immediately
+    })();
+    </script>
+    <script>
+    // ── Category Filter ──
+    const filterBtns = document.querySelectorAll('.blog-filter-btn');
+    const blogCards  = document.querySelectorAll('#blogGrid .blog-card');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('is-active'));
+            btn.classList.add('is-active');
+
+            const cat = btn.dataset.cat;
+            blogCards.forEach(card => {
+                if (cat === 'all' || card.dataset.cat === cat) {
+                    card.classList.remove('is-hidden');
+                } else {
+                    card.classList.add('is-hidden');
+                }
+            });
+        });
+    });
+
+    // ── Simple pagination UI (visual only — replace with real logic if paginating server-side) ──
+    const pgBtns = document.querySelectorAll('[data-page]');
+    pgBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            pgBtns.forEach(b => b.classList.remove('is-active'));
+            btn.classList.add('is-active');
+        });
+    });
+    </script>
+</body>
+</html>

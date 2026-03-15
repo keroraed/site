@@ -464,11 +464,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         function scrollButtonIntoView(btn) {
             if (!btn || window.innerWidth > 1024) return;
-            btn.scrollIntoView({
-                behavior: 'smooth',
-                inline: 'center',
-                block: 'nearest'
-            });
+            var targetLeft = btn.offsetLeft - (bar.clientWidth / 2) + (btn.offsetWidth / 2);
+            bar.scrollTo({ left: Math.max(0, targetLeft), behavior: 'smooth' });
         }
 
         function applySlider() {
@@ -646,7 +643,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     });
                 });
 
-                // Filter portfolio items
+                // Filter portfolio items — lock grid height to prevent scroll jumps
+                var grid = document.querySelector('.portfolio-grid');
+                if (grid) {
+                    grid.style.minHeight = grid.offsetHeight + 'px';
+                    setTimeout(function () { grid.style.minHeight = ''; }, 600);
+                }
                 items.forEach(function (item) {
                     var match = (cat === 'all' || item.getAttribute('data-category') === cat);
                     if (!match) {

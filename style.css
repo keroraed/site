@@ -5063,6 +5063,318 @@ html[dir='ltr'] .ri-arrow-right-line {
 }
 
 /* ============================================================
+   PARTNERS SECTION — شركاؤنا في الشرق الأوسط
+   ============================================================ */
+
+/* ── Keyframes ── */
+@keyframes partnersScrollUp {
+    0%   { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+}
+@keyframes partnersScrollDown {
+    0%   { transform: translateY(-50%); }
+    100% { transform: translateY(0); }
+}
+
+/* ── Section wrapper ── */
+.partners-section {
+    padding: 110px 0;
+    background: #f7f1ea;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative blobs */
+.partners-decor {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+.partners-decor--1 {
+    width: 700px;
+    height: 700px;
+    top: -220px;
+    right: -200px;
+    background: radial-gradient(circle at 70% 30%, rgba(212, 43, 30, 0.07), transparent 65%);
+}
+.partners-decor--2 {
+    width: 500px;
+    height: 500px;
+    bottom: -140px;
+    left: -160px;
+    background: radial-gradient(circle at 25% 75%, rgba(224, 116, 40, 0.07), transparent 65%);
+}
+.partners-decor--3 {
+    width: 320px;
+    height: 320px;
+    top: 50%;
+    left: 42%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(212, 43, 30, 0.04), transparent 70%);
+}
+
+.partners-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Two-column layout ── */
+.partners-layout {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+}
+
+/* ── Content side (right in RTL) ── */
+.partners-content {
+    flex: 0 0 auto;
+    width: min(420px, 100%);
+    text-align: right;
+}
+
+.partners-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(212, 43, 30, 0.10), rgba(224, 116, 40, 0.13));
+    color: #d42b1e;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 6px 18px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(212, 43, 30, 0.18);
+}
+
+.partners-title {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.25;
+    margin: 0 0 18px;
+    background: linear-gradient(135deg, #a00020 0%, #d42b1e 45%, #c2185b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.partners-subtitle {
+    font-size: 1.0625rem;
+    color: #6b7280;
+    line-height: 1.85;
+    margin: 0 0 40px;
+}
+
+/* Stats bar */
+.partners-stats {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 22px 24px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.07);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+.partners-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    gap: 4px;
+}
+.partners-stat strong {
+    font-size: 1.25rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #d42b1e, #e07428);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.partners-stat span {
+    font-size: 0.78rem;
+    color: #9ca3af;
+    font-weight: 500;
+    white-space: nowrap;
+}
+.partners-stat-divider {
+    width: 1px;
+    height: 36px;
+    background: rgba(0, 0, 0, 0.07);
+    flex-shrink: 0;
+}
+
+/* ── Sliders side (left in RTL) ── */
+.partners-sliders {
+    flex: 1 1 0;
+    display: flex;
+    gap: 16px;
+    height: 520px;
+    overflow: hidden;
+    /* Fade top & bottom edges */
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 14%,
+        black 86%,
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 14%,
+        black 86%,
+        transparent 100%
+    );
+}
+
+/* ── Single column ── */
+.partners-col {
+    flex: 1 1 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.partners-col--hide-mobile {
+    /* shown by default; hidden on mobile via breakpoint below */
+}
+
+/* ── Scrolling track ── */
+.partners-track {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    will-change: transform;
+}
+.partners-track--up {
+    animation: partnersScrollUp linear infinite;
+}
+.partners-track--down {
+    animation: partnersScrollDown linear infinite;
+}
+
+/* Pause on hover (whole sliders area) */
+.partners-sliders:hover .partners-track {
+    animation-play-state: paused;
+}
+
+/* ── Circular logo bubble ── */
+.partner-bubble {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    flex-shrink: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+    align-self: center;
+}
+.partner-bubble:hover {
+    transform: scale(1.08);
+    box-shadow: 0 16px 40px rgba(212, 43, 30, 0.14);
+}
+
+.partner-bubble img {
+    max-width: 70px;
+    max-height: 70px;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+    .partners-layout {
+        flex-direction: column-reverse;
+        gap: 48px;
+    }
+    .partners-content {
+        width: 100%;
+        text-align: center;
+    }
+    .partners-stats {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    .partners-sliders {
+        width: 100%;
+        height: 380px;
+    }
+    .partners-title { font-size: 1.875rem; }
+}
+
+@media (max-width: 768px) {
+    /* Layout: text first, sliders below */
+    .partners-layout {
+        flex-direction: column;
+        gap: 0;
+    }
+    .partners-content {
+        width: 100%;
+        text-align: center;
+    }
+    .partners-stats {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    /* Sliders container: 2-column grid, fixed height so animation is visible */
+    .partners-sliders {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        flex: none;          /* cancel flex: 1 1 0 — this was collapsing height to 0 */
+        width: 100%;
+        height: 340px;
+        overflow: hidden;
+        margin-top: 40px;
+        -webkit-mask-image: linear-gradient(
+            to bottom,
+            transparent 0%,
+            black 12%,
+            black 88%,
+            transparent 100%
+        );
+        mask-image: linear-gradient(
+            to bottom,
+            transparent 0%,
+            black 12%,
+            black 88%,
+            transparent 100%
+        );
+    }
+
+    /* Columns fill the grid row height so overflow clips the track */
+    .partners-col {
+        overflow: hidden;
+        height: 100%;
+    }
+
+    /* Hide columns 3 & 4 on mobile — only 2 columns */
+    .partners-col--hide-mobile { display: none; }
+
+    /* Bubble size */
+    .partner-bubble {
+        width: 80px;
+        height: 80px;
+    }
+
+    /* Logo size */
+    .partner-bubble img {
+        max-width: 50px;
+        max-height: 50px;
+    }
+
+    .partners-title { font-size: 1.625rem; }
+    .partners-section { padding: 80px 0; }
+}
+
+/* ============================================================
    PLATFORMS SECTION — القنوات المدعومة
    ============================================================ */
 .platforms-section {

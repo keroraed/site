@@ -214,42 +214,125 @@
             line-height: 1.9;
             white-space: pre-line;
         }
-        /* Results */
+        /* Results – Stat Cards */
         .wd-results {
-            margin-top: 36px;
-            display: flex;
-            flex-direction: column;
-            gap: 0;
+            margin-top: 48px;
+            padding: 30px 26px 26px;
+            border-radius: 20px;
+            background:
+                radial-gradient(circle at 88% 12%, rgba(255,100,50,.07), transparent 55%),
+                radial-gradient(circle at 12% 88%, rgba(212,43,30,.05), transparent 50%),
+                #fff;
+            border: 1px solid rgba(255,120,60,.1);
+            box-shadow: 0 4px 24px rgba(0,0,0,.04);
         }
         .wd-results__title {
-            font-size: .82rem;
+            font-size: .73rem;
             font-weight: 700;
-            letter-spacing: .1em;
+            letter-spacing: .13em;
             text-transform: uppercase;
-            color: var(--wd-gray);
-            margin-bottom: 14px;
-        }
-        .wd-result-item {
+            color: var(--wd-brand);
+            margin-bottom: 4px;
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(0,0,0,.06);
+            gap: 10px;
         }
-        .wd-result-item:last-child { border-bottom: none; }
-        .wd-result-item i {
-            width: 36px; height: 36px;
-            border-radius: 10px;
-            background: var(--wd-gradient);
-            display: flex; align-items: center; justify-content: center;
-            color: #fff;
-            font-size: .95rem;
-            flex-shrink: 0;
+        .wd-results__title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(212,43,30,.2), transparent);
         }
-        .wd-result-item span {
-            font-size: .95rem;
-            font-weight: 600;
+        .wd-results__subtitle {
+            font-size: 1.18rem;
+            font-weight: 800;
             color: var(--wd-dark);
+            margin-bottom: 20px;
+        }
+        .wd-results__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 14px;
+        }
+        .wd-stat-card {
+            position: relative;
+            background: linear-gradient(135deg, #ffefe6 0%, #fff7f2 100%);
+            border: 1px solid rgba(255,120,60,.18);
+            border-radius: 16px;
+            padding: 26px 18px 22px;
+            overflow: hidden;
+            cursor: default;
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .55s ease, transform .55s ease, box-shadow .3s ease;
+            box-shadow: 0 8px 28px rgba(0,0,0,.06);
+        }
+        .wd-stat-card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .wd-stat-card.is-visible:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0,0,0,.12);
+        }
+        /* top gradient accent bar */
+        .wd-stat-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--wd-gradient);
+            border-radius: 16px 16px 0 0;
+        }
+        /* inner light sheen */
+        .wd-stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 50%;
+            background: linear-gradient(to bottom, rgba(255,255,255,.7), transparent);
+            border-radius: 16px 16px 0 0;
+            pointer-events: none;
+        }
+        .wd-stat-card__number {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: flex-start;
+            gap: 2px;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        .wd-stat-card__count {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--wd-brand);
+            letter-spacing: -.03em;
+            font-variant-numeric: tabular-nums;
+        }
+        .wd-stat-card__suffix {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--wd-orange);
+            margin-top: 7px;
+        }
+        .wd-stat-card__label {
+            position: relative;
+            z-index: 1;
+            font-size: .83rem;
+            font-weight: 600;
+            color: var(--wd-gray);
+            line-height: 1.5;
+        }
+        .wd-stat-card__bg-icon {
+            position: absolute;
+            bottom: -10px;
+            left: -8px;
+            font-size: 5rem;
+            color: var(--wd-orange);
+            opacity: .08;
+            z-index: 0;
+            line-height: 1;
         }
 
         /* Meta Card */
@@ -376,6 +459,7 @@
             grid-column: span 2;
             aspect-ratio: 16/9;
         }
+        .wd-gallery__item:nth-child(2) { align-self: end; }
         .wd-gallery__item-bg {
             position: absolute;
             inset: 0;
@@ -605,6 +689,149 @@
         @keyframes spin { to { transform: rotate(360deg); } }
         .wd-loading__text { color: var(--wd-gray); font-size: .95rem; }
 
+        /* ── Contact Modal ──────────────────────────────────────────── */
+        .wd-contact-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(6px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .3s;
+        }
+        .wd-contact-modal.is-open {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .wd-contact-modal__inner {
+            background: #fff;
+            border-radius: 24px;
+            width: 100%;
+            max-width: 560px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(.94) translateY(20px);
+            transition: transform .35s cubic-bezier(.34,1.56,.64,1);
+            box-shadow: 0 24px 80px rgba(0,0,0,.18);
+        }
+        .wd-contact-modal.is-open .wd-contact-modal__inner {
+            transform: scale(1) translateY(0);
+        }
+        .wd-contact-modal__header {
+            padding: 28px 32px 20px;
+            background: linear-gradient(135deg, #bc0000 0%, #e06228 100%);
+            border-radius: 24px 24px 0 0;
+            position: relative;
+        }
+        .wd-contact-modal__header-label {
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.7);
+            margin-bottom: 4px;
+        }
+        .wd-contact-modal__header-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fff;
+            margin: 0;
+        }
+        .wd-contact-modal__header-sub {
+            font-size: .92rem;
+            color: rgba(255,255,255,.75);
+            margin-top: 6px;
+        }
+        .wd-contact-modal__close {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.15);
+            border: 1px solid rgba(255,255,255,.25);
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background .2s;
+        }
+        .wd-contact-modal__close:hover { background: rgba(255,255,255,.28); }
+        .wd-contact-modal__body {
+            padding: 28px 32px 32px;
+        }
+        .wd-contact-modal .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+        .wd-contact-modal .form-label {
+            display: block;
+            font-size: .82rem;
+            font-weight: 700;
+            color: #374151;
+            margin-bottom: 6px;
+        }
+        .wd-contact-modal .form-input {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1.5px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: .95rem;
+            font-family: inherit;
+            color: #1f2937;
+            background: #f9fafb;
+            transition: border-color .2s, box-shadow .2s;
+            outline: none;
+            box-sizing: border-box;
+        }
+        .wd-contact-modal .form-input:focus {
+            border-color: #d42b1e;
+            box-shadow: 0 0 0 3px rgba(212,43,30,.1);
+            background: #fff;
+        }
+        .wd-contact-modal .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .wd-contact-modal .form-field {
+            margin-bottom: 14px;
+        }
+        .wd-contact-modal .form-submit {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #bc0000 0%, #e06228 100%);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            font-family: inherit;
+            cursor: pointer;
+            margin-top: 6px;
+            transition: opacity .2s, transform .2s;
+        }
+        .wd-contact-modal .form-submit:hover {
+            opacity: .9;
+            transform: translateY(-1px);
+        }
+        @media (max-width: 480px) {
+            .wd-contact-modal__inner { border-radius: 18px; }
+            .wd-contact-modal__header { padding: 22px 20px 16px; border-radius: 18px 18px 0 0; }
+            .wd-contact-modal__body { padding: 20px; }
+            .wd-contact-modal .form-grid { grid-template-columns: 1fr; }
+        }
+
         /* ── Fade-in animation ──────────────────────────────────────── */
         .wd-fade-up {
             opacity: 0;
@@ -692,6 +919,56 @@
         </div>
     </div>
 
+    <!-- Contact Modal -->
+    <div class="wd-contact-modal" id="wdContactModal" role="dialog" aria-modal="true" aria-label="طلب عرض السعر">
+        <div class="wd-contact-modal__inner">
+            <div class="wd-contact-modal__header">
+                <button class="wd-contact-modal__close" id="wdContactClose" aria-label="إغلاق"><i class="ri-close-line"></i></button>
+                <div class="wd-contact-modal__header-label">تواصل معنا</div>
+                <h2 class="wd-contact-modal__header-title">أطلب عرض السعر</h2>
+                <p class="wd-contact-modal__header-sub">نحن هنا للإجابة على جميع استفساراتك ومساعدتك في اختيار ما يناسبك.</p>
+            </div>
+            <div class="wd-contact-modal__body">
+                <form class="wd-contact-modal__form">
+                    <div class="form-grid">
+                        <div>
+                            <label for="cm-name" class="form-label">الاسم</label>
+                            <input type="text" id="cm-name" name="name" placeholder="محمد أحمد..." class="form-input">
+                        </div>
+                        <div>
+                            <label for="cm-phone" class="form-label">رقم الجوال</label>
+                            <input type="tel" id="cm-phone" name="phone" placeholder="05X XXX XXXX" dir="ltr" class="form-input">
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label for="cm-email" class="form-label">البريد الإلكتروني</label>
+                        <input type="email" id="cm-email" name="email" placeholder="example@domain.com" class="form-input">
+                    </div>
+                    <div class="form-field">
+                        <label for="cm-service" class="form-label">اختر الخدمة المطلوبة</label>
+                        <select id="cm-service" name="service" class="form-input">
+                            <option value="" disabled selected>يرجى اختيار الخدمة...</option>
+                            <option value="1">التسويق الرقمي</option>
+                            <option value="2">حسابات التواصل الاجتماعي</option>
+                            <option value="3">إدارة المشاهير والمؤثرين</option>
+                            <option value="4">تصميم متاجر إلكترونية</option>
+                            <option value="5">تصميم الجرافيك</option>
+                            <option value="6">إنتاج الرسوم المتحركة</option>
+                            <option value="7">المواقع الإلكترونية</option>
+                            <option value="8">تصميم تطبيقات الجوال</option>
+                            <option value="9">التصوير الاحترافي</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="cm-details" class="form-label">تفاصيل المشروع</label>
+                        <textarea id="cm-details" name="details" rows="4" placeholder="حدثنا عن مشروعك وأهدافك..." class="form-input form-textarea"></textarea>
+                    </div>
+                    <button type="button" class="form-submit">إرسال الطلب</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="works-data.js"></script>
     <script>
@@ -769,11 +1046,27 @@
             html += '      <p class="wd-desc__body">' + work.fullDesc + '</p>';
 
             // Results
+            var resultIcons = ['ri-line-chart-line', 'ri-user-follow-line', 'ri-timer-flash-line', 'ri-award-line'];
             html += '      <div class="wd-results">';
             html += '        <div class="wd-results__title">أبرز النتائج</div>';
-            work.results.forEach(function (r) {
-                html += '<div class="wd-result-item"><i class="ri-checkbox-circle-fill"></i><span>' + r + '</span></div>';
+            html += '        <div class="wd-results__subtitle">أرقام حقيقية، نتائج ملموسة</div>';
+            html += '        <div class="wd-results__grid">';
+            work.results.forEach(function (r, idx) {
+                var match = r.match(/(\d+)([%+]?)/);
+                var num = match ? parseInt(match[1], 10) : 0;
+                var suffix = match ? match[2] : '';
+                var label = r.replace(/\d+[%+]?/, '').trim();
+                var icon = resultIcons[idx % resultIcons.length];
+                html += '<div class="wd-stat-card" data-value="' + num + '" data-delay="' + (idx * 130) + '">';
+                html += '  <div class="wd-stat-card__number" dir="ltr">';
+                html += '    <span class="wd-stat-card__count">0</span>';
+                html += '    <span class="wd-stat-card__suffix">' + suffix + '</span>';
+                html += '  </div>';
+                html += '  <div class="wd-stat-card__label">' + label + '</div>';
+                html += '  <i class="' + icon + ' wd-stat-card__bg-icon"></i>';
+                html += '</div>';
             });
+            html += '        </div>';
             html += '      </div>';
 
             // Tags
@@ -851,7 +1144,7 @@
             html += '    <div class="aw-cta-card">';
             html += '      <h2 class="aw-cta-card__title">عندك مشروع مشابه؟ خلنا نبدع لك!</h2>';
             html += '      <p class="aw-cta-card__desc">تواصل معنا الحين واحصل على عرض سعر مخصص لمشروعك</p>';
-            html += '      <a href="index.html#contact" class="aw-cta-card__btn"><span>أطلب عرض السعر</span><i class="ri-arrow-left-line"></i></a>';
+            html += '      <button type="button" onclick="openContactModal()" class="aw-cta-card__btn"><span>أطلب عرض السعر</span><i class="ri-arrow-left-line"></i></button>';
             html += '    </div>';
             html += '  </div>';
             html += '</section>';
@@ -865,6 +1158,36 @@
             // Init interactions
             initGallery(gallery);
             initScrollObserver();
+            initStatsObserver();
+        }
+
+        function animateCount(el, target, duration) {
+            var start = 0;
+            var step = Math.max(1, Math.ceil(target / (duration / 16)));
+            var timer = setInterval(function () {
+                start += step;
+                if (start >= target) { start = target; clearInterval(timer); }
+                el.textContent = start;
+            }, 16);
+        }
+
+        function initStatsObserver() {
+            var cards = document.querySelectorAll('.wd-stat-card');
+            if (!cards.length) return;
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) return;
+                    var card = entry.target;
+                    var delay = parseInt(card.dataset.delay || '0', 10);
+                    setTimeout(function () {
+                        card.classList.add('is-visible');
+                        var countEl = card.querySelector('.wd-stat-card__count');
+                        animateCount(countEl, parseInt(card.dataset.value || '0', 10), 1400);
+                    }, delay);
+                    observer.unobserve(card);
+                });
+            }, { threshold: 0.2 });
+            cards.forEach(function (c) { observer.observe(c); });
         }
 
         function buildMetaRow(icon, label, value) {
@@ -883,7 +1206,7 @@
                 '<div class="wd-nav__cat">' + work.categoryLabel + '</div>' +
                 '<div class="wd-nav__title">' + work.title + '</div>' +
                 '</div>' +
-                '<i class="ri-arrow-' + (isNext ? 'right' : 'left') + '-line wd-nav__arrow"></i>' +
+                '<i class="ri-external-link-line wd-nav__arrow"></i>' +
                 '</a>';
         }
 
@@ -980,6 +1303,25 @@
             }, { threshold: 0.12 });
             document.querySelectorAll('.wd-fade-up').forEach(function (el) { io.observe(el); });
         }
+
+        /* ── Contact Modal ─────────────────────────────────────── */
+        window.openContactModal = function () {
+            document.getElementById('wdContactModal').classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+        };
+        function closeContactModal() {
+            document.getElementById('wdContactModal').classList.remove('is-open');
+            document.body.style.overflow = '';
+        }
+        document.getElementById('wdContactClose').addEventListener('click', closeContactModal);
+        document.getElementById('wdContactModal').addEventListener('click', function (e) {
+            if (e.target === this) closeContactModal();
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && document.getElementById('wdContactModal').classList.contains('is-open')) {
+                closeContactModal();
+            }
+        });
 
         /* ── Init ─────────────────────────────────────────────────── */
         var workId = getParam('id');

@@ -3,6 +3,7 @@ if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
 }
 window.scrollTo(0, 0);
+window.addEventListener('load', function () { window.scrollTo(0, 0); });
 
 // ============================================================
 // Hero Slideshow — crossfade between images
@@ -543,7 +544,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (activePill) activePill.classList.add('is-ready');
                 // Slider starts hidden — revealed only on hover
             });
-            scrollButtonIntoView(initBtn);
         }
 
         window.addEventListener('resize', function () {
@@ -781,6 +781,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var totalPages   = Math.max(1, cards.length - visibleCount + 1);
 
     function getVisibleCount() {
+        if (window.innerWidth >= 1024) return 3;
+        if (window.innerWidth >= 768)  return 2;
         return 1;
     }
 
@@ -890,4 +892,49 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (tHeader) tObserver.observe(tHeader);
     if (tSliderWrap) tObserver.observe(tSliderWrap);
+});
+
+// ============================================================
+// About Stats — Scroll-triggered count-up animation
+// ============================================================
+document.addEventListener('DOMContentLoaded', function () {
+    var statsWrap = document.querySelector('.about-stats');
+    if (!statsWrap) return;
+
+    var nums = Array.from(statsWrap.querySelectorAll('.about-stat__num'));
+
+    // Cubic ease-out: fast start, decelerates to the final value
+    function easeOut(t) {
+        return 1 - Math.pow(1 - t, 3);
+    }
+
+    function animateNum(el, target, prefix, duration) {
+        var start = null;
+        function step(ts) {
+            if (!start) start = ts;
+            var progress = Math.min((ts - start) / duration, 1);
+            el.textContent = prefix + Math.round(easeOut(progress) * target);
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            } else {
+                el.textContent = prefix + target; // guarantee exact final value
+            }
+        }
+        requestAnimationFrame(step);
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+        if (!entries[0].isIntersecting) return;
+        observer.disconnect(); // fire only once
+
+        nums.forEach(function (el) {
+            var text   = el.textContent.trim();
+            var prefix = text.replace(/[0-9]/g, '');            // e.g. '+'
+            var target = parseInt(text.replace(/\D/g, ''), 10); // numeric part
+            if (isNaN(target)) return;
+            animateNum(el, target, prefix, 1500);
+        });
+    }, { threshold: 0.4 });
+
+    observer.observe(statsWrap);
 });

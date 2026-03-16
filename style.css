@@ -3887,17 +3887,18 @@ body.modal-open {
 /* Logo Grid */
 .clients-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 24px;
     margin-bottom: 52px;
-    max-width: 840px;
-    margin-left: auto;
-    margin-right: auto;
 }
-@media (max-width: 767px) {
+@media (max-width: 1200px) {
+    .clients-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+@media (max-width: 768px) {
     .clients-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 14px;
     }
 }
 
@@ -5328,6 +5329,34 @@ html[dir='ltr'] .ri-arrow-right-line {
     box-shadow: 0 18px 35px rgba(0,0,0,0.15);
 }
 .partners-btn i {
+    font-size: 1rem;
+}
+
+/* ── Campaigns CTA button ── */
+.campaigns-cta {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+.campaigns-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #ff5a2f, #e23d1a);
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 16px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    transition: all .3s ease;
+}
+.campaigns-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+}
+.campaigns-btn i {
     font-size: 1rem;
 }
 

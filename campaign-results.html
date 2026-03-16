@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نتائج الحملات | Rosomat رسومات</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* ── Campaign Results Page ─────────────────────────── */
+        .cr-section {
+            padding: 80px 0 110px;
+            background: #f7f8fb;
+        }
+
+        .cr-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .cr-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            transition: transform .35s ease, box-shadow .35s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .cr-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 28px 60px rgba(0,0,0,0.13);
+        }
+
+        /* Image */
+        .cr-card__img-wrap {
+            width: 100%;
+            border-radius: 14px;
+            overflow: hidden;
+            max-height: 240px;
+        }
+        .cr-card__img-wrap img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Tag */
+        .cr-card__tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, #ff5a2f22, #e23d1a11);
+            color: #e23d1a;
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 5px 14px;
+            border-radius: 30px;
+            width: fit-content;
+        }
+
+        /* Title */
+        .cr-card__title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #1a1a2e;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Description */
+        .cr-card__desc {
+            font-size: 0.9rem;
+            color: #6b7280;
+            line-height: 1.75;
+            margin: 0;
+        }
+
+        /* Metrics bar */
+        .cr-card__metrics {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .cr-metric {
+            flex: 1 1 calc(33% - 16px);
+            min-width: 90px;
+            background: #f7f8fb;
+            border-radius: 12px;
+            padding: 14px 12px;
+            text-align: center;
+        }
+        .cr-metric__value {
+            font-size: 1.3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff5a2f, #e23d1a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .cr-metric__label {
+            font-size: 0.72rem;
+            color: #9ca3af;
+            font-weight: 500;
+        }
+
+        /* Outcomes list */
+        .cr-card__outcomes {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .cr-card__outcomes li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.88rem;
+            color: #374151;
+        }
+        .cr-card__outcomes li::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff5a2f, #e23d1a);
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+
+        /* Hero illustration */
+        .cr-hero-visual {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .cr-hero-visual svg {
+            width: min(340px, 85vw);
+            height: auto;
+        }
+
+        @media (max-width: 900px) {
+            .cr-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 640px) {
+            .cr-section { padding: 60px 0 80px; }
+            .cr-card { padding: 24px; }
+            .cr-card__title { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body class="clients-page">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar">
+        <div class="container">
+            <div class="navbar__row">
+                <div class="navbar__logo">
+                    <a href="index.html">
+                        <img src="images/logo-2.png" alt="رسومات" class="navbar__logo-img">
+                    </a>
+                </div>
+                <div class="navbar__links" id="navLinks">
+                    <a href="index.html" class="nav-link">الرئيسية</a>
+                    <a href="index.html#how-we-work" class="nav-link">كيف نعمل</a>
+                    <a href="index.html#services" class="nav-link">خدماتنا</a>
+                    <a href="index.html#portfolio" class="nav-link">أعمالنا</a>
+                    <a href="index.html#clients" class="nav-link">عملاؤنا</a>
+                    <a href="index.html#contact" class="nav-link">تواصل معنا</a>
+                    <a href="https://offers.rosomat.net/" class="navbar__packages--mobile"><i class="ri-vip-crown-2-fill"></i> الباقات</a>
+                </div>
+                <div class="navbar__actions">
+                    <a href="https://offers.rosomat.net/" class="navbar__packages"><i class="ri-vip-crown-2-fill"></i> الباقات</a>
+                    <a href="index.html#contact" class="navbar__cta">بروفايل الشركة</a>
+                </div>
+                <button class="navbar__hamburger" id="hamburgerBtn" aria-label="فتح القائمة" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="aw-hero">
+        <div class="container">
+            <div class="aw-hero__content fade-up">
+                <a href="index.html#why-us" class="aw-back-link"><i class="ri-arrow-right-line"></i> العودة للرئيسية</a>
+                <h1 class="aw-hero__title">نتائج حملاتنا التسويقية</h1>
+                <p class="aw-hero__desc">نستعرض بعض قصص النجاح التي حققناها لعملائنا من خلال استراتيجيات تسويق رقمي فعّالة.</p>
+                <!-- Marketing analytics illustration -->
+                <div class="cr-hero-visual" aria-hidden="true">
+                    <svg viewBox="0 0 400 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Background card -->
+                        <rect x="20" y="20" width="360" height="180" rx="18" fill="white" fill-opacity="0.12"/>
+                        <!-- Grid lines -->
+                        <line x1="60" y1="170" x2="360" y2="170" stroke="white" stroke-opacity="0.2" stroke-width="1"/>
+                        <line x1="60" y1="140" x2="360" y2="140" stroke="white" stroke-opacity="0.15" stroke-width="1" stroke-dasharray="4 4"/>
+                        <line x1="60" y1="110" x2="360" y2="110" stroke="white" stroke-opacity="0.15" stroke-width="1" stroke-dasharray="4 4"/>
+                        <line x1="60" y1="80" x2="360" y2="80" stroke="white" stroke-opacity="0.15" stroke-width="1" stroke-dasharray="4 4"/>
+                        <line x1="60" y1="50" x2="360" y2="50" stroke="white" stroke-opacity="0.15" stroke-width="1" stroke-dasharray="4 4"/>
+                        <!-- Bars -->
+                        <rect x="80"  y="130" width="36" height="40" rx="6" fill="#ff5a2f" fill-opacity="0.7"/>
+                        <rect x="140" y="100" width="36" height="70" rx="6" fill="#ff5a2f" fill-opacity="0.85"/>
+                        <rect x="200" y="75"  width="36" height="95" rx="6" fill="#ff5a2f"/>
+                        <rect x="260" y="55"  width="36" height="115" rx="6" fill="#e23d1a"/>
+                        <rect x="320" y="40"  width="36" height="130" rx="6" fill="#c0300f"/>
+                        <!-- Trend line -->
+                        <polyline points="98,125 158,97 218,70 278,52 338,37"
+                                  stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-dasharray="0"/>
+                        <!-- Dots on trend -->
+                        <circle cx="98"  cy="125" r="5" fill="white"/>
+                        <circle cx="158" cy="97"  r="5" fill="white"/>
+                        <circle cx="218" cy="70"  r="5" fill="white"/>
+                        <circle cx="278" cy="52"  r="5" fill="white"/>
+                        <circle cx="338" cy="37"  r="5" fill="white"/>
+                        <!-- Label -->
+                        <text x="200" y="205" text-anchor="middle" fill="white" fill-opacity="0.5" font-size="11" font-family="Tajawal, sans-serif">نمو الأداء التسويقي</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Grid -->
+    <section class="cr-section">
+        <div class="container">
+            <div class="cr-grid">
+
+                <!-- Case Study 1: بيت الذوق -->
+                <div class="cr-card">
+                    <div class="cr-card__img-wrap">
+                        <img src="images/campaign1.png" alt="حملة بيت الذوق">
+                    </div>
+                    <span class="cr-card__tag">
+                        <i class="ri-restaurant-line"></i>
+                        مطاعم وأغذية
+                    </span>
+                    <h2 class="cr-card__title">حملة إعلانية لمطعم بيت الذوق</h2>
+                    <p class="cr-card__desc">أطلقنا حملة تسويق رقمي متكاملة عبر منصات التواصل الاجتماعي استهدفت العملاء المحتملين في المنطقة وزادت من الوعي بالعلامة التجارية.</p>
+                    <div class="cr-card__metrics">
+                        <div class="cr-metric">
+                            <span class="cr-metric__value">+180%</span>
+                            <span class="cr-metric__label">زيادة في المبيعات</span>
+                        </div>
+                        <div class="cr-metric">
+                            <span class="cr-metric__value">+220%</span>
+                            <span class="cr-metric__label">زيادة في التفاعل</span>
+                        </div>
+                        <div class="cr-metric">
+                            <span class="cr-metric__value">+95%</span>
+                            <span class="cr-metric__label">طلبات أونلاين</span>
+                        </div>
+                    </div>
+                    <ul class="cr-card__outcomes">
+                        <li>استهداف دقيق للعملاء المحتملين في المنطقة الجغرافية</li>
+                        <li>تحسين كبير في وصول العلامة التجارية للجمهور المستهدف</li>
+                        <li>زيادة ملحوظة في معدل إعادة الطلب من نفس العملاء</li>
+                    </ul>
+                </div>
+
+                <!-- Case Study 2: زونا للعطور -->
+                <div class="cr-card">
+                    <div class="cr-card__img-wrap">
+                        <img src="images/campaign2.png" alt="حملة زونا للعطور">
+                    </div>
+                    <span class="cr-card__tag">
+                        <i class="ri-store-2-line"></i>
+                        تجارة إلكترونية
+                    </span>
+                    <h2 class="cr-card__title">نجاح حملة متجر زونا للعطور</h2>
+                    <p class="cr-card__desc">قمنا بإدارة حملة إعلانية موجهة لزيادة المبيعات وتحسين معدل التحويل في المتجر الإلكتروني باستخدام إعلانات مدروسة ومحتوى جذاب.</p>
+                    <div class="cr-card__metrics">
+                        <div class="cr-metric">
+                            <span class="cr-metric__value">+200%</span>
+                            <span class="cr-metric__label">زيادة في الطلبات</span>
+                        </div>
+                        <div class="cr-metric">
+                            <span class="cr-metric__value">+150%</span>
+                            <span class="cr-metric__label">نمو في المتابعين</span>
+                        </div>
+                        <div class="cr-metric">
+                            <span class="cr-metric__value">+70%</span>
+                            <span class="cr-metric__label">معدل التحويل</span>
+                        </div>
+                    </div>
+                    <ul class="cr-card__outcomes">
+                        <li>إعادة استهداف الزوار السابقين بإعلانات ذكية</li>
+                        <li>زيادة ملحوظة في ولاء العملاء للعلامة التجارية</li>
+                        <li>تحسين تجربة التسوق الرقمي وتقليل معدل التخلي</li>
+                    </ul>
+                </div>
+
+                <!-- Case Study 3: مسار التعليمية -->
+                <div class="cr-card">
+                    <div class="cr-card__img-wrap">
+                        <img src="images/campaign3.png" alt="حملة مسار التعليمية">
+                    </div>
+                    <span class="cr-card__tag">
+                        <i class="ri-graduation-cap-line"></i>
+                        تعليم وتدريب
+                    </span>
+                    <h2 class="cr-card__title">حملة إطلاق منصة مسار التعليمية</h2>
+                    <p class="cr-card__desc">ساعدنا المنصة التعليمية على الوصول لطلاب جدد من خلال استراتيجية تسويق رقمي تعتمد على البيانات وتحليل سلوك الجمهور المستهدف.</p>
+                    <div class="cr-card__metrics">
+                        <div class="cr-metric">
+                            <span class="cr-metric__value">+300%</span>
+                            <span class="cr-metric__label">زيادة في التسجيلات</span>
+                        </div>
+                        <div class="cr-metric">
+                            <span class="cr-metric__value">+250%</span>
+                            <span class="cr-metric__label">زيارات الموقع</span>
+                        </div>
+                        <div class="cr-metric">
+                            <span class="cr-metric__value">+120%</span>
+                            <span class="cr-metric__label">عملاء محتملون</span>
+                        </div>
+                    </div>
+                    <ul class="cr-card__outcomes">
+                        <li>حملة إطلاق ناجحة وصلت لآلاف الطلاب في أسبوع واحد</li>
+                        <li>تحسين ملحوظ في انتشار العلامة التعليمية رقمياً</li>
+                        <li>بناء مجتمع تفاعلي حول محتوى المنصة التعليمية</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">
+                        <img src="images/logo-trans.png" alt="رسومات" class="footer-logo-img">
+                    </a>
+                    <p class="footer-text">
+                        وكالة تسويق رقمي متخصصة في صناعة العلامات التجارية وإدارة الحملات الإعلانية المبتكرة التي تحقق النمو والمبيعات المستدامة.
+                    </p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">أين نتواجد</h4>
+                    <ul class="footer-list">
+                        <li class="footer-list-item"><span class="footer-dot"></span> المملكة العربية السعودية (Sa)</li>
+                        <li class="footer-list-item"><span class="footer-dot"></span> الإمارات العربية المتحدة (UAE)</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">معلومات التواصل</h4>
+                    <ul class="footer-list">
+                        <li><a href="mailto:info@rosomat.com" class="footer-link"><span class="footer-icon">✉️</span> info@rosomat.com</a></li>
+                        <li><a href="tel:+966500000000" class="footer-link" dir="ltr"><span class="footer-icon">📞</span> +966 50 000 0000</a></li>
+                        <li><a href="tel:+971500000000" class="footer-link" dir="ltr"><span class="footer-icon">📞</span> +971 50 000 0000</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter-box">
+                    <h4 class="footer-newsletter-title">النشرة البريدية</h4>
+                    <p class="footer-newsletter-desc">اشترك وكن أول من يعلم بعروضنا وأحدث استراتيجياتنا التسويقية.</p>
+                    <form class="footer-newsletter-form" id="newsletterForm">
+                        <input type="email" class="footer-newsletter-input" id="newsletterEmail" placeholder="بريدك الإلكتروني..." aria-label="البريد الإلكتروني" required>
+                        <button type="submit" class="footer-newsletter-btn">اشترك الآن</button>
+                    </form>
+                    <p id="newsletterMsg" style="margin-top:8px;font-size:14px;display:none;"></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 رسومات (Rosomat). جميع الحقوق محفوظة.</p>
+                <div class="footer-bottom-links">
+                    <a href="#" class="footer-bottom-link">سياسة الخصوصية</a>
+                    <span>•</span>
+                    <a href="#" class="footer-bottom-link">الشروط والأحكام</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="wa-widget" dir="rtl">
+        <div class="wa-box" id="waBox">
+            <div class="wa-box__header">
+                <span class="wa-box__header-title">مرحبا! <i class="fab fa-whatsapp"></i></span>
+                <button class="wa-box__close" id="waClose" aria-label="إغلاق">✕</button>
+            </div>
+            <div class="wa-box__body">
+                <div class="wa-box__message">مرحباً، كيف يمكننا مساعدتك؟</div>
+                <textarea class="wa-box__input" id="waMsg" rows="3" placeholder="اكتب رسالتك هنا..."></textarea>
+                <button class="wa-box__send" id="waSend">إرسال عبر واتساب &nbsp;<i class="fab fa-whatsapp"></i></button>
+            </div>
+        </div>
+        <button class="wa-btn" id="waToggle" aria-label="تواصل عبر واتساب">
+            <i class="fab fa-whatsapp"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

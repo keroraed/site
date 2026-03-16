@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شركاؤنا | Rosomat رسومات</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* ── Partners Page ─────────────────────────────────── */
+        .partners-page-section {
+            padding: 80px 0 100px;
+            background: #f8f9fb;
+        }
+        .partners-page-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 24px;
+        }
+        .partner-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 28px 16px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .partner-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 35px rgba(0,0,0,0.11);
+        }
+        .partner-card img {
+            max-width: 100%;
+            max-height: 64px;
+            object-fit: contain;
+            filter: grayscale(30%);
+            transition: filter 0.3s ease;
+        }
+        .partner-card:hover img {
+            filter: grayscale(0%);
+        }
+
+        @media (max-width: 1100px) {
+            .partners-page-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+        @media (max-width: 640px) {
+            .partners-page-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+            .partners-page-section { padding: 60px 0 80px; }
+        }
+    </style>
+</head>
+<body class="clients-page">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar">
+        <div class="container">
+            <div class="navbar__row">
+                <div class="navbar__logo">
+                    <a href="index.html">
+                        <img src="images/logo-2.png" alt="رسومات" class="navbar__logo-img">
+                    </a>
+                </div>
+                <div class="navbar__links" id="navLinks">
+                    <a href="index.html" class="nav-link">الرئيسية</a>
+                    <a href="index.html#how-we-work" class="nav-link">كيف نعمل</a>
+                    <a href="index.html#services" class="nav-link">خدماتنا</a>
+                    <a href="index.html#portfolio" class="nav-link">أعمالنا</a>
+                    <a href="index.html#clients" class="nav-link">عملاؤنا</a>
+                    <a href="index.html#contact" class="nav-link">تواصل معنا</a>
+                    <a href="https://offers.rosomat.net/" class="navbar__packages--mobile"><i class="ri-vip-crown-2-fill"></i> الباقات</a>
+                </div>
+                <div class="navbar__actions">
+                    <a href="https://offers.rosomat.net/" class="navbar__packages"><i class="ri-vip-crown-2-fill"></i> الباقات</a>
+                    <a href="index.html#contact" class="navbar__cta">بروفايل الشركة</a>
+                </div>
+                <button class="navbar__hamburger" id="hamburgerBtn" aria-label="فتح القائمة" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="aw-hero">
+        <div class="container">
+            <div class="aw-hero__content fade-up">
+                <a href="index.html#partners" class="aw-back-link"><i class="ri-arrow-right-line"></i> العودة للرئيسية</a>
+                <h1 class="aw-hero__title">شركاؤنا ومزودو الخدمات</h1>
+                <p class="aw-hero__desc">نعتمد على مجموعة من أفضل الأدوات والمنصات الرقمية لإدارة الحملات التسويقية وتحقيق أفضل النتائج لعملائنا.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Full Grid -->
+    <section class="partners-page-section">
+        <div class="container">
+            <div class="partners-page-grid">
+
+                <div class="partner-card">
+                    <img src="images/providers/zoho.png" alt="Zoho">
+                </div>
+                <div class="partner-card">
+                    <img src="images/providers/saudi-business-center.png" alt="Saudi Business Center">
+                </div>
+                <div class="partner-card">
+                    <img src="images/providers/namecheap.png" alt="Namecheap">
+                </div>
+                <div class="partner-card">
+                    <img src="images/providers/zid.png" alt="Zid">
+                </div>
+                <div class="partner-card">
+                    <img src="images/providers/salla.png" alt="Salla">
+                </div>
+                <div class="partner-card">
+                    <img src="images/providers/amazon.png" alt="Amazon">
+                </div>
+                <div class="partner-card">
+                    <img src="images/providers/noon.png" alt="Noon">
+                </div>
+                <div class="partner-card">
+                    <img src="images/providers/webengage.png" alt="WebEngage">
+                </div>
+                <div class="partner-card">
+                    <img src="images/providers/order.png" alt="Order">
+                </div>
+                <div class="partner-card">
+                    <img src="images/providers/sprout-social.png" alt="Sprout Social">
+                </div>
+                <div class="partner-card">
+                    <img src="images/providers/wati.png" alt="Wati">
+                </div>
+                <div class="partner-card">
+                    <img src="images/providers/mossem.png" alt="Mossem">
+                </div>
+                <div class="partner-card">
+                    <img src="images/providers/godaddy.png" alt="GoDaddy">
+                </div>
+                <div class="partner-card">
+                    <img src="images/providers/semrush.png" alt="SEMrush">
+                </div>
+                <div class="partner-card">
+                    <img src="images/providers/twsaa.png" alt="Twsaa">
+                </div>
+                <div class="partner-card">
+                    <img src="images/providers/unifonic.png" alt="Unifonic">
+                </div>
+                <div class="partner-card">
+                    <img src="images/providers/mahally.png" alt="Mahally">
+                </div>
+                <div class="partner-card">
+                    <img src="images/providers/shahid.png" alt="Shahid">
+                </div>
+                <div class="partner-card">
+                    <img src="images/providers/maroof.png" alt="Maroof">
+                </div>
+                <div class="partner-card">
+                    <img src="images/providers/hubspot.png" alt="HubSpot">
+                </div>
+                <div class="partner-card">
+                    <img src="images/providers/mailchimp.png" alt="Mailchimp">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">
+                        <img src="images/logo-trans.png" alt="رسومات" class="footer-logo-img">
+                    </a>
+                    <p class="footer-text">
+                        وكالة تسويق رقمي متخصصة في صناعة العلامات التجارية وإدارة الحملات الإعلانية المبتكرة التي تحقق النمو والمبيعات المستدامة.
+                    </p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">أين نتواجد</h4>
+                    <ul class="footer-list">
+                        <li class="footer-list-item"><span class="footer-dot"></span> المملكة العربية السعودية (Sa)</li>
+                        <li class="footer-list-item"><span class="footer-dot"></span> الإمارات العربية المتحدة (UAE)</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">معلومات التواصل</h4>
+                    <ul class="footer-list">
+                        <li><a href="mailto:info@rosomat.com" class="footer-link"><span class="footer-icon">✉️</span> info@rosomat.com</a></li>
+                        <li><a href="tel:+966500000000" class="footer-link" dir="ltr"><span class="footer-icon">📞</span> +966 50 000 0000</a></li>
+                        <li><a href="tel:+971500000000" class="footer-link" dir="ltr"><span class="footer-icon">📞</span> +971 50 000 0000</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter-box">
+                    <h4 class="footer-newsletter-title">النشرة البريدية</h4>
+                    <p class="footer-newsletter-desc">اشترك وكن أول من يعلم بعروضنا وأحدث استراتيجياتنا التسويقية.</p>
+                    <form class="footer-newsletter-form" id="newsletterForm">
+                        <input type="email" class="footer-newsletter-input" id="newsletterEmail" placeholder="بريدك الإلكتروني..." aria-label="البريد الإلكتروني" required>
+                        <button type="submit" class="footer-newsletter-btn">اشترك الآن</button>
+                    </form>
+                    <p id="newsletterMsg" style="margin-top:8px;font-size:14px;display:none;"></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 رسومات (Rosomat). جميع الحقوق محفوظة.</p>
+                <div class="footer-bottom-links">
+                    <a href="#" class="footer-bottom-link">سياسة الخصوصية</a>
+                    <span>•</span>
+                    <a href="#" class="footer-bottom-link">الشروط والأحكام</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="wa-widget" dir="rtl">
+        <div class="wa-box" id="waBox">
+            <div class="wa-box__header">
+                <span class="wa-box__header-title">مرحبا! <i class="fab fa-whatsapp"></i></span>
+                <button class="wa-box__close" id="waClose" aria-label="إغلاق">✕</button>
+            </div>
+            <div class="wa-box__body">
+                <div class="wa-box__message">مرحباً، كيف يمكننا مساعدتك؟</div>
+                <textarea class="wa-box__input" id="waMsg" rows="3" placeholder="اكتب رسالتك هنا..."></textarea>
+                <button class="wa-box__send" id="waSend">إرسال عبر واتساب &nbsp;<i class="fab fa-whatsapp"></i></button>
+            </div>
+        </div>
+        <button class="wa-btn" id="waToggle" aria-label="تواصل عبر واتساب">
+            <i class="fab fa-whatsapp"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

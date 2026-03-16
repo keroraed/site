@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rosomat | رسومات - نعمل على زيادة مبيعاتك</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -761,6 +762,12 @@
                             <span>سنوات متخصصة</span>
                         </div>
                     </div>
+                    <div class="partners-cta">
+                        <a href="partners.html" class="partners-btn">
+                            <i class="ri-arrow-right-line"></i>
+                            عرض جميع الشركاء
+                        </a>
+                    </div>
                 </div>
 
                 <!-- ▶ LEFT: 4 animated slider columns -->
@@ -1261,8 +1268,18 @@
                     </ul>
                 </div>
 
+                <div class="footer-newsletter-box">
+                    <h4 class="footer-newsletter-title">النشرة البريدية</h4>
+                    <p class="footer-newsletter-desc">اشترك وكن أول من يعلم بعروضنا وأحدث استراتيجياتنا التسويقية.</p>
+                    <form class="footer-newsletter-form" id="newsletterForm">
+                        <input type="email" class="footer-newsletter-input" id="newsletterEmail" placeholder="بريدك الإلكتروني..." aria-label="البريد الإلكتروني" required>
+                        <button type="submit" class="footer-newsletter-btn">اشترك الآن</button>
+                    </form>
+                    <p id="newsletterMsg" style="margin-top:8px;font-size:14px;display:none;"></p>
+                </div>
+
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2026 رسومات (Rosomat). جميع الحقوق محفوظة.</p>
                 <div class="footer-bottom-links">
@@ -1273,6 +1290,23 @@
             </div>
         </div>
     </footer>
+
+    <div class="wa-widget" dir="rtl">
+        <div class="wa-box" id="waBox">
+            <div class="wa-box__header">
+                <span class="wa-box__header-title">مرحبا! <i class="fab fa-whatsapp"></i></span>
+                <button class="wa-box__close" id="waClose" aria-label="إغلاق">✕</button>
+            </div>
+            <div class="wa-box__body">
+                <div class="wa-box__message">مرحباً، كيف يمكننا مساعدتك؟</div>
+                <textarea class="wa-box__input" id="waMsg" rows="3" placeholder="اكتب رسالتك هنا..."></textarea>
+                <button class="wa-box__send" id="waSend">إرسال عبر واتساب &nbsp;<i class="fab fa-whatsapp"></i></button>
+            </div>
+        </div>
+        <button class="wa-btn" id="waToggle" aria-label="تواصل عبر واتساب">
+            <i class="fab fa-whatsapp"></i>
+        </button>
+    </div>
 
     <script src="script.js"></script>
     <script src="lang-switch.js"></script>

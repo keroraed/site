@@ -970,3 +970,47 @@ document.addEventListener('DOMContentLoaded', function () {
 
     observer.observe(statsWrap);
 });
+
+/* ── Footer Newsletter ── */
+document.addEventListener('DOMContentLoaded', function () {
+    var form = document.getElementById('newsletterForm');
+    if (!form) return;
+    var msg = document.getElementById('newsletterMsg');
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var email = document.getElementById('newsletterEmail').value.trim();
+        if (!email) return;
+        msg.style.display = 'block';
+        msg.style.color = '#16a34a';
+        msg.textContent = 'شكراً! تم تسجيل بريدك الإلكتروني بنجاح.';
+        form.reset();
+        setTimeout(function () { msg.style.display = 'none'; }, 4000);
+    });
+});
+
+/* ── WhatsApp Widget ── */
+document.addEventListener('DOMContentLoaded', function () {
+    var toggle = document.getElementById('waToggle');
+    if (!toggle) return;
+    var box    = document.getElementById('waBox');
+    var close  = document.getElementById('waClose');
+    var send   = document.getElementById('waSend');
+    var msg    = document.getElementById('waMsg');
+
+    toggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        box.classList.toggle('open');
+    });
+    close.addEventListener('click', function () {
+        box.classList.remove('open');
+    });
+    send.addEventListener('click', function () {
+        var text  = msg.value.trim();
+        var phone = '966550463239';
+        var url   = 'https://wa.me/' + phone + (text ? '?text=' + encodeURIComponent(text) : '');
+        window.open(url, '_blank');
+    });
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('.wa-widget')) box.classList.remove('open');
+    });
+});
